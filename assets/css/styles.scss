@@ -132,10 +132,10 @@ body::-webkit-scrollbar-thumb {
                 align-items: center;
                 transition: all 0.3s ease-in-out;
                 .icon_container {
-                    width: 40px;
+                    width: 50px;
                     height: 40px;
                     background: var(--dark-slicers);
-                    border-radius: 4px;
+                    border-radius: 50%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -147,9 +147,12 @@ body::-webkit-scrollbar-thumb {
                 }
 
                 .link_text {
+                    text-align: left;
                     margin-left: 10px;
                     color: var(--dark-sub-visuals);
-                    font-size: 1.2rem;
+                    font-size: 0.7rem;
+                    width: 100%;
+                    margin-right: 10px;
                 }
 
                 &:hover {
@@ -178,6 +181,7 @@ body::-webkit-scrollbar-thumb {
                 background: var(--dark-visual-box);
                 border-radius: 5px;
                 box-shadow: 0px 15px 35px rgba($color: #1a1a1a, $alpha: 0.5);
+
                 input {
                     height: 55px;
                     width: 100%;
@@ -188,13 +192,14 @@ body::-webkit-scrollbar-thumb {
                     padding: 0 60px 0 20px;
                     font-size: 1.2rem;
                     color: var(--dark-sub-visuals);
+                    box-shadow: 0px 15px 35px rgba($color: #1a1a1a, $alpha: 0.5);
                 }
                 .automCom_box {
-                    padding: 10px 8px;
                     max-height: 280px;
                     overflow-y: auto;
                     overflow-x: hidden;
-
+                    opacity: 0;
+                    pointer-events: none;
                     &::-webkit-scrollbar {
                         width: 0.25rem;
                     }
@@ -210,14 +215,24 @@ body::-webkit-scrollbar-thumb {
                         list-style: none;
                         padding: 8px 12px;
                         width: 100%;
-                        cursor: default;
+                        cursor: pointer;
                         border-radius: 3px;
                         color: var(--dark-sub-visuals);
-
+                        display: none;
                         &:hover {
                             background: var(--dark-slicers);
                         }
                     }
+                }
+
+                &.active .automCom_box {
+                    opacity: 1;
+                    pointer-events: auto;
+                    padding: 10px 8px;
+                }
+
+                &.active .automCom_box li {
+                    display: block;
                 }
 
                 .search_icon {
@@ -236,8 +251,122 @@ body::-webkit-scrollbar-thumb {
                         text-align: center;
                         font-size: 1.75rem;
                         color: var(--dark-sub-visuals);
+
+                        &:hover {
+                            color: var(--primary-color);
+                        }
                     }
                 }
+            }
+        }
+
+        .tittleWrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 0px 15px;
+            align-items: center;
+            .tittleSection {
+                font-size: 0.9rem;
+                color: var(--dark-sub-visuals);
+            }
+
+            .titleImageSection {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                display: flex;
+                overflow: hidden;
+                box-shadow: 0px 15px 35px rgba($color: #1a1a1a, $alpha: 0.8);
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    background-position: center;
+                    background-size: cover;
+                }
+            }
+        }
+
+        .courseContainer {
+            height: 500px;
+            // background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 0 15px;
+            border: 1px solid var(--dark-slicers);
+            border-radius: 10px;
+            box-shadow: 0px 15px 35px rgba($color: #1a1a1a, $alpha: 0.8);
+            overflow: hidden;
+            .courseTitleContainer {
+                display: flex;
+                margin: 10px 10px;
+                justify-content: space-between;
+                align-items: center;
+                height: 50px;
+                .titleImageContainer {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    overflow: hidden;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        background-position: center;
+                        background-size: cover;
+                    }
+                }
+
+                .titleNameContainer {
+                    color: var(--dark-sub-visuals);
+                    margin-left: 10px;
+                    margin-right: 10px;
+                    font-size: 0.9rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    flex: 1;
+
+                    p {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+                .momentContainer {
+                    font-size: 0.7rem;
+                    color: var(--dark-sub-visuals);
+                    p {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+            .videoContainer {
+                // background: red;
+                height: 400px;
+                margin: 10px;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-top: 0;
+                .responsive_youtube {
+                    overflow: hidden;
+                    padding-bottom: 56.25%;
+                    position: relative;
+                    height: 0;
+                }
+
+                .responsive_youtube iframe {
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                }
+            }
+            .sourseCodeContaienr {
+                // background: grey;
+                height: 50px;
             }
         }
     }
@@ -245,6 +374,6 @@ body::-webkit-scrollbar-thumb {
     .rightSide_container {
         flex: 0.4;
         display: flex;
-        background: darkblue;
+        // background: darkblue;
     }
 }
