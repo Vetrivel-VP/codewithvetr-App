@@ -300,11 +300,13 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            margin: 0 15px;
+            margin: 15px 15px;
+            margin-top: 0;
             border: 1px solid var(--dark-slicers);
             border-radius: 10px;
             box-shadow: 0px 15px 35px rgba($color: #1a1a1a, $alpha: 0.8);
             overflow: hidden;
+
             .courseTitleContainer {
                 display: flex;
                 margin: 10px 10px;
