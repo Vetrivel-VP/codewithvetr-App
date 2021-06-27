@@ -35,6 +35,7 @@ body {
 
 body::-webkit-scrollbar {
   width: 0.25rem;
+  height: 0.5rem;
 }
 
 body::-webkit-scrollbar-track {
@@ -42,7 +43,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: var(--dark-sub-visuals);
 }
 
 .container {
@@ -185,6 +186,13 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
+}
+
+.container .leftSide_container .courseList_container .link_container .icon_container img {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .container .leftSide_container .courseList_container .link_container .icon_container i {
@@ -345,23 +353,20 @@ body::-webkit-scrollbar-thumb {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   overflow: hidden;
   -webkit-box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.8);
           box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.8);
 }
 
 .container .main .tittleWrapper .titleImageSection img {
-  height: 100%;
   width: 100%;
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container .main .courseContainer {
-  height: 500px;
+  min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -398,17 +403,14 @@ body::-webkit-scrollbar-thumb {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   overflow: hidden;
 }
 
 .container .main .courseContainer .courseTitleContainer .titleImageContainer img {
-  height: 100%;
   width: 100%;
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container .main .courseContainer .courseTitleContainer .titleNameContainer {
@@ -436,14 +438,19 @@ body::-webkit-scrollbar-thumb {
   padding: 0;
 }
 
-.container .main .courseContainer .courseTitleContainer .momentContainer {
-  font-size: 0.7rem;
-  color: var(--dark-sub-visuals);
+.container .main .courseContainer .courseTitleContainer .favoriteContainer {
+  margin-right: 15px;
 }
 
-.container .main .courseContainer .courseTitleContainer .momentContainer p {
-  margin: 0;
-  padding: 0;
+.container .main .courseContainer .courseTitleContainer .favoriteContainer span {
+  font-size: 2rem;
+  color: var(--dark-sub-visuals);
+  cursor: pointer;
+}
+
+.container .main .courseContainer .courseTitleContainer .favoriteContainer span:hover {
+  color: #ff0000;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
 }
 
 .container .main .courseContainer .videoContainer {
@@ -452,25 +459,69 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   overflow: hidden;
   margin-top: 0;
-}
-
-.container .main .courseContainer .videoContainer .responsive_youtube {
-  overflow: hidden;
-  padding-bottom: 56.25%;
   position: relative;
-  height: 0;
 }
 
-.container .main .courseContainer .videoContainer .responsive_youtube iframe {
-  left: 0;
-  top: 0;
-  height: 100%;
+.container .main .courseContainer .videoContainer img {
   width: 100%;
+}
+
+.container .main .courseContainer .videoContainer i {
+  color: var(--dark-text-color);
+  font-size: 5rem;
   position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  z-index: 1;
+  display: inline-block;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.container .main .courseContainer .videoContainer i:hover {
+  color: var(--primary-color);
 }
 
 .container .main .courseContainer .sourseCodeContaienr {
   height: 50px;
+}
+
+.container .main .courseContainer .sourseCodeContaienr .momentContainer {
+  font-size: 0.8rem;
+  color: var(--dark-sub-visuals);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 15px;
+  margin-bottom: 0;
+}
+
+.container .main .courseContainer .sourseCodeContaienr .momentContainer p {
+  margin: 0;
+  padding: 0;
+}
+
+.container .main .courseContainer .sourseCodeContaienr .momentContainer .downloadButton {
+  border: 2px solid var(--dark-slicers);
+  padding: 7px 10px;
+  border-radius: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: var(--dark-sub-visuals);
+}
+
+.container .main .courseContainer .sourseCodeContaienr .momentContainer .downloadButton:hover {
+  border: 2px solid var(--primary-color);
 }
 
 .container .rightSide_container {
@@ -480,5 +531,107 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.videoModal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.videoModal .modalContent {
+  position: relative;
+  margin: 3% auto;
+  padding: 10px;
+  width: 80%;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 7px 20px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 7px 20px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  border: 1px solid var(--dark-slicers);
+  -webkit-animation-name: modalOpen;
+          animation-name: modalOpen;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes modalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.videoModal .modalContent .close {
+  position: absolute;
+  z-index: 1;
+  top: -2%;
+  right: -1%;
+  height: 25px;
+  width: 25px;
+  background: var(--dark-slicers);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.videoModal .modalContent .close:hover {
+  background: var(--dark-sub-visuals);
+}
+
+.videoModal .modalContent .close .closeButton {
+  color: var(--dark-sub-visuals);
+  float: right;
+  font-size: 2rem;
+  margin-top: 2px;
+}
+
+.videoModal .modalContent .close .closeButton:hover,
+.videoModal .modalContent .close .closeButton :focus {
+  color: var(--dark-shadow);
+  text-decoration: none;
+}
+
+.videoModal .modalContent .responsive_youtube {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.videoModal .modalContent .responsive_youtube iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=styles.css.map */
