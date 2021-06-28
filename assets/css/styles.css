@@ -47,6 +47,10 @@ body::-webkit-scrollbar-thumb {
   background: var(--dark-sub-visuals);
 }
 
+.highlight {
+  background: var(--dark-slicers);
+}
+
 .container {
   width: 100%;
   height: 100%;
