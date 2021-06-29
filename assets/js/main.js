@@ -46,12 +46,17 @@ inputBox.onkeyup = (e) => {
     emptyArray = emptyArray.map((data) => {
       return (data = `<li>${data}</li>`);
     });
+
     searcWrapper.classList.add("active"); //show autosuggestions
     showSuggestions(emptyArray);
 
-    if (e.keyCode == 38 || e.keyCode == 40) {
-      var listItems = suggestionBox.querySelectorAll("li");
+    let allLi = suggestionBox.querySelectorAll("li");
+    allLi.forEach((element) => {
+      element.setAttribute("onclick", "selectSuggestElement(this)");
+    });
 
+    var listItems = suggestionBox.querySelectorAll("li");
+    if (e.keyCode == 38 || e.keyCode == 40) {
       listItems[currentLI].classList.add("highlight");
 
       // Set up a key event handler for the document
@@ -67,20 +72,15 @@ inputBox.onkeyup = (e) => {
         case 40: // Down arrow
           // Remove the highlighting from the previous element
           listItems[currentLI].classList.remove("highlight");
-          console.log(currentLI);
           currentLI =
             currentLI < listItems.length - 1
               ? ++currentLI
               : listItems.length - 1; // Increase counter
-          console.log(currentLI);
           listItems[currentLI].classList.add("highlight"); // Highlight the new element
+          // selectSuggestElement(listItems[currentLI]);
           break;
       }
     }
-
-    listItems.forEach((element) => {
-      element.setAttribute("onclick", "selectSuggestElement(this)");
-    });
   } else {
     suggestionBox.innerHTML = "";
     searcWrapper.classList.remove("active"); //remove autosuggestions
@@ -91,7 +91,6 @@ inputBox.onkeyup = (e) => {
 const selectSuggestElement = (element) => {
   let selectUserData = element.innerText;
   inputBox.value = selectUserData;
-  console.log(selectUserData);
 };
 
 // show suggestions
@@ -99,7 +98,7 @@ const showSuggestions = (list) => {
   let listdata;
   if (!list.length) {
     userValue = inputBox.value;
-    listdata = `<li>${userValue}</li>`;
+    listdata = `<li><p>${userValue}</p></li>`;
   } else {
     listdata = list.join("");
   }

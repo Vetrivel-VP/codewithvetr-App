@@ -6,14 +6,9 @@
   --dark-visual-box: #30323e;
   --dark-slicers: #3d414b;
   --dark-shadow: #1a1a1a;
+  --dark-shadow-primary: 14, 14, 14;
   --dark-text-color: #fff;
   --dark-sub-visuals: #b4bac3;
-  --light-background: #f8f8f8;
-  --light-visual-box: #ffffff;
-  --light-slicers: #f3f2f1;
-  --light-shadow: #ededed;
-  --light-text-color: #252423;
-  --light-sub-visuals: #666666;
   --primary-color: #ef2a57;
 }
 
@@ -32,6 +27,16 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+}
+
+body.dark {
+  --dark-background: #f2f2f8;
+  --dark-visual-box: #ffffff;
+  --dark-slicers: #c7c7c773;
+  --dark-shadow: #a1a3b3;
+  --dark-shadow-primary: 140, 140, 140;
+  --dark-text-color: #fff;
+  --dark-sub-visuals: #666666;
 }
 
 body::-webkit-scrollbar {
@@ -74,7 +79,6 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-right: 1px solid var(--dark-shadow);
 }
 
 .container .leftSide_container .navigation {
@@ -198,6 +202,8 @@ body::-webkit-scrollbar-thumb {
       -ms-flex-pack: center;
           justify-content: center;
   overflow: hidden;
+  -webkit-box-shadow: 0px 10px 25px var(--dark-shadow);
+          box-shadow: 0px 10px 25px var(--dark-shadow);
 }
 
 .container .leftSide_container .navigation .courseList_container .link_container .icon_container img {
@@ -253,10 +259,10 @@ body::-webkit-scrollbar-thumb {
 .container .main .searchWrapper .searchInput {
   position: relative;
   width: 100%;
-  background: var(--dark-visual-box);
+  background: var(--dark-background);
   border-radius: 5px;
-  -webkit-box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.5);
-          box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.5);
+  -webkit-box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.1);
+          box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.1);
 }
 
 .container .main .searchWrapper .searchInput input {
@@ -269,8 +275,9 @@ body::-webkit-scrollbar-thumb {
   padding: 0 60px 0 20px;
   font-size: 1.2rem;
   color: var(--dark-sub-visuals);
-  -webkit-box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.5);
-          box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.5);
+  -webkit-box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.1);
+          box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.1);
+  background: var(--dark-background);
 }
 
 .container .main .searchWrapper .searchInput .automCom_box {
@@ -295,12 +302,19 @@ body::-webkit-scrollbar-thumb {
 
 .container .main .searchWrapper .searchInput .automCom_box li {
   list-style: none;
-  padding: 8px 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 100%;
   cursor: pointer;
   border-radius: 3px;
   color: var(--dark-sub-visuals);
   display: none;
+}
+
+.container .main .searchWrapper .searchInput .automCom_box li p {
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
 }
 
 .container .main .searchWrapper .searchInput .automCom_box li:hover {
@@ -369,8 +383,8 @@ body::-webkit-scrollbar-thumb {
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  -webkit-box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.8);
-          box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.8);
+  -webkit-box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.1);
+          box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.1);
 }
 
 .container .main .tittleWrapper .titleImageSection img {
@@ -396,8 +410,8 @@ body::-webkit-scrollbar-thumb {
   margin-top: 0;
   border: 1px solid var(--dark-slicers);
   border-radius: 10px;
-  -webkit-box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.8);
-          box-shadow: 0px 15px 35px rgba(26, 26, 26, 0.8);
+  -webkit-box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.4);
+          box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.4);
   overflow: hidden;
 }
 
@@ -534,6 +548,9 @@ body::-webkit-scrollbar-thumb {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   color: var(--dark-sub-visuals);
+  -webkit-box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.4);
+          box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), 0.4);
+  background: var(--dark-slicers);
 }
 
 .container .main .courseContainer .sourseCodeContaienr .momentContainer .downloadButton:hover {
@@ -566,8 +583,8 @@ body::-webkit-scrollbar-thumb {
   margin: 3% auto;
   padding: 10px;
   width: 80%;
-  -webkit-box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 7px 20px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 7px 20px 0 rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 5px 8px 0 rgba(var(--dark-shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--dark-shadow-primary), 0.12);
+          box-shadow: 0 5px 8px 0 rgba(var(--dark-shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--dark-shadow-primary), 0.12);
   border-radius: 10px;
   border: 1px solid var(--dark-slicers);
   -webkit-animation-name: modalOpen;

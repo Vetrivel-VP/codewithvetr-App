@@ -1,179 +1,182 @@
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeWithVetri</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <!-- Box-Icons -->
+
     <head>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-      />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
     </head>
 
     <!-- custom styles -->
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/main/styles.css" />
     <link rel="stylesheet" href="./assets/css/styleSwitcher.css" />
-  </head>
-  <body>
+
+    <!-- colors css -->
+    <link rel="stylesheet" title="color_1" class="alternate_style" href="./assets/css/color_1.css" disabled />
+    <link rel="stylesheet" title="color_2" class="alternate_style" href="./assets/css/color_2.css" disabled />
+    <link rel="stylesheet" title="color_3" class="alternate_style" href="./assets/css/color_3.css" disabled />
+    <link rel="stylesheet" title="color_4" class="alternate_style" href="./assets/css/color_4.css" disabled />
+    <link rel="stylesheet" title="color_5" class="alternate_style" href="./assets/css/color_5.css" />
+
+</head>
+
+<body class="">
     <div class="container">
-      <div class="leftSide_container">
-        <div class="navigation">
-          <div class="logo_container">
-            <div class="logo"></div>
-          </div>
+        <div class="leftSide_container">
+            <div class="navigation">
+                <div class="logo_container">
+                    <div class="logo"></div>
+                </div>
 
-          <div class="home_menu_container">
-            <ul>
-              <li>Menu</li>
-              <li>
-                <a href="#"
-                  ><div class="link_container">
-                    <div class="icon_container">
-                      <i class="bx bxs-home"></i>
+                <div class="home_menu_container">
+                    <ul>
+                        <li>Menu</li>
+                        <li>
+                            <a href="#">
+                                <div class="link_container">
+                                    <div class="icon_container">
+                                        <i class="bx bxs-home"></i>
+                                    </div>
+                                    <div class="link_text">Home</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="courseList_container">
+                    <a href="#">
+                        <div class="link_container">
+                            <div class="icon_container">
+                                <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+                            </div>
+                            <div class="link_text">Home</div>
+                        </div>
+                    </a>
+
+                    <a href="#">
+                        <div class="link_container">
+                            <div class="icon_container">
+                                <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+                            </div>
+                            <div class="link_text">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                Beatae voluptatibus.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="searchWrapper">
+                <div class="searchInput">
+                    <input type="text" id="course_search" placeholder="Type to seach the content...!" />
+                    <div class="automCom_box"></div>
+                    <div class="search_icon"><i class="bx bx-search-alt-2"></i></div>
+                </div>
+            </div>
+
+            <div class="tittleWrapper">
+                <div class="tittleSection">
+                    <h1>Course Title</h1>
+                </div>
+                <div class="titleImageSection">
+                    <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+                </div>
+            </div>
+
+            <div class="courseContainer">
+                <div class="courseTitleContainer">
+                    <div class="titleImageContainer">
+                        <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
                     </div>
-                    <div class="link_text">Home</div>
-                  </div></a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div class="courseList_container">
-            <a href="#"
-              ><div class="link_container">
-                <div class="icon_container">
-                  <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+                    <div class="titleNameContainer">
+                        <p>How to create a responsive landing page ?</p>
+                    </div>
+                    <div class="favoriteContainer">
+                        <span>&hearts;</span>
+                    </div>
                 </div>
-                <div class="link_text">Home</div>
-              </div></a
-            >
-
-            <a href="#"
-              ><div class="link_container">
-                <div class="icon_container">
-                  <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+                <div class="videoContainer">
+                    <img src="./assets/img/thumb.jpg" alt="" />
+                    <i class="bx bx-play-circle" id="playBtn"></i>
                 </div>
-                <div class="link_text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Beatae voluptatibus.
+                <div class="sourseCodeContaienr">
+                    <div class="momentContainer">
+                        <p>2 minutes ago</p>
+                        <a href="#" class="downloadButton"> Download Source</a>
+                    </div>
                 </div>
-              </div></a
-            >
-          </div>
-        </div>
-      </div>
-      <div class="main">
-        <div class="searchWrapper">
-          <div class="searchInput">
-            <input
-              type="text"
-              id="course_search"
-              placeholder="Type to seach the content...!"
-            />
-            <div class="automCom_box"></div>
-            <div class="search_icon"><i class="bx bx-search-alt-2"></i></div>
-          </div>
-        </div>
+            </div>
 
-        <div class="tittleWrapper">
-          <div class="tittleSection">
-            <h1>Course Title</h1>
-          </div>
-          <div class="titleImageSection">
-            <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
-          </div>
+            <div class="courseContainer">
+                <div class="courseTitleContainer">
+                    <div class="titleImageContainer">
+                        <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+                    </div>
+                    <div class="titleNameContainer">
+                        <p>How to create a responsive landing page ?</p>
+                    </div>
+                    <div class="favoriteContainer">
+                        <span>&hearts;</span>
+                    </div>
+                </div>
+                <div class="videoContainer">
+                    <img src="./assets/img/thumb.jpg" alt="" />
+                    <i class="bx bx-play-circle" id="playBtn"></i>
+                </div>
+                <div class="sourseCodeContaienr">
+                    <div class="momentContainer">
+                        <p>2 minutes ago</p>
+                        <div class="downloadButton">Download Source</div>
+                    </div>
+                </div>
+            </div>
+            <div class="emptyspace"></div>
         </div>
-
-        <div class="courseContainer">
-          <div class="courseTitleContainer">
-            <div class="titleImageContainer">
-              <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
-            </div>
-            <div class="titleNameContainer">
-              <p>How to create a responsive landing page ?</p>
-            </div>
-            <div class="favoriteContainer">
-              <span>&hearts;</span>
-            </div>
-          </div>
-          <div class="videoContainer">
-            <img src="./assets/img/thumb.jpg" alt="" />
-            <i class="bx bx-play-circle" id="playBtn"></i>
-          </div>
-          <div class="sourseCodeContaienr">
-            <div class="momentContainer">
-              <p>2 minutes ago</p>
-              <div class="downloadButton">Download Source</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="courseContainer">
-          <div class="courseTitleContainer">
-            <div class="titleImageContainer">
-              <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
-            </div>
-            <div class="titleNameContainer">
-              <p>How to create a responsive landing page ?</p>
-            </div>
-            <div class="favoriteContainer">
-              <span>&hearts;</span>
-            </div>
-          </div>
-          <div class="videoContainer">
-            <img src="./assets/img/thumb.jpg" alt="" />
-            <i class="bx bx-play-circle" id="playBtn"></i>
-          </div>
-          <div class="sourseCodeContaienr">
-            <div class="momentContainer">
-              <p>2 minutes ago</p>
-              <div class="downloadButton">Download Source</div>
-            </div>
-          </div>
-        </div>
-        <div class="emptyspace"></div>
-      </div>
-      <div class="rightSide_container"></div>
+        <div class="rightSide_container"></div>
     </div>
 
     <div id="videoModal" class="videoModal">
-      <div class="modalContent">
-        <div class="close" id="closeBtn">
-          <span class="closeButton">&times;</span>
+        <div class="modalContent">
+            <div class="close" id="closeBtn">
+                <span class="closeButton">&times;</span>
+            </div>
+            <div class="responsive_youtube">
+                <iframe src="https://www.youtube.com/embed/EkoFY28nF7k" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
         </div>
-        <div class="responsive_youtube">
-          <iframe
-            src="https://www.youtube.com/embed/EkoFY28nF7k"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
     </div>
 
     <div class="style_switcher">
-      <div class="style_toggler s_icon">
-        <i class="bx bx-cog bx-spin"></i>
-      </div>
-      <div class="day_night s_icon">
-        <i class="bx bx-sun bx-spin-hover"></i>
-      </div>
+        <div class="style_toggler s_icon">
+            <i class="bx bx-cog bx-spin"></i>
+        </div>
+        <div class="day_night s_icon">
+            <i class="bx bx-spin-hover"></i>
+        </div>
 
-      <h4>Theme Color</h4>
-      <div class="colors">
-        <span class="color_1" onclick="setActiveStyle('color_1')"></span>
-        <span class="color_1" onclick="setActiveStyle('color_1')"></span>
-        <span class="color_1" onclick="setActiveStyle('color_1')"></span>
-        <span class="color_1" onclick="setActiveStyle('color_1')"></span>
-        <span class="color_1" onclick="setActiveStyle('color_1')"></span>
-      </div>
+        <h4>Hover Theme Color</h4>
+        <div class="colors">
+            <span class="color_1" onclick="setActiveStyle('color_1')"></span>
+            <span class="color_2" onclick="setActiveStyle('color_2')"></span>
+            <span class="color_3" onclick="setActiveStyle('color_3')"></span>
+            <span class="color_4" onclick="setActiveStyle('color_4')"></span>
+            <span class="color_5" onclick="setActiveStyle('color_5')"></span>
+        </div>
     </div>
+
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modal.js"></script>
-  </body>
+    <script src="./assets/js/style-switcher.js"></script>
+</body>
+
 </html>
