@@ -10,28 +10,28 @@
     }
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-    --dark-background: #282b35;
-    --dark-visual-box: #30323e;
-    --dark-slicers: #3d414b;
-    --dark-shadow: #1a1a1a;
-    --dark-shadow-primary: 14, 14, 14;
-    --dark-text-color: #fff;
-    --dark-sub-visuals: #b4bac3;
-
+    --background: #323f4b;
+    --card: #3e4c59;
+    --shadow: #1f2933;
+    --shadow-primary: 31, 41, 51;
+    --text: #cbd2d9;
+    --highligh: #52606d;
     --primary-color: #ef2a57;
+    --white: #f5f7fa;
 }
 
 body {
     &.dark {
-        --dark-background: #f2f2f8;
-        --dark-visual-box: #ffffff;
-        --dark-slicers: #c7c7c773;
-        --dark-shadow: #a1a3b3;
-        --dark-shadow-primary: 140, 140, 140;
-        --dark-text-color: #fff;
-        --dark-sub-visuals: #666666;
+        --background: #f0f4f8;
+        --card: #d9e2ec;
+        --shadow: #bcccdc;
+        --text: #334e68;
+        --shadow-primary: 188, 204, 220;
+        --highligh: #829ab1;
+        --primary-color: #ef2a57;
+        --white: #102a43;
     }
-    background: var(--dark-background);
+    background: var(--background);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -41,16 +41,16 @@ body {
     }
 
     &::-webkit-scrollbar-track {
-        background: var(--dark-slicers);
+        background: var(--card);
     }
 
     &::-webkit-scrollbar-thumb {
-        background: var(--dark-sub-visuals);
+        background: var(--highligh);
     }
 }
 
 .highlight {
-    background: var(--dark-slicers);
+    background: var(--highligh);
 }
 
 .container {
@@ -82,18 +82,18 @@ body {
                 .logo {
                     width: 50px;
                     height: 50px;
-                    background: white;
+                    background: var(--card);
                     border-radius: 50%;
                 }
             }
 
             .home_menu_container {
                 margin: 10px 0px;
-                border-bottom: 1px solid var(--dark-slicers);
+                border-bottom: 1px solid var(--card);
                 ul {
                     li {
                         padding: 10px 0;
-                        color: var(--dark-text-color);
+                        color: var(--text);
                         font-size: 13px;
                         .link_container {
                             display: flex;
@@ -102,7 +102,7 @@ body {
                             .icon_container {
                                 width: 40px;
                                 height: 40px;
-                                background: var(--dark-slicers);
+                                background: var(--card);
                                 border-radius: 4px;
                                 display: flex;
                                 align-items: center;
@@ -110,22 +110,25 @@ body {
 
                                 i {
                                     font-size: 1.75rem;
-                                    color: var(--dark-sub-visuals);
+                                    color: var(--text);
                                 }
                             }
 
                             .link_text {
                                 margin-left: 10px;
-                                color: var(--dark-sub-visuals);
+                                color: var(--text);
                                 font-size: 1.2rem;
                             }
 
                             &:hover {
+                                box-shadow: 0px 10px 25px var(--shadow);
+                                border-radius: 10px;
+                                padding: 5px;
                                 .icon_container i {
-                                    color: var(--primary-color);
+                                    color: var(--white);
                                 }
                                 .link_text {
-                                    color: var(--dark-text-color);
+                                    color: var(--white);
                                 }
                             }
                         }
@@ -147,13 +150,14 @@ body {
                     .icon_container {
                         width: 50px;
                         height: 40px;
-                        background: var(--dark-slicers);
+                        background: var(--card);
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         overflow: hidden;
-                        box-shadow: 0px 10px 25px var(--dark-shadow);
+                        box-shadow: 0px 10px 25px var(--shadow);
+                        transition: all 0.3s ease-in-out;
                         img {
                             width: 100%;
                             background-position: center;
@@ -161,25 +165,28 @@ body {
                         }
                         i {
                             font-size: 1.75rem;
-                            color: var(--dark-sub-visuals);
+                            color: var(--text);
                         }
                     }
 
                     .link_text {
                         text-align: left;
                         margin-left: 10px;
-                        color: var(--dark-sub-visuals);
+                        color: var(--text);
                         font-size: 0.7rem;
                         width: 100%;
                         margin-right: 10px;
                     }
 
                     &:hover {
+                        box-shadow: 0px 10px 25px var(--shadow);
+                        border-radius: 10px;
+                        padding: 5px;
                         .icon_container i {
-                            color: var(--primary-color);
+                            color: var(--white);
                         }
                         .link_text {
-                            color: var(--dark-text-color);
+                            color: var(--white);
                         }
                     }
                 }
@@ -201,9 +208,9 @@ body {
             .searchInput {
                 position: relative;
                 width: 100%;
-                background: var(--dark-background);
+                background: var(--card);
                 border-radius: 5px;
-                box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), $alpha: 0.1);
+                box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
 
                 input {
                     height: 55px;
@@ -214,9 +221,9 @@ body {
                     background: transparent;
                     padding: 0 60px 0 20px;
                     font-size: 1.2rem;
-                    color: var(--dark-sub-visuals);
-                    box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), $alpha: 0.1);
-                    background: var(--dark-background);
+                    color: var(--text);
+                    box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
+                    background: var(--card);
                 }
                 .automCom_box {
                     max-height: 280px;
@@ -229,11 +236,11 @@ body {
                     }
 
                     &::-webkit-scrollbar-track {
-                        background: var(--dark-slicers);
+                        background: var(--card);
                     }
 
                     &::-webkit-scrollbar-thumb {
-                        background: var(--primary-color);
+                        background: var(--highligh);
                     }
                     li {
                         list-style: none;
@@ -242,7 +249,7 @@ body {
                         width: 100%;
                         cursor: pointer;
                         border-radius: 3px;
-                        color: var(--dark-sub-visuals);
+                        color: var(--text);
                         display: none;
                         p {
                             margin: 0;
@@ -250,7 +257,7 @@ body {
                             margin-left: 10px;
                         }
                         &:hover {
-                            background: var(--dark-slicers);
+                            background: var(--highligh);
                         }
                     }
                 }
@@ -276,14 +283,16 @@ body {
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                    transition: all 0.3s ease-in-out;
 
                     i {
+                        transition: all 0.3s ease-in-out;
                         text-align: center;
                         font-size: 1.75rem;
-                        color: var(--dark-sub-visuals);
+                        color: var(--highligh);
 
                         &:hover {
-                            color: var(--primary-color);
+                            color: var(--text);
                         }
                     }
                 }
@@ -297,7 +306,7 @@ body {
             align-items: center;
             .tittleSection {
                 font-size: 0.9rem;
-                color: var(--dark-sub-visuals);
+                color: var(--text);
             }
 
             .titleImageSection {
@@ -306,7 +315,7 @@ body {
                 border-radius: 50%;
                 // display: flex;
                 overflow: hidden;
-                box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), $alpha: 0.1);
+                box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
 
                 img {
                     // height: 100%;
@@ -326,11 +335,11 @@ body {
             justify-content: space-between;
             margin: 15px 15px;
             margin-top: 0;
-            border: 1px solid var(--dark-slicers);
+            border: 1px solid var(--highligh);
             border-radius: 10px;
-            box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), $alpha: 0.4);
+            box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
             overflow: hidden;
-
+            background: var(--card);
             .courseTitleContainer {
                 display: flex;
                 margin: 10px 10px;
@@ -344,7 +353,7 @@ body {
                     // display: flex;
                     overflow: hidden;
                     img {
-                        // height: 100%;
+                        height: 100%;
                         width: 100%;
                         background-position: center;
                         background-size: cover;
@@ -353,7 +362,7 @@ body {
                 }
 
                 .titleNameContainer {
-                    color: var(--dark-sub-visuals);
+                    color: var(--text);
                     margin-left: 10px;
                     margin-right: 10px;
                     font-size: 0.9rem;
@@ -372,7 +381,7 @@ body {
                     margin-right: 15px;
                     span {
                         font-size: 2rem;
-                        color: var(--dark-sub-visuals);
+                        color: var(--text);
                         cursor: pointer;
                         &:hover {
                             color: #ff0000;
@@ -391,11 +400,11 @@ body {
                 position: relative;
                 img {
                     width: 100%;
-                    // height: 100%;
+                    height: 100%;
                 }
 
                 i {
-                    color: var(--dark-text-color);
+                    color: var(--text);
                     font-size: 5rem;
                     position: absolute;
                     top: 50%;
@@ -407,7 +416,7 @@ body {
                     transform: translate(-50%, -50%);
 
                     &:hover {
-                        color: var(--primary-color);
+                        color: var(--white);
                     }
                 }
             }
@@ -416,7 +425,7 @@ body {
                 height: 50px;
                 .momentContainer {
                     font-size: 0.8rem;
-                    color: var(--dark-sub-visuals);
+                    color: var(--text);
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -428,17 +437,20 @@ body {
                     }
 
                     .downloadButton {
-                        border: 2px solid var(--dark-slicers);
+                        border: 2px solid var(--highligh);
                         padding: 7px 10px;
                         border-radius: 10px;
                         transition: all 0.3s ease-in-out;
                         cursor: pointer;
                         color: var(--dark-sub-visuals);
-                        box-shadow: 0px 15px 35px rgba(var(--dark-shadow-primary), $alpha: 0.4);
-                        background: var(--dark-slicers);
+                        box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
+                        background: var(--card);
 
                         &:hover {
-                            border: 2px solid var(--primary-color);
+                            border: 2px solid var(--white);
+                            box-shadow: 0px 10px 25px var(--shadow);
+                            border-radius: 10px;
+                            transform: scale(1.1);
                         }
                     }
                 }
@@ -462,17 +474,17 @@ body {
     height: 100%;
     width: 100%;
     overflow: auto;
-    background: rgba($color: #000000, $alpha: 0.5);
+    background: rgba(var(--shadow-primary), $alpha: 0.5);
 
     .modalContent {
         position: relative;
         margin: 3% auto;
         padding: 10px;
         width: 80%;
-        box-shadow: 0 5px 8px 0 rgba(var(--dark-shadow-primary), $alpha: 0.5),
-            0 7px 20px 0 rgba(var(--dark-shadow-primary), $alpha: 0.12);
+        box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), $alpha: 0.5),
+            0 7px 20px 0 rgba(var(--shadow-primary), $alpha: 0.12);
         border-radius: 10px;
-        border: 1px solid var(--dark-slicers);
+        border: 1px solid var(--highligh);
         animation-name: modalOpen;
         animation-duration: 1s;
 
@@ -491,7 +503,7 @@ body {
             right: -1%;
             height: 25px;
             width: 25px;
-            background: var(--dark-slicers);
+            background: var(--card);
             justify-content: center;
             display: flex;
             align-items: center;
@@ -500,18 +512,18 @@ body {
             cursor: pointer;
             transition: all 0.3s ease-in-out;
             &:hover {
-                background: var(--dark-sub-visuals);
+                background: var(--highligh);
             }
 
             .closeButton {
-                color: var(--dark-sub-visuals);
+                color: var(--text);
                 float: right;
                 font-size: 2rem;
                 margin-top: 2px;
 
                 &:hover,
                 :focus {
-                    color: var(--dark-shadow);
+                    color: var(--white);
                     text-decoration: none;
                 }
             }

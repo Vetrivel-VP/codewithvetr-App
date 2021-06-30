@@ -8,8 +8,8 @@
   border-radius: 5px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  -webkit-box-shadow: 0px 10px 25px rgba(var(--dark-shadow-primary), 0.5);
-          box-shadow: 0px 10px 25px rgba(var(--dark-shadow-primary), 0.5);
+  -webkit-box-shadow: 0px 10px 25px rgba(var(--shadow-primary), 0.5);
+          box-shadow: 0px 10px 25px rgba(var(--shadow-primary), 0.5);
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
 }
@@ -21,7 +21,7 @@
 
 .style_switcher h4 {
   margin: 0 0 10px;
-  color: var(--dark-sub-visuals);
+  color: var(--text);
   font-size: 1rem;
   font-weight: 600;
   text-transform: capitalize;
@@ -33,7 +33,7 @@
   width: 40px;
   text-align: center;
   font-size: 1.5rem;
-  color: var(--dark-sub-visuals);
+  color: var(--text);
   right: 100%;
   margin-right: 15px;
   cursor: pointer;
@@ -47,8 +47,8 @@
 }
 
 .style_switcher .style_toggler {
-  -webkit-box-shadow: 0px 10px 25px var(--dark-shadow);
-          box-shadow: 0px 10px 25px var(--dark-shadow);
+  -webkit-box-shadow: 0px 10px 25px var(--shadow);
+          box-shadow: 0px 10px 25px var(--shadow);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,8 +62,8 @@
 }
 
 .style_switcher .day_night {
-  -webkit-box-shadow: 0px 10px 25px var(--dark-shadow);
-          box-shadow: 0px 10px 25px var(--dark-shadow);
+  -webkit-box-shadow: 0px 10px 25px var(--shadow);
+          box-shadow: 0px 10px 25px var(--shadow);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -93,8 +93,8 @@
   width: 30;
   border-radius: 50%;
   cursor: pointer;
-  -webkit-box-shadow: 0px 0px 25px rgba(var(--dark-shadow-primary), 0.5);
-          box-shadow: 0px 0px 25px rgba(var(--dark-shadow-primary), 0.5);
+  -webkit-box-shadow: 0px 0px 25px rgba(var(--shadow-primary), 0.5);
+          box-shadow: 0px 0px 25px rgba(var(--shadow-primary), 0.5);
 }
 
 .style_switcher .colors .color_1 {

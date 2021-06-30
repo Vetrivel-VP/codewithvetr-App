@@ -7,7 +7,7 @@
     z-index: 101;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 10px 25px rgba(var(--dark-shadow-primary), $alpha: 0.5);
+    box-shadow: 0px 10px 25px rgba(var(--shadow-primary), $alpha: 0.5);
     transform: translateX(100%);
 
     &.open {
@@ -16,7 +16,7 @@
 
     h4 {
         margin: 0 0 10px;
-        color: var(--dark-sub-visuals);
+        color: var(--text);
         font-size: 1rem;
         font-weight: 600;
         text-transform: capitalize;
@@ -27,7 +27,7 @@
         width: 40px;
         text-align: center;
         font-size: 1.5rem;
-        color: var(--dark-sub-visuals);
+        color: var(--text);
         right: 100%;
         margin-right: 15px;
         cursor: pointer;
@@ -39,7 +39,7 @@
         }
     }
     .style_toggler {
-        box-shadow: 0px 10px 25px var(--dark-shadow);
+        box-shadow: 0px 10px 25px var(--shadow);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,7 +47,7 @@
     }
 
     .day_night {
-        box-shadow: 0px 10px 25px var(--dark-shadow);
+        box-shadow: 0px 10px 25px var(--shadow);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -65,7 +65,7 @@
             width: 30;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0px 0px 25px rgba(var(--dark-shadow-primary), $alpha: 0.5);
+            box-shadow: 0px 0px 25px rgba(var(--shadow-primary), $alpha: 0.5);
         }
 
         .color_1 {
