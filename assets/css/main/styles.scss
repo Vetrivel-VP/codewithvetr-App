@@ -10,12 +10,12 @@
     }
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-    --background: #323f4b;
-    --card: #3e4c59;
-    --shadow: #1f2933;
-    --shadow-primary: 31, 41, 51;
-    --text: #cbd2d9;
-    --highligh: #52606d;
+    --background: #282b35;
+    --card: #30323e;
+    --shadow: #1a1a1a;
+    --shadow-primary: 26, 26, 26;
+    --text: #b4bac3;
+    --highligh: #3d414b;
     --primary-color: #ef2a57;
     --white: #f5f7fa;
 }
@@ -64,16 +64,19 @@ body {
         width: 25%;
         max-width: 250px;
         min-width: 200px;
-        margin-top: 20px;
-        margin-left: 10px;
         display: flex;
         flex-direction: column;
-        // box-shadow: 10px 15px 35px rgba(var(--dark-shadow-primary), $alpha: 0.2);
-        // border-radius: 10px;
+        background: var(--background);
+        box-shadow: 0 10px 30px var(--shadow);
+        min-height: 100vh;
+        padding: 10px;
 
         .navigation {
-            position: sticky;
-            top: 20px;
+            // // position: fixed;
+            // top: 20px;
+            // height: 100%;
+            // max-width: 250px;
+            // min-width: 200px;
             .logo_container {
                 display: flex;
                 justify-content: center;
@@ -339,7 +342,7 @@ body {
             border-radius: 10px;
             box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
             overflow: hidden;
-            background: var(--card);
+            // background: var(--card);
             .courseTitleContainer {
                 display: flex;
                 margin: 10px 10px;
@@ -461,7 +464,113 @@ body {
     .rightSide_container {
         flex: 0.4;
         display: flex;
-        // background: darkblue;
+        @media screen and (max-width: 900px) {
+            flex: 0;
+        }
+        .menuIcon {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            margin: 10%;
+
+            i {
+                color: var(--text);
+                font-size: 2rem;
+
+                &:hover {
+                    color: var(--white);
+                }
+            }
+        }
+        .rightNav {
+            position: fixed;
+            top: 20px;
+            height: 100%;
+            width: 320px;
+
+            .profileContainer {
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+                align-items: center;
+                .userImage {
+                    height: 50px;
+                    width: 50px;
+                    background: var(--card);
+                    border-radius: 50%;
+                    overflow: hidden;
+                    box-shadow: 0px 10px 25px var(--shadow);
+
+                    img {
+                        height: 100%;
+                        background-position: center;
+                        background-size: cover;
+                        width: 100%;
+                    }
+                }
+
+                .userName {
+                    color: var(--text);
+                    font-size: 1.2rem;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        color: var(--white);
+                    }
+                }
+
+                .dropIcon {
+                    transition: all 0.3s ease-in-out;
+                    color: var(--text);
+                    font-size: 2rem;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: var(--white);
+                    }
+                    #down {
+                        display: block;
+
+                        &.active {
+                            display: none;
+                        }
+                    }
+
+                    #up {
+                        display: none;
+
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            .menuContaier {
+                display: none;
+                height: 175px;
+                float: right;
+                width: 230px;
+                background: var(--card);
+                margin: 17px 16% 0 0px;
+                border-radius: 5px;
+                box-shadow: 0px 10px 25px var(--shadow);
+                animation-name: menuOpen;
+                animation-duration: 0.5s;
+
+                @keyframes menuOpen {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+
+                &.active {
+                    display: block;
+                }
+            }
+        }
     }
 }
 

@@ -2,12 +2,12 @@
 :root {
   font-size: 16px;
   font-family: "Poppins", sans-serif;
-  --background: #323f4b;
-  --card: #3e4c59;
-  --shadow: #1f2933;
-  --shadow-primary: 31, 41, 51;
-  --text: #cbd2d9;
-  --highligh: #52606d;
+  --background: #282b35;
+  --card: #30323e;
+  --shadow: #1a1a1a;
+  --shadow-primary: 26, 26, 26;
+  --text: #b4bac3;
+  --highligh: #3d414b;
   --primary-color: #ef2a57;
   --white: #f5f7fa;
 }
@@ -71,8 +71,6 @@ body::-webkit-scrollbar-thumb {
   width: 25%;
   max-width: 250px;
   min-width: 200px;
-  margin-top: 20px;
-  margin-left: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,12 +78,11 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.container .leftSide_container .navigation {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
+  background: var(--background);
+  -webkit-box-shadow: 0 10px 30px var(--shadow);
+          box-shadow: 0 10px 30px var(--shadow);
+  min-height: 100vh;
+  padding: 10px;
 }
 
 .container .leftSide_container .navigation .logo_container {
@@ -434,7 +431,6 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-shadow: 0px 15px 35px rgba(var(--shadow-primary), 0.5);
           box-shadow: 0px 15px 35px rgba(var(--shadow-primary), 0.5);
   overflow: hidden;
-  background: var(--card);
 }
 
 .container .main .courseContainer .courseTitleContainer {
@@ -593,6 +589,147 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .container .rightSide_container {
+    -webkit-box-flex: 0;
+        -ms-flex: 0;
+            flex: 0;
+  }
+}
+
+.container .rightSide_container .menuIcon {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 10%;
+}
+
+.container .rightSide_container .menuIcon i {
+  color: var(--text);
+  font-size: 2rem;
+}
+
+.container .rightSide_container .menuIcon i:hover {
+  color: var(--white);
+}
+
+.container .rightSide_container .rightNav {
+  position: fixed;
+  top: 20px;
+  height: 100%;
+  width: 320px;
+}
+
+.container .rightSide_container .rightNav .profileContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .rightSide_container .rightNav .profileContainer .userImage {
+  height: 50px;
+  width: 50px;
+  background: var(--card);
+  border-radius: 50%;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 10px 25px var(--shadow);
+          box-shadow: 0px 10px 25px var(--shadow);
+}
+
+.container .rightSide_container .rightNav .profileContainer .userImage img {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+}
+
+.container .rightSide_container .rightNav .profileContainer .userName {
+  color: var(--text);
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+
+.container .rightSide_container .rightNav .profileContainer .userName:hover {
+  color: var(--white);
+}
+
+.container .rightSide_container .rightNav .profileContainer .dropIcon {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: var(--text);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.container .rightSide_container .rightNav .profileContainer .dropIcon:hover {
+  color: var(--white);
+}
+
+.container .rightSide_container .rightNav .profileContainer .dropIcon #down {
+  display: block;
+}
+
+.container .rightSide_container .rightNav .profileContainer .dropIcon #down.active {
+  display: none;
+}
+
+.container .rightSide_container .rightNav .profileContainer .dropIcon #up {
+  display: none;
+}
+
+.container .rightSide_container .rightNav .profileContainer .dropIcon #up.active {
+  display: block;
+}
+
+.container .rightSide_container .rightNav .menuContaier {
+  display: none;
+  height: 175px;
+  float: right;
+  width: 230px;
+  background: var(--card);
+  margin: 17px 16% 0 0px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 10px 25px var(--shadow);
+          box-shadow: 0px 10px 25px var(--shadow);
+  -webkit-animation-name: menuOpen;
+          animation-name: menuOpen;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+}
+
+@-webkit-keyframes menuOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes menuOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container .rightSide_container .rightNav .menuContaier.active {
+  display: block;
 }
 
 .videoModal {
