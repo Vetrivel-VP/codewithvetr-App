@@ -118,6 +118,7 @@ body::-webkit-scrollbar-thumb {
 @media screen and (max-width: 900px) {
   .container .leftSide_container {
     min-width: 200px;
+    left: 0;
   }
 }
 
