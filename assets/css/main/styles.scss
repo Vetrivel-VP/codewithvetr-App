@@ -56,20 +56,56 @@ body {
 .container {
     width: 100%;
     height: 100%;
-    min-width: 100vw;
     min-height: 100vh;
     display: flex;
 
     .leftSide_container {
-        width: 25%;
+        position: fixed;
+        width: 20%;
         max-width: 250px;
-        min-width: 200px;
+        min-width: 150px;
         display: flex;
         flex-direction: column;
         background: var(--background);
         box-shadow: 0 10px 30px var(--shadow);
         min-height: 100vh;
         padding: 10px;
+        transition: all 0.3s ease-in-out;
+        left: 0;
+
+        .closeIcon {
+            width: 50px;
+            height: 50px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 80%;
+            i {
+                font-size: 2rem;
+                color: var(--text);
+            }
+
+            @media screen and (max-width: 700px) {
+                display: flex;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            min-width: 200px;
+        }
+
+        @media screen and (max-width: 700px) {
+            left: -100%;
+            z-index: 1000;
+            width: 300px;
+        }
+
+        @media screen and (max-width: 520px) {
+            left: -100%;
+            z-index: 1000;
+            width: 300px;
+        }
 
         .navigation {
             // // position: fixed;
@@ -198,9 +234,26 @@ body {
     }
 
     .main {
-        flex: 1;
+        width: 60%;
         display: flex;
         flex-direction: column;
+        margin-left: 19%;
+
+        @media screen and (max-width: 900px) {
+            width: 70%;
+            margin-left: 25%;
+        }
+
+        @media screen and (max-width: 700px) {
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 520px) {
+            width: 80%;
+            margin-left: 10%;
+        }
 
         .searchWrapper {
             margin: 15px;
@@ -319,7 +372,10 @@ body {
                 // display: flex;
                 overflow: hidden;
                 box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
-
+                @media screen and (max-width: 520px) {
+                    width: 40px;
+                    height: 40px;
+                }
                 img {
                     // height: 100%;
                     width: 100%;
@@ -343,6 +399,9 @@ body {
             box-shadow: 0px 15px 35px rgba(var(--shadow-primary), $alpha: 0.5);
             overflow: hidden;
             // background: var(--card);
+            @media screen and (max-width: 520px) {
+                min-height: 400px;
+            }
             .courseTitleContainer {
                 display: flex;
                 margin: 10px 10px;
@@ -355,6 +414,10 @@ body {
                     border-radius: 50%;
                     // display: flex;
                     overflow: hidden;
+                    @media screen and (max-width: 520px) {
+                        width: 35px;
+                        height: 35px;
+                    }
                     img {
                         height: 100%;
                         width: 100%;
@@ -401,6 +464,9 @@ body {
                 overflow: hidden;
                 margin-top: 0;
                 position: relative;
+                @media screen and (max-width: 520px) {
+                    height: 250px;
+                }
                 img {
                     width: 100%;
                     height: 100%;
@@ -462,32 +528,46 @@ body {
     }
 
     .rightSide_container {
-        flex: 0.4;
+        margin-left: 10px;
+        width: 21%;
+        min-width: 150px;
         display: flex;
+        background: var(--background);
+        box-shadow: 0 10px 30px var(--shadow);
+        min-height: 100vh;
+        transition: all 0.3s ease-in-out;
+        flex-direction: column;
+        position: fixed;
+        right: 0;
         @media screen and (max-width: 900px) {
-            flex: 0;
+            width: 300px;
+            z-index: 1000;
+            right: -100%;
         }
-        .menuIcon {
-            width: 100%;
-            display: flex;
-            justify-content: flex-end;
-            margin: 10%;
 
+        .closeIcon {
+            width: 50px;
+            height: 50px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
             i {
-                color: var(--text);
                 font-size: 2rem;
+                color: var(--text);
+            }
 
-                &:hover {
-                    color: var(--white);
-                }
+            @media screen and (max-width: 900px) {
+                display: flex;
             }
         }
         .rightNav {
-            position: fixed;
-            top: 20px;
+            margin-top: 20px;
             height: 100%;
             width: 320px;
-
+            @media screen and (max-width: 900px) {
+                margin-top: 0;
+            }
             .profileContainer {
                 display: flex;
                 width: 100%;
@@ -651,6 +731,61 @@ body {
             width: 100%;
             position: absolute;
             border-radius: 10px;
+        }
+    }
+}
+.menuIcon {
+    position: absolute;
+    top: 0;
+    display: none;
+    right: 0;
+    margin-top: 3%;
+    justify-content: flex-end;
+    margin: 30px 15px 0px 0px;
+    height: 50px;
+    @media screen and (max-width: 900px) {
+        display: flex;
+    }
+
+    i {
+        color: var(--text);
+        font-size: 2rem;
+
+        &:hover {
+            color: var(--white);
+        }
+    }
+}
+
+.leftMenuIcon {
+    margin: 0px 0px 30px 15px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    display: none;
+    margin-top: 4%;
+    justify-content: flex-end;
+    height: 50px;
+    @media screen and (max-width: 900px) {
+        display: none;
+    }
+
+    @media screen and (max-width: 700px) {
+        display: flex;
+        margin-top: 5%;
+    }
+
+    @media screen and (max-width: 500px) {
+        display: flex;
+        margin-top: 6%;
+    }
+
+    i {
+        color: var(--text);
+        font-size: 2rem;
+
+        &:hover {
+            color: var(--white);
         }
     }
 }

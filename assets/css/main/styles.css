@@ -60,7 +60,6 @@ body::-webkit-scrollbar-thumb {
 .container {
   width: 100%;
   height: 100%;
-  min-width: 100vw;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,9 +67,10 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container .leftSide_container {
-  width: 25%;
+  position: fixed;
+  width: 20%;
   max-width: 250px;
-  min-width: 200px;
+  min-width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,6 +83,58 @@ body::-webkit-scrollbar-thumb {
           box-shadow: 0 10px 30px var(--shadow);
   min-height: 100vh;
   padding: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  left: 0;
+}
+
+.container .leftSide_container .closeIcon {
+  width: 50px;
+  height: 50px;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin-left: 80%;
+}
+
+.container .leftSide_container .closeIcon i {
+  font-size: 2rem;
+  color: var(--text);
+}
+
+@media screen and (max-width: 700px) {
+  .container .leftSide_container .closeIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .container .leftSide_container {
+    min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container .leftSide_container {
+    left: -100%;
+    z-index: 1000;
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container .leftSide_container {
+    left: -100%;
+    z-index: 1000;
+    width: 300px;
+  }
 }
 
 .container .leftSide_container .navigation .logo_container {
@@ -249,9 +301,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container .main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -259,6 +309,29 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-left: 19%;
+}
+
+@media screen and (max-width: 900px) {
+  .container .main {
+    width: 70%;
+    margin-left: 25%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container .main {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container .main {
+    width: 80%;
+    margin-left: 10%;
+  }
 }
 
 .container .main .searchWrapper {
@@ -405,6 +478,13 @@ body::-webkit-scrollbar-thumb {
           box-shadow: 0px 15px 35px rgba(var(--shadow-primary), 0.5);
 }
 
+@media screen and (max-width: 520px) {
+  .container .main .tittleWrapper .titleImageSection {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .container .main .tittleWrapper .titleImageSection img {
   width: 100%;
   background-position: center;
@@ -433,6 +513,12 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
 }
 
+@media screen and (max-width: 520px) {
+  .container .main .courseContainer {
+    min-height: 400px;
+  }
+}
+
 .container .main .courseContainer .courseTitleContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -452,6 +538,13 @@ body::-webkit-scrollbar-thumb {
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+@media screen and (max-width: 520px) {
+  .container .main .courseContainer .courseTitleContainer .titleImageContainer {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 .container .main .courseContainer .courseTitleContainer .titleImageContainer img {
@@ -509,6 +602,12 @@ body::-webkit-scrollbar-thumb {
   overflow: hidden;
   margin-top: 0;
   position: relative;
+}
+
+@media screen and (max-width: 520px) {
+  .container .main .courseContainer .videoContainer {
+    height: 250px;
+  }
 }
 
 .container .main .courseContainer .videoContainer img {
@@ -583,47 +682,70 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container .rightSide_container {
-  -webkit-box-flex: 0.4;
-      -ms-flex: 0.4;
-          flex: 0.4;
+  margin-left: 10px;
+  width: 21%;
+  min-width: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background: var(--background);
+  -webkit-box-shadow: 0 10px 30px var(--shadow);
+          box-shadow: 0 10px 30px var(--shadow);
+  min-height: 100vh;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: fixed;
+  right: 0;
 }
 
 @media screen and (max-width: 900px) {
   .container .rightSide_container {
-    -webkit-box-flex: 0;
-        -ms-flex: 0;
-            flex: 0;
+    width: 300px;
+    z-index: 1000;
+    right: -100%;
   }
 }
 
-.container .rightSide_container .menuIcon {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  margin: 10%;
+.container .rightSide_container .closeIcon {
+  width: 50px;
+  height: 50px;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
 }
 
-.container .rightSide_container .menuIcon i {
-  color: var(--text);
+.container .rightSide_container .closeIcon i {
   font-size: 2rem;
+  color: var(--text);
 }
 
-.container .rightSide_container .menuIcon i:hover {
-  color: var(--white);
+@media screen and (max-width: 900px) {
+  .container .rightSide_container .closeIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .container .rightSide_container .rightNav {
-  position: fixed;
-  top: 20px;
+  margin-top: 20px;
   height: 100%;
   width: 320px;
+}
+
+@media screen and (max-width: 900px) {
+  .container .rightSide_container .rightNav {
+    margin-top: 0;
+  }
 }
 
 .container .rightSide_container .rightNav .profileContainer {
@@ -832,5 +954,81 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   position: absolute;
   border-radius: 10px;
+}
+
+.menuIcon {
+  position: absolute;
+  top: 0;
+  display: none;
+  right: 0;
+  margin-top: 3%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin: 30px 15px 0px 0px;
+  height: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  .menuIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.menuIcon i {
+  color: var(--text);
+  font-size: 2rem;
+}
+
+.menuIcon i:hover {
+  color: var(--white);
+}
+
+.leftMenuIcon {
+  margin: 0px 0px 30px 15px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  display: none;
+  margin-top: 4%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  .leftMenuIcon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .leftMenuIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .leftMenuIcon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 6%;
+  }
+}
+
+.leftMenuIcon i {
+  color: var(--text);
+  font-size: 2rem;
+}
+
+.leftMenuIcon i:hover {
+  color: var(--white);
 }
 /*# sourceMappingURL=styles.css.map */

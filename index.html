@@ -27,7 +27,10 @@
 
 <body class="">
     <div class="container">
-        <div class="leftSide_container">
+        <div class="leftSide_container" id="leftSide_container">
+            <div class="closeIcon" id="leftMenuClose">
+                <i class='bx bx-x bx-spin'></i>
+            </div>
             <div class="navigation">
                 <div class="logo_container">
                     <div class="logo"></div>
@@ -140,10 +143,11 @@
             </div>
             <div class="emptyspace"></div>
         </div>
-        <div class="rightSide_container">
-            <div class="menuIcon">
-                <i class='bx bx-menu-alt-right'></i>
+        <div class="rightSide_container" id="rightContainer">
+            <div class="closeIcon" id="rightMenuClose">
+                <i class='bx bx-x bx-spin'></i>
             </div>
+
             <div class="rightNav">
                 <div class="profileContainer">
                     <div class="userImage">
@@ -192,10 +196,19 @@
         </div>
     </div>
 
+    <div class="menuIcon" id="rightMenuIcon">
+        <i class='bx bx-menu-alt-right'></i>
+    </div>
+
+    <div class="leftMenuIcon" id="leftMenuIcon">
+        <i class='bx bx-menu-alt-left'></i>
+    </div>
+
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/modal.js"></script>
     <script src="./assets/js/style-switcher.js"></script>
     <script src="./assets/js/menuContainer.js"></script>
+    <script src="./assets/js/menu.js"></script>
 </body>
 
 </html>
