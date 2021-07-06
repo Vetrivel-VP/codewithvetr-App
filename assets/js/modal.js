@@ -9,7 +9,7 @@ window.onload = () => {
 };
 
 const openModal = () => {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 };
 
 const closeModal = () => {
