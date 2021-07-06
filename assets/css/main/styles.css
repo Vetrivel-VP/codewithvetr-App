@@ -83,7 +83,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: var(--background);
+  background: var(--card);
   -webkit-box-shadow: 0 10px 30px var(--shadow);
           box-shadow: 0 10px 30px var(--shadow);
   min-height: 100vh;
@@ -156,13 +156,13 @@ body::-webkit-scrollbar-thumb {
 .container .leftSide_container .navigation .logo_container .logo {
   width: 50px;
   height: 50px;
-  background: var(--card);
+  background: var(--highligh);
   border-radius: 50%;
 }
 
 .container .leftSide_container .navigation .home_menu_container {
   margin: 10px 0px;
-  border-bottom: 1px solid var(--card);
+  border-bottom: 1px solid var(--highligh);
 }
 
 .container .leftSide_container .navigation .home_menu_container ul li {
@@ -499,6 +499,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container .main .courseContainer {
+  background: var(--card);
   min-height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -514,8 +515,8 @@ body::-webkit-scrollbar-thumb {
   margin-top: 0;
   border: 1px solid var(--highligh);
   border-radius: 10px;
-  -webkit-box-shadow: 0px 15px 35px rgba(var(--shadow-primary), 0.5);
-          box-shadow: 0px 15px 35px rgba(var(--shadow-primary), 0.5);
+  -webkit-box-shadow: 0px 10px 25px var(--shadow);
+          box-shadow: 0px 10px 25px var(--shadow);
   overflow: hidden;
 }
 
@@ -694,7 +695,7 @@ body::-webkit-scrollbar-thumb {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: var(--background);
+  background: var(--card);
   -webkit-box-shadow: 0 10px 30px var(--shadow);
           box-shadow: 0 10px 30px var(--shadow);
   min-height: 100vh;
