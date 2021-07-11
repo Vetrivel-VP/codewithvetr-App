@@ -65,8 +65,8 @@ body {
     .leftSide_container {
         position: fixed;
         width: 20%;
-        max-width: 250px;
-        min-width: 150px;
+        max-width: 275px;
+        min-width: 200px;
         display: flex;
         flex-direction: column;
         background: var(--card);
@@ -95,7 +95,7 @@ body {
         }
 
         @media screen and (max-width: 900px) {
-            min-width: 200px;
+            min-width: 225px;
             left: 0;
         }
 
@@ -216,7 +216,7 @@ body {
                         text-align: left;
                         margin-left: 10px;
                         color: var(--text);
-                        font-size: 0.7rem;
+                        font-size: 0.9rem;
                         width: 100%;
                         margin-right: 10px;
                     }
@@ -741,6 +741,231 @@ body {
                     }
                 }
             }
+
+            .categoryCard {
+                margin-left: 30px;
+                margin-bottom: 50px;
+                width: 90%;
+                padding: 0 20px 0 30px;
+                margin-right: 15px;
+                @media screen and (max-width: 700px) {
+                    margin-bottom: 75px;
+                }
+
+                @media screen and (max-width: 550px) {
+                    margin-bottom: 75px;
+                }
+
+                .cardContainer {
+                    cursor: pointer;
+                    background: var(--card);
+                    padding: 0px 5px;
+                    border: 1px solid var(--highligh);
+                    position: relative;
+                    height: 60px;
+                    margin-bottom: 15px;
+                    border-radius: 2px 12px 2px 12px;
+                    transition: all 0.3s ease-in-out;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        background: var(--shadow);
+                        border: 3px solid var(--highligh);
+                        position: absolute;
+                        left: -40px;
+                        top: 20px;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    &:hover {
+                        box-shadow: 0px 5px 20px var(--shadow);
+                        &::before {
+                            background: var(--primary-color);
+                        }
+                    }
+
+                    .imageBox {
+                        width: 35px;
+                        height: 35px;
+                        background: var(--card);
+                        border-radius: 50%;
+                        border: 1px solid var(--highligh);
+                        overflow: hidden;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .textBox {
+                        color: var(--text);
+                        width: 81%;
+
+                        h3 {
+                            margin: 0;
+                            padding: 0;
+                            font-size: 1.2rem;
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.codeModal {
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background: rgba(var(--shadow-primary), $alpha: 0.5);
+    align-items: center;
+
+    .codemodalContent {
+        position: relative;
+        margin: 3% auto;
+        padding: 10px;
+        width: 80%;
+        height: 80%;
+        box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), $alpha: 0.5),
+            0 7px 20px 0 rgba(var(--shadow-primary), $alpha: 0.12);
+        border-radius: 10px;
+        border: 1px solid var(--highligh);
+        animation-name: codemodalOpen;
+        animation-duration: 1s;
+
+        @keyframes codemodalOpen {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    }
+
+    .modalcloseBtn {
+        position: absolute;
+        z-index: 1;
+        top: -2%;
+        right: -1%;
+        height: 25px;
+        width: 25px;
+        background: var(--card);
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            background: var(--highligh);
+        }
+
+        .closeButton {
+            color: var(--text);
+            float: right;
+            font-size: 1.5rem;
+            margin-top: -6px;
+
+            &:hover,
+            :focus {
+                color: var(--white);
+                text-decoration: none;
+            }
+        }
+    }
+
+    .mainCodeModalContent {
+        background: var(--highligh);
+        border-radius: 10px;
+        padding: 5px 10px;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 0.25rem;
+            height: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: var(--card);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--text);
+        }
+
+        ul {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 2rem;
+
+            li {
+                font-size: 1.3rem;
+                font-weight: 600;
+                color: var(--text);
+                cursor: pointer;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -25%;
+                    left: -50%;
+                    width: 0%;
+                    height: 5px;
+                    background: var(--primary-color);
+                    border-radius: 30px;
+                }
+
+                &.active::after {
+                    width: 200%;
+                }
+            }
+        }
+
+        .codeContainer {
+            .codecontent {
+                border: 1px solid var(--text);
+                border-radius: 5px;
+                position: relative;
+                .clipboard {
+                    position: absolute;
+                    right: 0;
+                    padding: 10px;
+                    cursor: pointer;
+                    i {
+                        color: var(--text);
+                        font-size: 1.5rem;
+                        transition: all 0.3s ease-in-out;
+                        &:hover {
+                            color: var(--white);
+                        }
+                    }
+                }
+
+                .codeText {
+                    padding: 20px;
+                }
+            }
         }
     }
 }
@@ -768,6 +993,12 @@ body {
         border: 1px solid var(--highligh);
         animation-name: modalOpen;
         animation-duration: 1s;
+
+        @media screen and (max-width: 550px) {
+            margin: 0;
+            width: 100%;
+            transform: rotate(90deg);
+        }
 
         @keyframes modalOpen {
             from {

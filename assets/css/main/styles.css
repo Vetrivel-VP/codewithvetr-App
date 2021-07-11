@@ -74,8 +74,8 @@ body::-webkit-scrollbar-thumb {
 .container .leftSide_container {
   position: fixed;
   width: 20%;
-  max-width: 250px;
-  min-width: 150px;
+  max-width: 275px;
+  min-width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,7 +122,7 @@ body::-webkit-scrollbar-thumb {
 
 @media screen and (max-width: 900px) {
   .container .leftSide_container {
-    min-width: 200px;
+    min-width: 225px;
     left: 0;
   }
 }
@@ -286,7 +286,7 @@ body::-webkit-scrollbar-thumb {
   text-align: left;
   margin-left: 10px;
   color: var(--text);
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   width: 100%;
   margin-right: 10px;
 }
@@ -981,6 +981,273 @@ body::-webkit-scrollbar-thumb {
   text-shadow: 0 0 15px #00acee, 0 0 30px #00acee, 0 0 40px #00acee;
 }
 
+.container .rightSide_container .rightNav .categoryCard {
+  margin-left: 30px;
+  margin-bottom: 50px;
+  width: 90%;
+  padding: 0 20px 0 30px;
+  margin-right: 15px;
+}
+
+@media screen and (max-width: 700px) {
+  .container .rightSide_container .rightNav .categoryCard {
+    margin-bottom: 75px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .container .rightSide_container .rightNav .categoryCard {
+    margin-bottom: 75px;
+  }
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer {
+  cursor: pointer;
+  background: var(--card);
+  padding: 0px 5px;
+  border: 1px solid var(--highligh);
+  position: relative;
+  height: 60px;
+  margin-bottom: 15px;
+  border-radius: 2px 12px 2px 12px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--shadow);
+  border: 3px solid var(--highligh);
+  position: absolute;
+  left: -40px;
+  top: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer:hover {
+  -webkit-box-shadow: 0px 5px 20px var(--shadow);
+          box-shadow: 0px 5px 20px var(--shadow);
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer:hover::before {
+  background: var(--primary-color);
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer .imageBox {
+  width: 35px;
+  height: 35px;
+  background: var(--card);
+  border-radius: 50%;
+  border: 1px solid var(--highligh);
+  overflow: hidden;
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer .imageBox img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer .textBox {
+  color: var(--text);
+  width: 81%;
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer .textBox h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.codeModal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(var(--shadow-primary), 0.5);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.codeModal .codemodalContent {
+  position: relative;
+  margin: 3% auto;
+  padding: 10px;
+  width: 80%;
+  height: 80%;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
+          box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
+  border-radius: 10px;
+  border: 1px solid var(--highligh);
+  -webkit-animation-name: codemodalOpen;
+          animation-name: codemodalOpen;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes codemodalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes codemodalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.codeModal .modalcloseBtn {
+  position: absolute;
+  z-index: 1;
+  top: -2%;
+  right: -1%;
+  height: 25px;
+  width: 25px;
+  background: var(--card);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.codeModal .modalcloseBtn:hover {
+  background: var(--highligh);
+}
+
+.codeModal .modalcloseBtn .closeButton {
+  color: var(--text);
+  float: right;
+  font-size: 1.5rem;
+  margin-top: -6px;
+}
+
+.codeModal .modalcloseBtn .closeButton:hover,
+.codeModal .modalcloseBtn .closeButton :focus {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.codeModal .mainCodeModalContent {
+  background: var(--highligh);
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.codeModal .mainCodeModalContent::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.5rem;
+}
+
+.codeModal .mainCodeModalContent::-webkit-scrollbar-track {
+  background: var(--card);
+}
+
+.codeModal .mainCodeModalContent::-webkit-scrollbar-thumb {
+  background: var(--text);
+}
+
+.codeModal .mainCodeModalContent ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 2rem;
+}
+
+.codeModal .mainCodeModalContent ul li {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  position: relative;
+}
+
+.codeModal .mainCodeModalContent ul li::after {
+  content: "";
+  position: absolute;
+  bottom: -25%;
+  left: -50%;
+  width: 0%;
+  height: 5px;
+  background: var(--primary-color);
+  border-radius: 30px;
+}
+
+.codeModal .mainCodeModalContent ul li.active::after {
+  width: 200%;
+}
+
+.codeModal .mainCodeModalContent .codeContainer .codecontent {
+  border: 1px solid var(--text);
+  border-radius: 5px;
+  position: relative;
+}
+
+.codeModal .mainCodeModalContent .codeContainer .codecontent .clipboard {
+  position: absolute;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.codeModal .mainCodeModalContent .codeContainer .codecontent .clipboard i {
+  color: var(--text);
+  font-size: 1.5rem;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.codeModal .mainCodeModalContent .codeContainer .codecontent .clipboard i:hover {
+  color: var(--white);
+}
+
+.codeModal .mainCodeModalContent .codeContainer .codecontent .codeText {
+  padding: 20px;
+}
+
 .videoModal {
   display: none;
   position: fixed;
@@ -1009,6 +1276,15 @@ body::-webkit-scrollbar-thumb {
           animation-name: modalOpen;
   -webkit-animation-duration: 1s;
           animation-duration: 1s;
+}
+
+@media screen and (max-width: 550px) {
+  .videoModal .modalContent {
+    margin: 0;
+    width: 100%;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
 }
 
 @-webkit-keyframes modalOpen {
