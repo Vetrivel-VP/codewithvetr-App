@@ -1214,16 +1214,51 @@ body::-webkit-scrollbar-thumb {
   height: 5px;
   background: var(--primary-color);
   border-radius: 30px;
+  -webkit-transition: width 0.8s ease;
+  transition: width 0.8s ease;
 }
 
 .codeModal .mainCodeModalContent ul li.active::after {
   width: 200%;
 }
 
+.codeModal .mainCodeModalContent .codeContainer {
+  position: relative;
+}
+
 .codeModal .mainCodeModalContent .codeContainer .codecontent {
   border: 1px solid var(--text);
   border-radius: 5px;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  color: var(--text);
+}
+
+.codeModal .mainCodeModalContent .codeContainer .codecontent.active {
+  display: block;
+  -webkit-animation: fade 1s ease;
+          animation: fade 1s ease;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .codeModal .mainCodeModalContent .codeContainer .codecontent .clipboard {
@@ -1246,6 +1281,40 @@ body::-webkit-scrollbar-thumb {
 
 .codeModal .mainCodeModalContent .codeContainer .codecontent .codeText {
   padding: 20px;
+}
+
+.codeModal .mainCodeModalContent .gitSource {
+  position: absolute;
+  bottom: 10%;
+  right: 5%;
+  font-size: 2.5rem;
+  color: var(--text);
+  width: 5%;
+  padding: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.codeModal .mainCodeModalContent .gitSource:hover {
+  background: var(--card);
+  width: 14%;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 10px var(--shadow);
+          box-shadow: 2px 2px 10px var(--shadow);
+  -webkit-transition: width 0.3s ease;
+  transition: width 0.3s ease;
+  color: var(--white);
+}
+
+.codeModal .mainCodeModalContent .gitSource span {
+  font-size: 1rem;
+  margin-left: 15px;
 }
 
 .videoModal {

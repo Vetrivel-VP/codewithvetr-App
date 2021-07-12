@@ -109,7 +109,7 @@
                 <div class="sourseCodeContaienr">
                     <div class="momentContainer">
                         <p>2 minutes ago</p>
-                        <a href="#" class="downloadButton"> Download Source</a>
+                        <a href="#" class="downloadButton" id="downloadSource"> Download Source</a>
                     </div>
                 </div>
             </div>
@@ -220,20 +220,22 @@
 
     <div class="codeModal" id="codeModal">
         <div class="codemodalContent">
-            <div class="modalcloseBtn">
+            <div class="modalcloseBtn" id="modalcloseBtn">
                 <span class="closeButton">&times;</span>
             </div>
 
             <div class="mainCodeModalContent">
-                <ul>
-                    <li class="active">HTML</li>
+                <ul class="tabs">
+                    <li>HTML</li>
                     <li>CSS</li>
                     <li>JS</li>
                 </ul>
 
                 <div class="codeContainer">
-                    <div class="codecontent">
-                        <div class="clipboard"><i class='bx bxs-copy'></i></div>
+                    <div class="codecontent active" id="htmlContent">
+                        <div class="clipboard">
+                            <div class="tooltip">Copy</div><i class='bx bxs-copy'></i>
+                        </div>
                         <div class="codeText">
 
 
@@ -251,7 +253,7 @@
                         </div>
                     </div>
 
-                    <div class="codecontent">
+                    <div class="codecontent" id="cssContent">
                         <div class="clipboard"><i class='bx bxs-copy'></i></div>
                         <div class="codeText">
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
@@ -264,7 +266,7 @@
                         </div>
                     </div>
 
-                    <div class="codecontent">
+                    <div class="codecontent" id="jsContent">
                         <div class="clipboard"><i class='bx bxs-copy'></i></div>
                         <div class="codeText">
 
@@ -283,6 +285,13 @@
                         </div>
                     </div>
                 </div>
+
+                <a href="#">
+                    <div class="gitSource">
+                        <i class='bx bxl-github'></i>
+                        <span>GitHub Link</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
