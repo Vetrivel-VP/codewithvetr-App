@@ -1080,9 +1080,7 @@ body .hljs {
 }
 
 .codeModal {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   position: fixed;
   z-index: 10;
   left: 0;
