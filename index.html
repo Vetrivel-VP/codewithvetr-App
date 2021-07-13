@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="./assets/css/main/styles.css" />
     <link rel="stylesheet" href="./assets/css/styleSwitcher.css" />
 
+    <!-- Draculla Theme for : Code Hilights [ https://draculatheme.com/highlightjs ] -->
+    <link rel="stylesheet" href="./assets/css/dracula.css">
+
     <!-- colors css -->
     <link rel="stylesheet" title="color_1" class="alternate_style" href="./assets/css/color_1.css" disabled />
     <link rel="stylesheet" title="color_2" class="alternate_style" href="./assets/css/color_2.css" disabled />
@@ -232,56 +235,78 @@
                 </ul>
 
                 <div class="codeContainer">
+                    <div class="clipboard">
+                        <div class="tooltip">Copy</div><i class='bx bxs-copy'></i>
+                    </div>
                     <div class="codecontent active" id="htmlContent">
-                        <div class="clipboard">
-                            <div class="tooltip">Copy</div><i class='bx bxs-copy'></i>
-                        </div>
+
                         <div class="codeText">
+                            <pre>
+                                <code id="code">
+<xmp><div class="codecontents actives" id="htmlContents">
+    <div class="codeTexts">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
+            aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
+            excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
+                
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
+        aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
+        excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
+                
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
+        aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
+        excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
+        </div>
+</div></xmp>
+                                </code>
+                            </pre>
 
 
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
                         </div>
                     </div>
 
                     <div class="codecontent" id="cssContent">
-                        <div class="clipboard"><i class='bx bxs-copy'></i></div>
                         <div class="codeText">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
+                            <pre>
+                                <code id="code">
+.videoModal .modalContent {
+    position: relative;
+    margin: 3% auto;
+    padding: 10px;
+    width: 80%;
+    -webkit-box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
+            box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
+    border-radius: 10px;
+    border: 1px solid var(--highligh);
+    -webkit-animation-name: modalOpen;
+            animation-name: modalOpen;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+}
+                                </code>
+                            </pre>
                         </div>
                     </div>
 
                     <div class="codecontent" id="jsContent">
-                        <div class="clipboard"><i class='bx bxs-copy'></i></div>
                         <div class="codeText">
-
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-                                aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-                                excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
+                            <pre>
+                                <code id="code">
+function copyText(htmlElement) {
+    if (!htmlElement) {
+        return;
+    }
+    
+    let elementText = htmlElement[0].innerText;
+    let inputElement = document.createElement("input");
+    inputElement.setAttribute("value", elementText);
+    document.body.appendChild(inputElement);
+    inputElement.select();
+    document.execCommand("copy");
+    inputElement.parentNode.removeChild(inputElement);
+}
+                                </code>
+                            </pre>
                         </div>
                     </div>
                 </div>
@@ -327,6 +352,8 @@
     <script src="./assets/js/style-switcher.js"></script>
     <script src="./assets/js/menuContainer.js"></script>
     <script src="./assets/js/menu.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
 </body>
 
 </html>

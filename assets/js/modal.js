@@ -9,6 +9,9 @@ const codeModal = document.getElementById("codeModal");
 const codeModalBtn = document.getElementById("downloadSource");
 const codeCloseBtn = document.getElementById("modalcloseBtn");
 
+const clipboardIcon = document.querySelector(".clipboard i");
+const clipboardText = document.querySelector(".tooltip");
+
 window.onload = () => {
   modalBtn.addEventListener("click", openModal);
   closeBtn.addEventListener("click", closeModal);
@@ -60,3 +63,23 @@ modalTabs.forEach((tab, index) => {
 });
 
 modalTabs[0].click();
+
+// clipboard click event
+clipboardIcon.addEventListener("click", () => {
+  clipboardText.innerHTML = "Copied";
+  copyText(document.querySelectorAll(".codecontent.active .codeText"));
+});
+
+function copyText(htmlElement) {
+  if (!htmlElement) {
+    return;
+  }
+
+  let elementText = htmlElement[0].innerText;
+  let inputElement = document.createElement("input");
+  inputElement.setAttribute("value", elementText);
+  document.body.appendChild(inputElement);
+  inputElement.select();
+  document.execCommand("copy");
+  inputElement.parentNode.removeChild(inputElement);
+}

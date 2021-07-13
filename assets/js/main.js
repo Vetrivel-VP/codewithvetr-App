@@ -122,3 +122,9 @@ const showSuggestionAgain = (e) => {
 };
 
 course_search.addEventListener("click", showSuggestionAgain);
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  document.querySelectorAll("pre code").forEach((el) => {
+    hljs.highlightElement(el);
+  });
+});
