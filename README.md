@@ -14,4 +14,4 @@ Install Using Git
 ```
 
 Developed with ♥ Vetrivel Ravi :wink:
-GitHub : https://github.com/Vetrivel-VP
+GitHub : [Vetrivel Ravi](https://github.com/Vetrivel-VP)
