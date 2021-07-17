@@ -36,14 +36,14 @@ body {
 }
 
 body.dark {
-  --background: #f0f4f8;
-  --card: #d9e2ec;
-  --shadow: #bcccdc;
-  --text: #334e68;
+  --background: #f5f6f4;
+  --card: #f5f6f4;
+  --shadow: #54525e;
+  --text: #54525e;
   --shadow-primary: 188, 204, 220;
-  --highligh: #829ab1;
-  --primary-color: #ef2a57;
-  --white: #102a43;
+  --highligh: #6aa5ad;
+  --primary-color: #2522e1;
+  --white: #f13f21;
   --pre: #12073d;
 }
 
@@ -178,6 +178,8 @@ body .hljs {
 }
 
 .container .leftSide_container .navigation .home_menu_container ul li .link_container {
+  position: relative;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,6 +232,44 @@ body .hljs {
   color: var(--white);
 }
 
+.container .leftSide_container .navigation .home_menu_container ul li .link_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(45deg) translateX(400px);
+          transform: skewX(45deg) translateX(400px);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.container .leftSide_container .navigation .home_menu_container ul li .link_container:hover::before {
+  -webkit-transform: skewX(45deg) translateX(-400px);
+          transform: skewX(45deg) translateX(-400px);
+}
+
+.container .leftSide_container .navigation .home_menu_container ul li .link_container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(-45deg) translateX(400px);
+          transform: skewX(-45deg) translateX(400px);
+  -webkit-transition: 1.8s;
+  transition: 1.8s;
+}
+
+.container .leftSide_container .navigation .home_menu_container ul li .link_container:hover::after {
+  -webkit-transform: skewX(-45deg) translateX(-400px);
+          transform: skewX(-45deg) translateX(-400px);
+}
+
 .container .leftSide_container .navigation .courseList_container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -254,6 +294,8 @@ body .hljs {
           align-items: center;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
 }
 
 .container .leftSide_container .navigation .courseList_container .link_container .icon_container {
@@ -278,9 +320,10 @@ body .hljs {
 }
 
 .container .leftSide_container .navigation .courseList_container .link_container .icon_container img {
+  height: 100%;
   width: 100%;
-  background-position: center;
-  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .leftSide_container .navigation .courseList_container .link_container .icon_container i {
@@ -310,6 +353,44 @@ body .hljs {
 
 .container .leftSide_container .navigation .courseList_container .link_container:hover .link_text {
   color: var(--white);
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(45deg) translateX(400px);
+          transform: skewX(45deg) translateX(400px);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container:hover::before {
+  -webkit-transform: skewX(45deg) translateX(-400px);
+          transform: skewX(45deg) translateX(-400px);
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(-45deg) translateX(400px);
+          transform: skewX(-45deg) translateX(400px);
+  -webkit-transition: 1.8s;
+  transition: 1.8s;
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container:hover::after {
+  -webkit-transform: skewX(-45deg) translateX(-400px);
+          transform: skewX(-45deg) translateX(-400px);
 }
 
 .container .main {
@@ -498,10 +579,10 @@ body .hljs {
 }
 
 .container .main .tittleWrapper .titleImageSection img {
+  height: 100%;
   width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .main .courseContainer {
@@ -563,9 +644,8 @@ body .hljs {
 .container .main .courseContainer .courseTitleContainer .titleImageContainer img {
   height: 100%;
   width: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .main .courseContainer .courseTitleContainer .titleNameContainer {
@@ -624,8 +704,10 @@ body .hljs {
 }
 
 .container .main .courseContainer .videoContainer img {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .main .courseContainer .videoContainer i {
@@ -775,9 +857,7 @@ body .hljs {
 }
 
 .container .rightSide_container .rightNav .profileContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   width: 100%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
@@ -799,9 +879,9 @@ body .hljs {
 
 .container .rightSide_container .rightNav .profileContainer .userImage img {
   height: 100%;
-  background-position: center;
-  background-size: cover;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .rightSide_container .rightNav .profileContainer .userName {
@@ -840,6 +920,66 @@ body .hljs {
 
 .container .rightSide_container .rightNav .profileContainer .dropIcon #up.active {
   display: block;
+}
+
+.container .rightSide_container .rightNav .loginContainer {
+  cursor: pointer;
+  background: var(--highligh);
+  border-radius: 10px;
+  padding: 10px 15px;
+  color: var(--text);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .rightSide_container .rightNav .loginContainer h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.container .rightSide_container .rightNav .loginContainer:hover {
+  -webkit-box-shadow: 0px 5px 15px var(--shadow);
+          box-shadow: 0px 5px 15px var(--shadow);
+}
+
+.container .rightSide_container .rightNav .loginContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(45deg) translateX(400px);
+          transform: skewX(45deg) translateX(400px);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.container .rightSide_container .rightNav .loginContainer:hover::before {
+  -webkit-transform: skewX(45deg) translateX(-400px);
+          transform: skewX(45deg) translateX(-400px);
+}
+
+.container .rightSide_container .rightNav .loginContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(-45deg) translateX(400px);
+          transform: skewX(-45deg) translateX(400px);
+  -webkit-transition: 1.8s;
+  transition: 1.8s;
+}
+
+.container .rightSide_container .rightNav .loginContainer:hover::after {
+  -webkit-transform: skewX(-45deg) translateX(-400px);
+          transform: skewX(-45deg) translateX(-400px);
 }
 
 .container .rightSide_container .rightNav .menuContaier {
@@ -883,6 +1023,7 @@ body .hljs {
 }
 
 .container .rightSide_container .rightNav .trainerCard {
+  position: relative;
   width: 85%;
   height: 250px;
   background: var(--card);
@@ -903,6 +1044,7 @@ body .hljs {
   cursor: pointer;
   -webkit-box-shadow: 0px 10px 25px var(--shadow);
           box-shadow: 0px 10px 25px var(--shadow);
+  overflow: hidden;
 }
 
 @media screen and (max-width: 900px) {
@@ -933,8 +1075,10 @@ body .hljs {
 }
 
 .container .rightSide_container .rightNav .trainerCard .imageBox img {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .rightSide_container .rightNav .trainerCard .textBox {
@@ -993,6 +1137,25 @@ body .hljs {
   text-shadow: 0 0 15px #00acee, 0 0 30px #00acee, 0 0 40px #00acee;
 }
 
+.container .rightSide_container .rightNav .trainerCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(45deg) translateX(400px);
+          transform: skewX(45deg) translateX(400px);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.container .rightSide_container .rightNav .trainerCard:hover::before {
+  -webkit-transform: skewX(45deg) translateX(-400px);
+          transform: skewX(45deg) translateX(-400px);
+}
+
 .container .rightSide_container .rightNav .categoryCard {
   margin-left: 5px;
   margin-bottom: 50px;
@@ -1017,11 +1180,9 @@ body .hljs {
   cursor: pointer;
   background: var(--card);
   padding: 0px 5px;
-  border: 1px solid var(--highligh);
   position: relative;
   height: 60px;
   margin-bottom: 15px;
-  border-radius: 2px 12px 2px 12px;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   display: -webkit-box;
@@ -1033,28 +1194,36 @@ body .hljs {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid var(--highligh);
+}
+
+.container .rightSide_container .rightNav .categoryCard .cardContainer:hover {
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  -webkit-box-shadow: 0 5px 15px var(--shadow);
+          box-shadow: 0 5px 15px var(--shadow);
+  border-radius: 5px;
 }
 
 .container .rightSide_container .rightNav .categoryCard .cardContainer::before {
   content: "";
-  display: block;
-  width: 5px;
-  height: 50px;
-  border-radius: 10%;
-  background: var(--shadow);
   position: absolute;
-  left: -20px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-.container .rightSide_container .rightNav .categoryCard .cardContainer:hover {
-  -webkit-box-shadow: 0px 5px 20px var(--shadow);
-          box-shadow: 0px 5px 20px var(--shadow);
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-transform: skewX(45deg) translateX(400px);
+          transform: skewX(45deg) translateX(400px);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
 }
 
 .container .rightSide_container .rightNav .categoryCard .cardContainer:hover::before {
-  background: var(--primary-color);
+  -webkit-transform: skewX(45deg) translateX(-400px);
+          transform: skewX(45deg) translateX(-400px);
 }
 
 .container .rightSide_container .rightNav .categoryCard .cardContainer .imageBox {
@@ -1067,8 +1236,10 @@ body .hljs {
 }
 
 .container .rightSide_container .rightNav .categoryCard .cardContainer .imageBox img {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .container .rightSide_container .rightNav .categoryCard .cardContainer .textBox {
@@ -1485,6 +1656,97 @@ body .hljs {
   width: 100%;
   position: absolute;
   border-radius: 10px;
+}
+
+.loginModal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(var(--shadow-primary), 0.5);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.loginModal .modalContent {
+  position: relative;
+  margin: 3% auto;
+  padding: 10px;
+  width: 80%;
+  -webkit-box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
+          box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
+  border-radius: 10px;
+  border: 1px solid var(--highligh);
+  -webkit-animation-name: modalOpen;
+          animation-name: modalOpen;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@media screen and (max-width: 550px) {
+  .loginModal .modalContent {
+    margin: 0;
+    width: 100%;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loginModal .modalContent .close {
+  position: absolute;
+  z-index: 1;
+  top: -2%;
+  right: -1%;
+  height: 25px;
+  width: 25px;
+  background: var(--card);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.loginModal .modalContent .close:hover {
+  background: var(--highligh);
+}
+
+.loginModal .modalContent .close .closeButton {
+  color: var(--text);
+  float: right;
+  font-size: 2rem;
+  margin-top: 2px;
+}
+
+.loginModal .modalContent .close .closeButton:hover,
+.loginModal .modalContent .close .closeButton :focus {
+  color: var(--white);
+  text-decoration: none;
 }
 
 .menuIcon {

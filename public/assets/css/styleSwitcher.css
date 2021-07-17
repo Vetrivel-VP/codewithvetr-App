@@ -64,9 +64,7 @@
 .style_switcher .day_night {
   -webkit-box-shadow: 0px 10px 25px var(--shadow);
           box-shadow: 0px 10px 25px var(--shadow);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
