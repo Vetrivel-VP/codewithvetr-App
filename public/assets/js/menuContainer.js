@@ -1,15 +1,16 @@
-const rightNav = document.querySelector(".rightNav");
-const dropIcon = document.getElementById("rightMenu_dropIcon");
-const profileMenuContainer = rightNav.querySelector(".menuContaier");
-const dropMenuIconUp = document.getElementById("up");
-const dropMenuIconDown = document.getElementById("down");
+var rightNav = document.querySelector(".rightNav");
 
 const menuShowHide = () => {
+  var dropIcon = document.getElementById("rightMenu_dropIcon");
+  var profileMenuContainer = rightNav.querySelector(".menuContaier");
+  var dropMenuIconUp = document.getElementById("up");
+  var dropMenuIconDown = document.getElementById("down");
+
   profileMenuContainer.classList.toggle("active");
   dropMenuIconDown.classList.toggle("active");
   dropMenuIconUp.classList.toggle("active");
 };
-dropIcon.addEventListener("click", menuShowHide);
+// dropIcon.addEventListener("click", menuShowHide);
 
 const rightMenuclickOutside = (e) => {
   if (e.target == rightNav) {

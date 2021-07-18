@@ -12,6 +12,11 @@ const codeCloseBtn = document.getElementById("modalcloseBtn");
 const clipboardIcon = document.querySelector(".clipboard i");
 const clipboardText = document.querySelector(".tooltip");
 
+// Password show & hide
+const loginModal = document.getElementById("loginModal");
+const loginContainer = document.querySelector(".loginContainer");
+const loginCloseBtn = document.getElementById("logincloseBtn");
+
 window.onload = () => {
   modalBtn.addEventListener("click", openModal);
   closeBtn.addEventListener("click", closeModal);
@@ -20,6 +25,10 @@ window.onload = () => {
   codeModalBtn.addEventListener("click", openCodeModal);
   codeCloseBtn.addEventListener("click", closeCodeModal);
   window.addEventListener("click", outsideClickCodeModal);
+
+  loginContainer.addEventListener("click", openloginModal);
+  loginCloseBtn.addEventListener("click", closeLoginModal);
+  window.addEventListener("click", outsideClickLoginModal);
 };
 
 const openModal = () => {
@@ -30,12 +39,20 @@ const openCodeModal = () => {
   codeModal.style.display = "flex";
 };
 
+const openloginModal = () => {
+  loginModal.style.display = "flex";
+};
+
 const closeModal = () => {
   modal.style.display = "none";
 };
 
 const closeCodeModal = () => {
   codeModal.style.display = "none";
+};
+
+const closeLoginModal = () => {
+  loginModal.style.display = "none";
 };
 
 const outsideClick = (e) => {
@@ -47,6 +64,11 @@ const outsideClick = (e) => {
 const outsideClickCodeModal = (e) => {
   if (e.target == codeModal) {
     codeModal.style.display = "none";
+  }
+};
+const outsideClickLoginModal = (e) => {
+  if (e.target == loginModal) {
+    loginModal.style.display = "none";
   }
 };
 
