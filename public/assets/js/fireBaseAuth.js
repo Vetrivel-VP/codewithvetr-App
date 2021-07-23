@@ -16,8 +16,9 @@ firebase.analytics();
 const loginGoogle = document.getElementById("loginGoogle");
 const profileContainer = document.querySelector(".profileContainer");
 const signOutBtn = document.querySelector(".signout");
-const alertNotification = document.querySelector(".alertNotification");
+let alertNotification = document.querySelector(".alertNotification");
 const alertCloseBtn = document.querySelector(".alertCloseBtn");
+let favoriteContainer = document.querySelector(".favoriteContainer");
 
 // Create the provider for google authentications
 let googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -30,31 +31,19 @@ function GoogleAuth() {
     .auth()
     .signInWithPopup(googleProvider)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       loginModal.style.display = "none";
       loginContainer.style.display = "none";
       profileContainer.style.display = "flex";
-
-      alertNotification.classList.remove("hide");
-      alertNotification.classList.add("show");
-      alertNotification.innerHTML = `
-      <i class='bx bx-smile leftIcon'></i>
-      <span class="msg"> Welcome : ${res.user.displayName}</span>
-      <span class="alertCloseBtn"  onclick="closeAlert()">
-          <i class='bx bx-x rightIcon'></i>
-      </span>
-      `;
-
-      alertNotification.style.setProperty("--alertBg", "#00FF49");
-      alertNotification.style.setProperty("--alertText", "#008C28");
-      alertNotification.style.setProperty("--alertClose", "#03E644");
-      alertNotification.style.setProperty("--alertBorder", "#008C28");
-      alertNotification.style.setProperty("--alertHover", "#00BA36");
-
-      setTimeout(() => {
-        alertNotification.classList.remove("show");
-        alertNotification.classList.add("hide");
-      }, 2000);
+      const msg = `Welcome : ${res.user.displayName}`;
+      alertCustomizations(
+        msg,
+        "#00FF49",
+        "#008C28",
+        "#03E644",
+        "#008C28",
+        "#00BA36"
+      );
       showUserDetails(res.user);
     })
     .catch((e) => {
@@ -84,26 +73,14 @@ function signOutUser() {
       document.querySelector(".menuContaier").style.display = "none";
       loginContainer.style.display = "block";
 
-      alertNotification.classList.remove("hide");
-      alertNotification.classList.add("show");
-      alertNotification.innerHTML = `
-      <i class='bx bx-smile leftIcon'></i>
-      <span class="msg"> Thank you</span>
-      <span class="alertCloseBtn"  onclick="closeAlert()">
-          <i class='bx bx-x rightIcon'></i>
-      </span>
-      `;
-
-      alertNotification.style.setProperty("--alertBg", "#00FF49");
-      alertNotification.style.setProperty("--alertText", "#008C28");
-      alertNotification.style.setProperty("--alertClose", "#03E644");
-      alertNotification.style.setProperty("--alertBorder", "#008C28");
-      alertNotification.style.setProperty("--alertHover", "#00BA36");
-
-      setTimeout(() => {
-        alertNotification.classList.remove("show");
-        alertNotification.classList.add("hide");
-      }, 2000);
+      alertCustomizations(
+        "Thank you",
+        "#00FF49",
+        "#008C28",
+        "#03E644",
+        "#008C28",
+        "#00BA36"
+      );
     })
     .catch((e) => {
       console.log(e);
@@ -115,6 +92,7 @@ function checkAuthState() {
     if (user) {
       loginContainer.style.display = "none";
       profileContainer.style.display = "flex";
+      favoriteContainer.style.display = "block";
       showUserDetails(user);
     } else {
       profileContainer.style.display = "none";
@@ -128,3 +106,33 @@ const closeAlert = () => {
   alertNotification.classList.remove("show");
   alertNotification.classList.add("hide");
 };
+
+function alertCustomizations(
+  msg,
+  alertBg,
+  alertText,
+  alertClose,
+  alertBorder,
+  alertHover
+) {
+  alertNotification.classList.remove("hide");
+  alertNotification.classList.add("show");
+  alertNotification.innerHTML = `
+  <i class='bx bx-smile leftIcon'></i>
+  <span class="msg">${msg}</span>
+  <span class="alertCloseBtn"  onclick="closeAlert()">
+      <i class='bx bx-x rightIcon'></i>
+  </span>
+  `;
+
+  alertNotification.style.setProperty("--alertBg", alertBg);
+  alertNotification.style.setProperty("--alertText", alertText);
+  alertNotification.style.setProperty("--alertClose", alertClose);
+  alertNotification.style.setProperty("--alertBorder", alertBorder);
+  alertNotification.style.setProperty("--alertHover", alertHover);
+
+  setTimeout(() => {
+    alertNotification.classList.remove("show");
+    alertNotification.classList.add("hide");
+  }, 2000);
+}

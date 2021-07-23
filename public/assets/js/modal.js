@@ -36,7 +36,24 @@ const openModal = () => {
 };
 
 const openCodeModal = () => {
-  codeModal.style.display = "flex";
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      codeModal.style.display = "flex";
+
+      // alert message
+    } else {
+      // alert message
+      alertCustomizations(
+        "Warning: Login to download!",
+        "#FFA14D",
+        "#B85B09",
+        "#F77B0E",
+        "#B55704",
+        "#FF7800"
+      );
+      loginModal.style.display = "flex";
+    }
+  });
 };
 
 const openloginModal = () => {

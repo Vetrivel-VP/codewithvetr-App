@@ -162,8 +162,13 @@ body .hljs {
 .container .leftSide_container .navigation .logo_container .logo {
   width: 50px;
   height: 50px;
-  background: var(--highligh);
-  border-radius: 50%;
+}
+
+.container .leftSide_container .navigation .logo_container .logo img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 60%;
+  background-position: center;
 }
 
 .container .leftSide_container .navigation .home_menu_container {
@@ -674,6 +679,7 @@ body .hljs {
 }
 
 .container .main .courseContainer .courseTitleContainer .favoriteContainer {
+  display: none;
   margin-right: 15px;
 }
 
@@ -685,7 +691,7 @@ body .hljs {
 
 .container .main .courseContainer .courseTitleContainer .favoriteContainer span:hover {
   color: #ff0000;
-  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
 }
 
 .container .main .courseContainer .videoContainer {

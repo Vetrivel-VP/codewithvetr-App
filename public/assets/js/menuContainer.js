@@ -1,10 +1,10 @@
 var rightNav = document.querySelector(".rightNav");
 
 const menuShowHide = () => {
-  var dropIcon = document.getElementById("rightMenu_dropIcon");
-  var profileMenuContainer = rightNav.querySelector(".menuContaier");
-  var dropMenuIconUp = document.getElementById("up");
-  var dropMenuIconDown = document.getElementById("down");
+  let dropIcon = document.getElementById("rightMenu_dropIcon");
+  let profileMenuContainer = rightNav.querySelector(".menuContaier");
+  let dropMenuIconUp = document.getElementById("up");
+  let dropMenuIconDown = document.getElementById("down");
 
   profileMenuContainer.classList.toggle("active");
   dropMenuIconDown.classList.toggle("active");
