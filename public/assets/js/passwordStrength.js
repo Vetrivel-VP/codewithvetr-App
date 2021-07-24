@@ -4,6 +4,9 @@ let cssAfterEmail = window.getComputedStyle(creatUserFormEmailId, "::after");
 
 inputPass.onkeyup = (e) => {
   passwordCheck(inputPass.value);
+  if (e.keyCode == 13) {
+    signInUser();
+  }
 };
 
 creatUserFormEmailId.onkeyup = (e) => {
