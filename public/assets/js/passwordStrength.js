@@ -1,12 +1,32 @@
-const passwordField = document.getElementById("passwordField");
-const inputPass = passwordField.querySelector("input");
-
 let cssAfterPass = window.getComputedStyle(passwordField, "::after");
+let cssAfterEmail = window.getComputedStyle(creatUserFormEmailId, "::after");
 // getComputedStyle() used to get pseudo element styles
 
 inputPass.onkeyup = (e) => {
   passwordCheck(inputPass.value);
 };
+
+creatUserFormEmailId.onkeyup = (e) => {
+  if (validateEmail(creatUserFormEmailId.value)) {
+    userEmailDiv.style.setProperty("--primary-color", "#06bf06");
+    userEmailDiv.style.setProperty("--widthSize", "100%");
+    UserActionButton.disabled = false;
+  } else {
+    userEmailDiv.style.setProperty("--primary-color", "#FF0000");
+    userEmailDiv.style.setProperty("--widthSize", "100%");
+    UserActionButton.disabled = true;
+  }
+  if (creatUserFormEmailId.value.length == 0) {
+    userEmailDiv.style.setProperty("--primary-color", "#FF0000");
+    userEmailDiv.style.setProperty("--widthSize", "0%");
+  }
+};
+
+function validateEmail(email) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
 
 function passwordCheck(password) {
   let strength = 0;
@@ -19,8 +39,6 @@ function passwordCheck(password) {
   if (password.match(/(?=.*[a-z])/)) strength += 1;
 
   if (password.match(/(?=.*[A-Z])/)) strength += 1;
-
-  console.log(password.length, strength);
 
   displayBar(strength);
 }

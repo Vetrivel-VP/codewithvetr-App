@@ -531,8 +531,7 @@ body {
             cursor: pointer;
             &:hover {
               color: #ff0000;
-              text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
-                0 0 50px #ff0000;
+              text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
             }
           }
         }
@@ -662,8 +661,8 @@ body {
         justify-content: space-evenly;
         align-items: center;
         .userImage {
-          height: 50px;
-          width: 50px;
+          height: 35px;
+          width: 35px;
           background: var(--card);
           border-radius: 50%;
           overflow: hidden;
@@ -678,7 +677,7 @@ body {
 
         .userName {
           color: var(--text);
-          font-size: 1.2rem;
+          font-size: 1rem;
           text-transform: capitalize;
 
           &:hover {
@@ -898,15 +897,7 @@ body {
           }
           &:hover:nth-child(2) {
             transform: scale(1.5);
-            background: linear-gradient(
-              45deg,
-              #405de6,
-              #5851db,
-              #833ab4,
-              #791f52,
-              #e1306c,
-              #fd1d1d
-            );
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #791f52, #e1306c, #fd1d1d);
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
@@ -1372,7 +1363,7 @@ body {
 .loginModal {
   display: none;
   position: fixed;
-  z-index: 10;
+  z-index: 1001;
   left: 0;
   top: 0;
   height: 100%;
@@ -1593,6 +1584,21 @@ body {
             }
           }
 
+          &#userEmailDiv {
+            position: relative;
+            &::after {
+              position: absolute;
+              content: "";
+              width: var(--widthSize, 0%);
+              height: 4px;
+              background: var(--primary-color);
+              bottom: 0;
+              top: 35px;
+              border-radius: 0 0 10px 10px;
+              transition: width 0.5s ease-in-out;
+            }
+          }
+
           &:last-child {
             display: flex;
             justify-content: center;
@@ -1669,6 +1675,7 @@ body {
 }
 
 .alertNotification {
+  position: fixed;
   background: var(--alertBg);
   padding: 20px 40px;
   min-width: 420px;
@@ -1677,7 +1684,7 @@ body {
   top: 10px;
   border-radius: 4px;
   border-left: 8px solid var(--alertBorder);
-  z-index: 100;
+  z-index: 1010;
   overflow: hidden;
 
   .leftIcon {
@@ -1715,6 +1722,7 @@ body {
   }
 
   &.show {
+    position: fixed;
     animation: show_slide 1s ease forwards;
 
     @keyframes show_slide {
@@ -1734,6 +1742,7 @@ body {
   }
 
   &.hide {
+    position: fixed;
     animation: hide_slide 1s ease forwards;
 
     @keyframes hide_slide {

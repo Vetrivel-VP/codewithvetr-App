@@ -20,6 +20,16 @@ let alertNotification = document.querySelector(".alertNotification");
 const alertCloseBtn = document.querySelector(".alertCloseBtn");
 let favoriteContainer = document.querySelector(".favoriteContainer");
 
+// Create Or Login User
+let UserActionButton = document.getElementById("UserActionButton");
+let signUpUser = document.getElementById("signUpUser");
+
+let userEmailDiv = document.getElementById("userEmailDiv");
+let creatUserFormEmailId = userEmailDiv.querySelector("input");
+
+let passwordField = document.getElementById("passwordField");
+let inputPass = passwordField.querySelector("input");
+
 // Create the provider for google authentications
 let googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -31,7 +41,6 @@ function GoogleAuth() {
     .auth()
     .signInWithPopup(googleProvider)
     .then((res) => {
-      // console.log(res);
       loginModal.style.display = "none";
       loginContainer.style.display = "none";
       profileContainer.style.display = "flex";
@@ -52,11 +61,13 @@ function GoogleAuth() {
 }
 
 function showUserDetails(user) {
+  const imgURL = "./assets/img/profile.svg";
   profileContainer.innerHTML = `
     <div class="userImage">
-    <img src="${user.photoURL}" alt="" srcset="">
+    <img src="${user.photoURL ? user.photoURL : imgURL}" alt="" srcset="">
     </div>
-    <div class="userName">${user.displayName}</div>
+    <div class="userName">${user.displayName ? user.displayName : user.email
+    }</div>
     <div class="dropIcon" id="rightMenu_dropIcon"  onclick="menuShowHide()">
         <i class='bx bx-chevron-down' id="down"></i>
         <i class='bx bx-chevron-up' id="up"></i>
@@ -81,6 +92,11 @@ function signOutUser() {
         "#008C28",
         "#00BA36"
       );
+
+      creatUserFormEmailId.value = '';
+      inputPass.value = '';
+      passwordField.style.setProperty("--widthSize", "0%");
+      userEmailDiv.style.setProperty("--widthSize", "0%");
     })
     .catch((e) => {
       console.log(e);
@@ -136,3 +152,109 @@ function alertCustomizations(
     alertNotification.classList.add("hide");
   }, 2000);
 }
+
+signUpUser.addEventListener("click", () => {
+  if (signUpUser.innerText === "Sign Up") {
+    signUpUser.innerText = "Sign In";
+    UserActionButton.value = "Sign Up";
+  } else {
+    signUpUser.innerText = "Sign Up";
+    UserActionButton.value = "Sign In";
+  }
+});
+
+
+document.querySelector('.formcontainer form').addEventListener('submit', () => {
+  UserActionButton.value == "Sign In" ? signInUser() : signUpNewUser();
+})
+
+// UserActionButton.addEventListener("click", () => {
+//   signUpUser.innerText = "Sign In" ? signInUser() : signUpNewUser();
+// });
+
+let signUpNewUser = () => {
+  const userMail = creatUserFormEmailId.value;
+  const userPassword = inputPass.value;
+
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(userMail, userPassword)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      loginModal.style.display = "none";
+      loginContainer.style.display = "none";
+      profileContainer.style.display = "flex";
+      const msg = `
+      Welcome : Activate your mail !`;
+      alertCustomizations(
+        msg,
+        "#00FF49",
+        "#008C28",
+        "#03E644",
+        "#008C28",
+        "#00BA36"
+      );
+      showUserDetails(user);
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // ..
+    });
+};
+
+let signInUser = () => {
+  const userMail = creatUserFormEmailId.value;
+  const userPassword = inputPass.value;
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(userMail, userPassword)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      loginModal.style.display = "none";
+      loginContainer.style.display = "none";
+      profileContainer.style.display = "flex";
+      const msg = `
+      Welcome : ${user.displayName ? user.displayName : user.email}`;
+      alertCustomizations(
+        msg,
+        "#00FF49",
+        "#008C28",
+        "#03E644",
+        "#008C28",
+        "#00BA36"
+      );
+      showUserDetails(user);
+      // ...
+    })
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode == "auth/user-not-found") {
+        alertCustomizations(
+          "Invalid Email: User Not Found",
+          "#FFA14D",
+          "#B85B09",
+          "#F77B0E",
+          "#B55704",
+          "#FF7800"
+        );
+      } else {
+        alertCustomizations(
+          "Warning: Password Mismatch",
+          "#FFA14D",
+          "#B85B09",
+          "#F77B0E",
+          "#B55704",
+          "#FF7800"
+        );
+      }
+    });
+};
+
+window.onload = () => {
+  checkAuthState();
+};

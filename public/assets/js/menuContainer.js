@@ -1,14 +1,9 @@
 var rightNav = document.querySelector(".rightNav");
 
 const menuShowHide = () => {
-  let dropIcon = document.getElementById("rightMenu_dropIcon");
-  let profileMenuContainer = rightNav.querySelector(".menuContaier");
-  let dropMenuIconUp = document.getElementById("up");
-  let dropMenuIconDown = document.getElementById("down");
-
-  profileMenuContainer.classList.toggle("active");
-  dropMenuIconDown.classList.toggle("active");
-  dropMenuIconUp.classList.toggle("active");
+  rightNav.querySelector(".menuContaier").classList.toggle("active");
+  document.getElementById("up").classList.toggle("active");
+  document.getElementById("down").classList.toggle("active");
 };
 // dropIcon.addEventListener("click", menuShowHide);
 
@@ -21,10 +16,10 @@ const rightMenuclickOutside = (e) => {
 };
 
 window.addEventListener("scroll", () => {
-  if (profileMenuContainer.classList.contains("active")) {
-    profileMenuContainer.classList.remove("active");
-    dropMenuIconDown.classList.toggle("active");
-    dropMenuIconUp.classList.toggle("active");
+  if (rightNav.querySelector(".menuContaier").classList.contains("active")) {
+    rightNav.querySelector(".menuContaier").classList.remove("active");
+    document.getElementById("up").classList.toggle("active");
+    document.getElementById("down").classList.toggle("active");
   }
 });
 window.addEventListener("click", rightMenuclickOutside);
