@@ -66,7 +66,8 @@ function showUserDetails(user) {
     <div class="userImage">
     <img src="${user.photoURL ? user.photoURL : imgURL}" alt="" srcset="">
     </div>
-    <div class="userName">${user.displayName ? user.displayName : user.email
+    <div class="userName">${
+      user.displayName ? user.displayName : user.email
     }</div>
     <div class="dropIcon" id="rightMenu_dropIcon"  onclick="menuShowHide()">
         <i class='bx bx-chevron-down' id="down"></i>
@@ -93,8 +94,8 @@ function signOutUser() {
         "#00BA36"
       );
 
-      creatUserFormEmailId.value = '';
-      inputPass.value = '';
+      creatUserFormEmailId.value = "";
+      inputPass.value = "";
       passwordField.style.setProperty("--widthSize", "0%");
       userEmailDiv.style.setProperty("--widthSize", "0%");
     })
@@ -163,10 +164,9 @@ signUpUser.addEventListener("click", () => {
   }
 });
 
-
-document.querySelector('.formcontainer form').addEventListener('submit', () => {
+document.querySelector(".formcontainer form").addEventListener("submit", () => {
   UserActionButton.value == "Sign In" ? signInUser() : signUpNewUser();
-})
+});
 
 // UserActionButton.addEventListener("click", () => {
 //   signUpUser.innerText = "Sign In" ? signInUser() : signUpNewUser();
@@ -175,7 +175,6 @@ document.querySelector('.formcontainer form').addEventListener('submit', () => {
 let signUpNewUser = () => {
   const userMail = creatUserFormEmailId.value;
   const userPassword = inputPass.value;
-
   firebase
     .auth()
     .createUserWithEmailAndPassword(userMail, userPassword)
@@ -186,7 +185,8 @@ let signUpNewUser = () => {
       loginContainer.style.display = "none";
       profileContainer.style.display = "flex";
       const msg = `
-      Welcome : Activate your mail !`;
+      Created : Check your email!`;
+      sendVerficationLink(user);
       alertCustomizations(
         msg,
         "#00FF49",
@@ -204,6 +204,16 @@ let signUpNewUser = () => {
       // ..
     });
 };
+
+function sendVerficationLink(user) {
+  console.log("sign up verfy");
+  user
+    .sendEmailVerification()
+    .then(() => {})
+    .catch((e) => {
+      console.log(e);
+    });
+}
 
 let signInUser = () => {
   const userMail = creatUserFormEmailId.value;
