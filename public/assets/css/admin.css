@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+main {
+  background: #040306;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section {
+  width: 95vw;
+  min-height: 95vh;
+}
+
+main section .color {
+  position: absolute;
+  -webkit-filter: blur(80px);
+          filter: blur(80px);
+}
+
+main section .color:nth-child(1) {
+  top: 0;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background: #34ac9e;
+}
+
+main section .color:nth-child(2) {
+  bottom: 40px;
+  right: 80px;
+  width: 100px;
+  height: 100px;
+  background: #cf4f21;
+}
+
+main section .container {
+  background: rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
+  min-width: 95vw;
+  position: relative;
+  min-height: 95vh;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -webkit-box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid #34ac9e;
+  overflow: hidden;
+}
+
+main section .container .leftsideBar {
+  min-width: 100px;
+  height: 95vh;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 1px solid #ffffff17;
+}
+
+main section .container .leftsideBar ul {
+  margin-top: 40px;
+}
+
+main section .container .leftsideBar ul li {
+  margin: 25px 0;
+  padding: 20px 0px;
+}
+
+main section .container .leftsideBar ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section .container .leftsideBar ul li a i {
+  color: #cdcbd0;
+  font-size: 30px;
+}
+
+main section .container .leftsideBar ul li a .tooltip {
+  background: #b4bac3;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 10px #1a1a1a;
+          box-shadow: 0 10px 10px #1a1a1a;
+  color: #30323e;
+  top: 12%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+main section .container .leftsideBar ul li a .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #b4bac3;
+  bottom: -4px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+main section .container .leftsideBar ul li a .tooltip_course {
+  background: #b4bac3;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 10px #1a1a1a;
+          box-shadow: 0 10px 10px #1a1a1a;
+  color: #30323e;
+  top: 25%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+main section .container .leftsideBar ul li a .tooltip_course::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #b4bac3;
+  bottom: -4px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+main section .container .leftsideBar ul li a .tooltip_concept {
+  background: #b4bac3;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 10px #1a1a1a;
+          box-shadow: 0 10px 10px #1a1a1a;
+  color: #30323e;
+  top: 38%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+main section .container .leftsideBar ul li a .tooltip_concept::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #b4bac3;
+  bottom: -4px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+main section .container .leftsideBar ul li a .tooltip_trainers {
+  background: #b4bac3;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 10px #1a1a1a;
+          box-shadow: 0 10px 10px #1a1a1a;
+  color: #30323e;
+  top: 50%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+main section .container .leftsideBar ul li a .tooltip_trainers::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #b4bac3;
+  bottom: -4px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
+main section .container .leftsideBar ul li a:hover i {
+  color: #34ac9e;
+}
+
+main section .container .leftsideBar ul li a:hover .tooltip {
+  top: 6%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main section .container .leftsideBar ul li a:hover .tooltip_course {
+  top: 20%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main section .container .leftsideBar ul li a:hover .tooltip_concept {
+  top: 32%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main section .container .leftsideBar ul li a:hover .tooltip_trainers {
+  top: 45%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main section .container .leftsideBar ul li:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main section .container .rightsideBar {
+  height: 95vh;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main section .container .rightsideBar .main {
+  position: relative;
+  width: 72%;
+  height: 100%;
+  background: rebeccapurple;
+}
+
+main section .container .rightsideBar .main .topSection {
+  width: 100%;
+  position: relative;
+  height: calc(100% - 88%);
+  background: antiquewhite;
+  padding: 0 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer {
+  width: 100%;
+  position: relative;
+  height: calc(100% - 12%);
+  background: blue;
+  padding: 0 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .middleSection {
+  width: 100%;
+  position: relative;
+  height: calc(100% - 20%);
+  background: purple;
+  padding: 0 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .bottomSection {
+  width: 100%;
+  position: relative;
+  height: calc(100% - 80%);
+  background: red;
+  padding: 0 20px;
+}
+
+main section .container .rightsideBar .sideBar {
+  position: relative;
+  width: 28%;
+  height: 100%;
+  background: purple;
+}
+/*# sourceMappingURL=admin.css.map */

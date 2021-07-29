@@ -1,0 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    background: #040306;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    section {
+        width: 95vw;
+        min-height: 95vh;
+
+        .color {
+            position: absolute;
+            filter: blur(80px);
+
+            &:nth-child(1) {
+                top: 0;
+                left: 50px;
+                width: 100px;
+                height: 100px;
+                background: #34ac9e;
+            }
+
+            &:nth-child(2) {
+                bottom: 40px;
+                right: 80px;
+                width: 100px;
+                height: 100px;
+                background: #cf4f21;
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: 100%;
+            min-width: 95vw;
+            position: relative;
+            min-height: 95vh;
+            border-radius: 10px;
+            display: flex;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 25px 45px rgba($color: #000000, $alpha: 0.1);
+            border-left: 1px solid #34ac9e;
+            overflow: hidden;
+
+            .leftsideBar {
+                min-width: 100px;
+                height: 95vh;
+                cursor: pointer;
+                display: flex;
+                flex-direction: column;
+                // justify-content: center;
+                align-items: center;
+                border-right: 1px solid #ffffff17;
+
+                ul {
+                    margin-top: 40px;
+
+                    li {
+                        margin: 25px 0;
+                        padding: 20px 0px;
+                        a {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+
+                            i {
+                                color: #cdcbd0;
+                                font-size: 30px;
+                            }
+
+                            .tooltip {
+                                background: #b4bac3;
+                                font-size: 0.7rem;
+                                padding: 2px 10px;
+                                border-radius: 5px;
+                                box-shadow: 0 10px 10px #1a1a1a;
+                                color: #30323e;
+                                top: 12%;
+                                position: absolute;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    height: 8px;
+                                    width: 8px;
+                                    background: #b4bac3;
+                                    bottom: -4px;
+                                    left: 50%;
+                                    transform: translateX(-50%) rotate(45deg);
+                                }
+                            }
+
+                            .tooltip_course {
+                                background: #b4bac3;
+                                font-size: 0.7rem;
+                                padding: 2px 10px;
+                                border-radius: 5px;
+                                box-shadow: 0 10px 10px #1a1a1a;
+                                color: #30323e;
+                                top: 25%;
+                                position: absolute;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    height: 8px;
+                                    width: 8px;
+                                    background: #b4bac3;
+                                    bottom: -4px;
+                                    left: 50%;
+                                    transform: translateX(-50%) rotate(45deg);
+                                }
+                            }
+
+                            .tooltip_concept {
+                                background: #b4bac3;
+                                font-size: 0.7rem;
+                                padding: 2px 10px;
+                                border-radius: 5px;
+                                box-shadow: 0 10px 10px #1a1a1a;
+                                color: #30323e;
+                                top: 38%;
+                                position: absolute;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    height: 8px;
+                                    width: 8px;
+                                    background: #b4bac3;
+                                    bottom: -4px;
+                                    left: 50%;
+                                    transform: translateX(-50%) rotate(45deg);
+                                }
+                            }
+
+                            .tooltip_trainers {
+                                background: #b4bac3;
+                                font-size: 0.7rem;
+                                padding: 2px 10px;
+                                border-radius: 5px;
+                                box-shadow: 0 10px 10px #1a1a1a;
+                                color: #30323e;
+                                top: 50%;
+                                position: absolute;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+                                &::before {
+                                    position: absolute;
+                                    content: "";
+                                    height: 8px;
+                                    width: 8px;
+                                    background: #b4bac3;
+                                    bottom: -4px;
+                                    left: 50%;
+                                    transform: translateX(-50%) rotate(45deg);
+                                }
+                            }
+                        }
+                        a:hover {
+                            i {
+                                color: #34ac9e;
+                            }
+
+                            .tooltip {
+                                top: 6%;
+                                opacity: 1;
+                                pointer-events: auto;
+                            }
+
+                            .tooltip_course {
+                                top: 20%;
+                                opacity: 1;
+                                pointer-events: auto;
+                            }
+
+                            .tooltip_concept {
+                                top: 32%;
+                                opacity: 1;
+                                pointer-events: auto;
+                            }
+
+                            .tooltip_trainers {
+                                top: 45%;
+                                opacity: 1;
+                                pointer-events: auto;
+                            }
+                        }
+
+                        &:hover {
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                }
+            }
+            .rightsideBar {
+                height: 95vh;
+                flex: 1;
+
+                overflow: hidden;
+                display: flex;
+
+                .main {
+                    position: relative;
+                    width: 72%;
+                    height: 100%;
+                    background: rebeccapurple;
+
+                    .topSection {
+                        width: 100%;
+                        position: relative;
+                        height: calc(100% - 88%);
+                        background: antiquewhite;
+                        padding: 0 20px;
+                    }
+
+                    .middlecontainer {
+                        width: 100%;
+                        position: relative;
+                        height: calc(100% - 12%);
+                        background: blue;
+                        padding: 0 20px;
+                        .middleSection {
+                            width: 100%;
+                            position: relative;
+                            height: calc(100% - 20%);
+                            background: purple;
+                            padding: 0 20px;
+                        }
+                        .bottomSection {
+                            width: 100%;
+                            position: relative;
+                            height: calc(100% - 80%);
+                            background: red;
+                            padding: 0 20px;
+                        }
+                    }
+                }
+                .sideBar {
+                    position: relative;
+                    width: 28%;
+                    height: 100%;
+                    background: purple;
+                }
+            }
+        }
+    }
+}
