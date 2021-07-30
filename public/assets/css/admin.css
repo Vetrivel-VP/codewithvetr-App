@@ -294,22 +294,58 @@ main section .container .rightsideBar .main {
   position: relative;
   width: 72%;
   height: 100%;
-  background: rebeccapurple;
 }
 
 main section .container .rightsideBar .main .topSection {
   width: 100%;
   position: relative;
-  height: calc(100% - 88%);
-  background: antiquewhite;
+  height: calc(100% - 92%);
   padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 20px;
+  color: #cdcbd0;
+}
+
+main section .container .rightsideBar .main .topSection a {
+  color: #cdcbd0;
+}
+
+main section .container .rightsideBar .main .topSection .logo {
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .main .topSection .logo h2 {
+  font-size: 18px;
+}
+
+main section .container .rightsideBar .main .topSection .logo h2 span {
+  font-size: 22px;
+  background: linear-gradient(45deg, #40c5e6, #00ffff, #34ac9e, #31d8ae, #30e180, #00fd94);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main section .container .rightsideBar .main .topSection p {
+  color: #c3c3c363;
+  font-size: 12px;
 }
 
 main section .container .rightsideBar .main .middlecontainer {
   width: 100%;
   position: relative;
-  height: calc(100% - 12%);
-  background: blue;
+  height: calc(100% - 8%);
   padding: 0 20px;
 }
 
@@ -317,16 +353,121 @@ main section .container .rightsideBar .main .middlecontainer .middleSection {
   width: 100%;
   position: relative;
   height: calc(100% - 20%);
-  background: purple;
-  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main section .container .rightsideBar .main .middlecontainer .middleSection .firstCard {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 0.4;
+      -ms-flex: 0.4;
+          flex: 0.4;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main section .container .rightsideBar .main .middlecontainer .middleSection .firstCard .card {
+  cursor: pointer;
+  width: 275px;
+  height: 200px;
+  background: #101013;
+  border-radius: 40px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+
+main section .container .rightsideBar .main .middlecontainer .middleSection .firstCard .card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main section .container .rightsideBar .main .middlecontainer .middleSection .secondCard {
+  width: 100%;
+  -webkit-box-flex: 0.6;
+      -ms-flex: 0.6;
+          flex: 0.6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main section .container .rightsideBar .main .middlecontainer .middleSection .secondCard .card {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 80%;
+  background: #101013;
+  border-radius: 40px;
+  -webkit-box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
+          box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
 }
 
 main section .container .rightsideBar .main .middlecontainer .bottomSection {
   width: 100%;
   position: relative;
   height: calc(100% - 80%);
-  background: red;
-  padding: 0 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .bottomSection p {
+  color: #c3c3c363;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-left: 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .bottomSection .mainCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 60%;
+  margin-top: 10px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .bottomSection .mainCard .card {
+  cursor: pointer;
+  width: 48%;
+  height: 100%;
+  background: #101013;
+  border-radius: 25px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+main section .container .rightsideBar .main .middlecontainer .bottomSection .mainCard .card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }
 
 main section .container .rightsideBar .sideBar {
