@@ -424,6 +424,20 @@ main section .container .rightsideBar .main .middlecontainer .middleSection .sec
           box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
 }
 
+main section .container .rightsideBar .main .middlecontainer .middleSection .secondCard .card::after {
+  position: absolute;
+  content: "";
+  width: 75%;
+  height: 100px;
+  background: linear-gradient(18deg, #2b1045, #aa2efe);
+  bottom: -7%;
+  border-radius: 30px;
+  left: 13%;
+  z-index: -1;
+  -webkit-box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
+          box-shadow: 5px 15px 25px rgba(0, 0, 0, 0.35);
+}
+
 main section .container .rightsideBar .main .middlecontainer .bottomSection {
   width: 100%;
   position: relative;
@@ -474,6 +488,373 @@ main section .container .rightsideBar .sideBar {
   position: relative;
   width: 28%;
   height: 100%;
-  background: purple;
+  position: relative;
+}
+
+main section .container .rightsideBar .sideBar .userMenu {
+  width: 100%;
+  height: calc(100% - 90%);
+}
+
+main section .container .rightsideBar .sideBar .userMenu .menuContainer {
+  float: right;
+  margin-top: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .menuContainer .imgBx {
+  width: 35px;
+  height: 35px;
+  background: #00fd94;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .menuContainer .imgBx img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .menuContainer i {
+  color: #cdcbd0;
+  font-size: 25px;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .menuContainer i:hover {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu {
+  display: none;
+  width: 200px;
+  height: 100px;
+  background: #101013;
+  position: absolute;
+  top: 10%;
+  left: 35%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  padding: 10px 0;
+  -webkit-animation: fade 1s ease;
+          animation: fade 1s ease;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu ul li {
+  padding: 10px;
+  cursor: pointer;
+  color: #cdcbd0;
+  font-size: 14px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu ul li:hover {
+  background: #4848487a;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu .signout {
+  background: #4848487a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35px;
+  margin: 2px;
+  border-radius: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #cdcbd0;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu .signout p {
+  padding-right: 30px;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu .signout i {
+  font-size: 25px;
+}
+
+main section .container .rightsideBar .sideBar .userMenu .userDropMenu .signout:hover {
+  color: #fff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+main section .container .rightsideBar .sideBar .userCard {
+  width: 100%;
+  height: calc(100% - 60%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box {
+  position: relative;
+  width: 75%;
+  height: 90%;
+  background: linear-gradient(-45deg, #2b1045, #aa2efe);
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .glowBox {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #bc34fe;
+  top: 10%;
+  left: 10%;
+  -webkit-filter: blur(12px);
+          filter: blur(12px);
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .glowBox::after {
+  position: absolute;
+  content: "";
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #e863ad;
+  top: 0%;
+  left: 0%;
+  -webkit-filter: blur(50px);
+          filter: blur(50px);
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent svg circle {
+  width: 150px;
+  height: 150px;
+  fill: none;
+  stroke-width: 10;
+  stroke: #000;
+  -webkit-transform: translate(5px, 5px);
+          transform: translate(5px, 5px);
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  stroke-linecap: round;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #eb97ec4d;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent svg circle:nth-child(2) {
+  stroke-dashoffset: calc(440 - (440 * 87) / 100);
+  stroke: #ffbc00;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #cdcbd0;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent .number h2 {
+  font-size: 48px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .percent .number h2 span {
+  font-size: 24px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .text {
+  width: 100%;
+  padding: 10px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .text p {
+  color: #cdcbd0;
+  font-size: 12px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .text span {
+  color: #cdcbd0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .text .left {
+  text-align: center;
+  font-size: 15px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box .text .right {
+  text-align: center;
+  font-size: 15px;
+}
+
+main section .container .rightsideBar .sideBar .userCard .box::before {
+  position: absolute;
+  content: "";
+  width: 95%;
+  height: 80%;
+  border-radius: 25px;
+  background: linear-gradient(-45deg, #234544, #1fa493);
+  left: 11%;
+  -webkit-transform: rotate(24deg);
+          transform: rotate(24deg);
+  z-index: -2;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main section .container .rightsideBar .sideBar .userCard .box::after {
+  position: absolute;
+  content: "";
+  width: 95%;
+  height: 90%;
+  border-radius: 25px;
+  background: linear-gradient(-45deg, #ffbc00, #fecf65);
+  left: 9%;
+  top: 0;
+  -webkit-transform: rotate(12deg);
+          transform: rotate(12deg);
+  z-index: -2;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main section .container .rightsideBar .sideBar .sectioncards {
+  width: 100%;
+  height: calc(100% - 50%);
+  padding: 15px;
+}
+
+main section .container .rightsideBar .sideBar .sectioncards p {
+  color: #cdcbd0;
+}
+
+main section .container .rightsideBar .sideBar .sectioncards .cards {
+  width: 100%;
+  height: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main section .container .rightsideBar .sideBar .sectioncards .cards .card {
+  width: 100%;
+  height: 70px;
+  background: #101013;
+  border-radius: 30px;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .sideBar .sectioncards .cards .card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
 }
 /*# sourceMappingURL=admin.css.map */

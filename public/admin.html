@@ -37,7 +37,11 @@
                 <div class="rightsideBar">
                     <div class="main">
                         <div class="topSection">
-                            <a href="#"><div class="logo"><h2><span>C</span>ode <span>W</span>ith <span>V</span>etri</h2></div></a>
+                            <a href="#">
+                                <div class="logo">
+                                    <h2><span>C</span>ode <span>W</span>ith <span>V</span>etri</h2>
+                                </div>
+                            </a>
                             <p>My Dashboard</p>
                         </div>
                         <div class="middlecontainer">
@@ -62,9 +66,53 @@
                         </div>
                     </div>
                     <div class="sideBar">
-                        <div class="userMenu"></div>
-                        <div class="userCard"></div>
-                        <div class="sectioncards"></div>
+                        <div class="userMenu">
+                            <div class="menuContainer">
+                                <div class="imgBx"><img src="" alt=""></div>
+                                <i class='bx bx-chevron-down' id="admindropeMenu_btn"></i>
+                            </div>
+                            <div class="userDropMenu" id="adminDropMenuContainer">
+                                <ul>
+                                    <li>My Profile</li>
+                                </ul>
+                                <div class="signout">
+                                    <p>Sign Out</p>
+                                    <i class='bx bx-log-out'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="userCard">
+                            <div class="box">
+                                <div class="glowBox"></div>
+                                <div class="percent">
+                                    <svg>
+                                        <circle cx="70" cy="70" r="70"></circle>
+                                        <circle cx="70" cy="70" r="70"></circle>
+                                    </svg>
+                                    <div class="number">
+                                        <h2>87<span>%</span></h2>
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <div class="left">
+                                        <p>Total Cources</p>
+                                        <span>250</span>
+                                    </div>
+                                    <div class="right">
+                                        <p>Total Users</p>
+                                        <span>220</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sectioncards">
+                            <p>Over all Count</p>
+                            <div class="cards">
+                                <div class="card"></div>
+                                <div class="card"></div>
+                                <div class="card"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,6 +128,8 @@
 
     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+    <script src="./assets/js/admin.js"></script>
 </body>
 
 </html>
