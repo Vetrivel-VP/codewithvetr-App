@@ -50,9 +50,9 @@
                                     <div class="card">
                                         <div class="top">
                                             <div class="svgContainer">
-                                                <i class='bx bxs-folder'></i>
+                                                <img src="./assets/img/icons-3.png" alt="">
                                             </div>
-                                            <i class='bx bx-dots-vertical'></i>
+                                            <i class='bx bx-dots-vertical' onclick="firstCardMenuCourses()"></i>
                                         </div>
                                         <div class="middle">
                                             <p>Courses</p>
@@ -60,57 +60,98 @@
                                         </div>
                                         <div class="lower">
                                             <div class="progress"></div>
+                                        </div>
+                                        <div class="card-menucontainer" id="firstCardMenuCourses">
+                                            <ul>
+                                                <li><a href="#">Get All Courses</a></li>
+                                                <li><a href="#">Add New</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="top">
                                             <div class="svgContainer">
-                                                <i class='bx bxs-folder'></i>
+                                                <img src="./assets/img/icons-9.png" alt="">
                                             </div>
-                                            <i class='bx bx-dots-vertical'></i>
+                                            <i class='bx bx-dots-vertical' onclick="firstCardMenuConcepts()"></i>
                                         </div>
                                         <div class="middle">
-                                            <p>Courses</p>
+                                            <p>Concepts</p>
                                             <p>4252</p>
                                         </div>
                                         <div class="lower">
                                             <div class="progress"></div>
+                                        </div>
+                                        <div class="card-menucontainer" id="firstCardMenuConcepts">
+                                            <ul>
+                                                <li><a href="#">Get All Concepts</a></li>
+                                                <li><a href="#">Add New</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                     <div class="card">
                                         <div class="top">
                                             <div class="svgContainer">
-                                                <i class='bx bxs-folder'></i>
+                                                <img src="./assets/img/icons-9.png" alt="">
                                             </div>
-                                            <i class='bx bx-dots-vertical'></i>
+                                            <i class='bx bx-dots-vertical' onclick="firstCardMenutrainers()"></i>
                                         </div>
                                         <div class="middle">
-                                            <p>Courses</p>
+                                            <p>Trainers</p>
                                             <p>4252</p>
                                         </div>
                                         <div class="lower">
                                             <div class="progress"></div>
+                                        </div>
+                                        <div class="card-menucontainer" id="firstCardMenutrainers">
+                                            <ul>
+                                                <li><a href="#">Get All trainers</a></li>
+                                                <li><a href="#">Add New</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="secondCard">
                                     <div class="card">
+
                                     </div>
                                 </div>
                             </div>
                             <div class="bottomSection">
-                                <p>Over All Status</p>
+                                <p>Trainers & Courses</p>
                                 <div class="mainCard">
-                                    <div class="card"></div>
-                                    <div class="card"></div>
+                                    <div class="card">
+                                        <div class="textContainer">
+                                            <p>Trainers</p>
+                                            <p>2</p>
+                                        </div>
+                                        <div class="imgContainer">
+                                            <div class="imgBox"><img src="./assets/img/man.jpg" alt="" srcset=""></div>
+                                            <div class="imgBox"><img src="./assets/img/man.jpg" alt="" srcset=""></div>
+                                            <div class="imgBox"><img src="./assets/img/man.jpg" alt="" srcset=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="textContainer">
+                                            <p>Courses</p>
+                                            <p>5</p>
+                                        </div>
+                                        <div class="imgContainer">
+                                            <div class="imgBox"><img src="./assets/img/web.png" alt="" srcset=""></div>
+                                            <div class=" imgBox"><img src="./assets/img/c_logo.png" alt="" srcset="">
+                                            </div>
+                                            <div class="imgBox"><img src="./assets/img/py_logo.png" alt="" srcset="">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="sideBar">
                         <div class="userMenu">
-                            <div class="menuContainer">
-                                <div class="imgBx"><img src="" alt=""></div>
+                            <div class="menuContainer" id="admin-UserMenu">
+                                <div class="imgBx" id="admin-UserMenuImg"><img src="" alt=""></div>
                                 <i class='bx bx-chevron-down' id="admindropeMenu_btn"></i>
                             </div>
                             <div class="userDropMenu" id="adminDropMenuContainer">
@@ -150,9 +191,48 @@
                         <div class="sectioncards">
                             <p>Over all Count</p>
                             <div class="cards">
-                                <div class="card"></div>
-                                <div class="card"></div>
-                                <div class="card"></div>
+                                <div class="card">
+                                    <div class="imgBox"></div>
+                                    <div class="textContainer">
+                                        <h2>Trainers</h2>
+                                        <p>2</p>
+                                    </div>
+                                    <i class='bx bx-dots-vertical' onclick="menutrainer()"></i>
+                                    <div class="menucontainer" id="Menutrainer">
+                                        <ul>
+                                            <li><a href="#">Get All trainers</a></li>
+                                            <li><a href="#">Add New</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="imgBox"></div>
+                                    <div class="textContainer">
+                                        <h2>Users</h2>
+                                        <p>2</p>
+                                    </div>
+                                    <i class='bx bx-dots-vertical' onclick="menuUsers()"></i>
+                                    <div class="menucontainer" id="MenuUsers">
+                                        <ul>
+                                            <li><a href="#">Get All Users</a></li>
+                                            <li><a href="#">Add New</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="imgBox"></div>
+                                    <div class="textContainer">
+                                        <h2>Courses</h2>
+                                        <p>2</p>
+                                    </div>
+                                    <i class='bx bx-dots-vertical' onclick="menuCourses()"></i>
+                                    <div class="menucontainer" id="MenuCourses">
+                                        <ul>
+                                            <li><a href="#">Get All Cources</a></li>
+                                            <li><a href="#">Add New</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -170,6 +250,10 @@
 
     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="./assets/js/fireBaseConfig.js"></script>
 
     <script src="./assets/js/admin.js"></script>
 </body>

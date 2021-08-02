@@ -1,18 +1,3 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-var firebaseConfig = {
-  apiKey: "AIzaSyCucAMt5mp10JeG5a6eGYQXAaE5n_2pIwU",
-  authDomain: "codewithvetri.firebaseapp.com",
-  projectId: "codewithvetri",
-  storageBucket: "codewithvetri.appspot.com",
-  messagingSenderId: "273773670963",
-  appId: "1:273773670963:web:4913653d7899f20e236946",
-  measurementId: "G-3BSS2Q8D31",
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-
 const loginGoogle = document.getElementById("loginGoogle");
 const profileContainer = document.querySelector(".profileContainer");
 const signOutBtn = document.querySelector(".signout");
@@ -74,6 +59,12 @@ function showUserDetails(user) {
         <i class='bx bx-chevron-up' id="up"></i>
     </div>
     `;
+
+  if (user.uid === "Q6zLci0DGvQsCof8O1u2SNL61zS2") {
+    document.querySelector(".menuContaier ul").innerHTML += `
+      <a href="./admin.html"><li>Dashboard</li></a>
+    `;
+  }
 }
 
 function signOutUser() {
