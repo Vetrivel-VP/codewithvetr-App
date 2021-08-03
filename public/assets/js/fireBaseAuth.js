@@ -61,8 +61,12 @@ function showUserDetails(user) {
     `;
 
   if (user.uid === "Q6zLci0DGvQsCof8O1u2SNL61zS2") {
-    document.querySelector(".menuContaier ul").innerHTML += `
+    document.querySelector(".menuContaier ul").innerHTML = `
       <a href="./admin.html"><li>Dashboard</li></a>
+    `;
+  } else {
+    document.querySelector(".menuContaier ul").innerHTML = `
+      <a href=""><li>Favourite</li></a>
     `;
   }
 }
@@ -158,10 +162,6 @@ signUpUser.addEventListener("click", () => {
 document.querySelector(".formcontainer form").addEventListener("submit", () => {
   UserActionButton.value == "Sign In" ? signInUser() : signUpNewUser();
 });
-
-// UserActionButton.addEventListener("click", () => {
-//   signUpUser.innerText = "Sign In" ? signInUser() : signUpNewUser();
-// });
 
 let signUpNewUser = () => {
   const userMail = creatUserFormEmailId.value;

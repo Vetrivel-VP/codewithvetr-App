@@ -1001,7 +1001,7 @@ body .hljs {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 175px;
+  height: 100px;
   float: right;
   width: 230px;
   background: var(--card);

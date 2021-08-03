@@ -1095,6 +1095,13 @@ main section .container .rightsideBar .sideBar .sectioncards .cards .card .imgBo
   overflow: hidden;
 }
 
+main section .container .rightsideBar .sideBar .sectioncards .cards .card .imgBox img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 main section .container .rightsideBar .sideBar .sectioncards .cards .card .textContainer {
   text-align: left;
   color: #cdcbd0;

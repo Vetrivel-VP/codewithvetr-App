@@ -1,6 +1,9 @@
 let admindropeMenu_btn = document.getElementById("admindropeMenu_btn");
 let adminDropMenuContainer = document.getElementById("adminDropMenuContainer");
 
+var API_BASE_URL =
+  "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
+
 admindropeMenu_btn.addEventListener("click", () => {
   if (adminDropMenuContainer.style.display == "block") {
     admindropeMenu_btn.style.transform = "rotate(0deg)";
@@ -62,6 +65,21 @@ let checkAdminUser = () => {
     }
   });
 };
+
+function signOutUser() {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      location.replace("./index.html");
+      //   profileContainer.style.display = "none";
+      //   document.querySelector(".menuContaier").style.display = "none";
+      //   loginContainer.style.display = "block";
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+}
 
 let showAdminUser = (user) => {
   const imgURL = "./assets/img/profile.svg";
