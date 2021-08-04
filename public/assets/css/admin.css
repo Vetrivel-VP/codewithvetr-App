@@ -26,6 +26,7 @@ a {
 }
 
 main {
+  position: relative;
   background: #040306;
   overflow: hidden;
   min-height: 100vh;
@@ -39,6 +40,55 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+main .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #dedede;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+main .overlay i {
+  font-size: 60px;
+}
+
+main .overlay h3 {
+  font-size: 16px;
+  color: #616161;
 }
 
 main section {
@@ -246,6 +296,34 @@ main section .container .leftsideBar ul li a .tooltip_trainers::before {
           transform: translateX(-50%) rotate(45deg);
 }
 
+main section .container .leftsideBar ul li a .tooltip_users {
+  background: #b4bac3;
+  font-size: 0.7rem;
+  padding: 2px 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 10px #1a1a1a;
+          box-shadow: 0 10px 10px #1a1a1a;
+  color: #30323e;
+  top: 65%;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+main section .container .leftsideBar ul li a .tooltip_users::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #b4bac3;
+  bottom: -4px;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(45deg);
+          transform: translateX(-50%) rotate(45deg);
+}
+
 main section .container .leftsideBar ul li a:hover i {
   color: #34ac9e;
 }
@@ -270,6 +348,12 @@ main section .container .leftsideBar ul li a:hover .tooltip_concept {
 
 main section .container .leftsideBar ul li a:hover .tooltip_trainers {
   top: 45%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main section .container .leftsideBar ul li a:hover .tooltip_users {
+  top: 60%;
   opacity: 1;
   pointer-events: auto;
 }
@@ -551,15 +635,6 @@ main section .container .rightsideBar .main .middlecontainer .middleSection .fir
   display: flex;
 }
 
-@-webkit-keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @keyframes fade {
   from {
     opacity: 0;
@@ -717,6 +792,189 @@ main section .container .rightsideBar .main .middlecontainer .bottomSection .mai
           transform: translateY(-5px);
   -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection {
+  width: 100%;
+  height: calc(100% - 90%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #cdcbd0;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection .inputBox {
+  height: 100%;
+  width: 60%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection .inputBox input {
+  width: 90%;
+  border: none;
+  outline: none;
+  background: transparent;
+  border-bottom: 1px solid #cdcbd033;
+  color: #cdcbd0;
+  font-size: 16px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection .inputBox input:focus {
+  border-bottom: 1px solid #cdcbd0;
+  -webkit-transition: border-bottom 0.3s ease;
+  transition: border-bottom 0.3s ease;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection .inputBox i {
+  position: absolute;
+  right: 10%;
+  font-size: 25px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection a {
+  background: #cddbd026;
+  padding: 7px 20px;
+  border-radius: 8px;
+  color: #989898;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseTopSection a:hover {
+  background: #cddbd04f;
+  color: #d0cfcf;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection {
+  width: 100%;
+  height: calc(100% - 10%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow-y: auto;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.5rem;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection::-webkit-scrollbar-track {
+  background: #d0cfcf;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection::-webkit-scrollbar-thumb {
+  background: #0000008a;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card {
+  width: 180px;
+  height: 220px;
+  background: #0000008a;
+  border-radius: 10px;
+  margin: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .topcardSection {
+  width: 100%;
+  height: calc(100% - 20%);
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .topcardSection .contentBox {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+  background: rgba(0, 0, 0, 0.68);
+  padding: 7px 5px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .topcardSection .contentBox h3 {
+  font-size: 12px;
+  color: #d0cfcf;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .topcardSection .imgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .topcardSection .imgBox img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .bottomCardSection {
+  width: 100%;
+  height: calc(100% - 80%);
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  color: #d0cfcf;
+  position: relative;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .bottomCardSection .countText {
+  position: absolute;
+  top: 0;
+  padding: 0 5px;
+  font-size: 15px;
+  width: 100%;
+  color: #afafaf;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .bottomCardSection .countText span {
+  float: right;
+  font-weight: 700;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .card .bottomCardSection .addedDate {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  font-size: 9px;
+  color: grey;
 }
 
 main section .container .rightsideBar .sideBar {
@@ -942,7 +1200,6 @@ main section .container .rightsideBar .sideBar .userCard .box .percent svg circl
 }
 
 main section .container .rightsideBar .sideBar .userCard .box .percent svg circle:nth-child(2) {
-  stroke-dashoffset: calc(440 - (440 * 87) / 100);
   stroke: #ffbc00;
 }
 

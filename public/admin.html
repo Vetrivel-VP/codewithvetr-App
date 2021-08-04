@@ -14,23 +14,30 @@
 <body>
 
     <main>
+        <div class="overlay" id="overlay">
+            <i class='bx bx-loader-circle bx-spin'></i>
+            <h3>Loading</h3>
+        </div>
         <section>
             <div class="color"></div>
             <div class="color"></div>
             <div class="container">
                 <div class="leftsideBar">
                     <ul class="navMenu">
-                        <li><a href="./index.html">
-                                <div class="tooltip">Home</div><i class='bx bx-home'></i>
+                        <li onclick="mainDashboardView()"><a href="#">
+                                <div class="tooltip">Dashboard</div><i class='bx bx-home'></i>
                             </a></li>
-                        <li><a href="#">
+                        <li onclick="coursesList()"><a href="#">
                                 <div class="tooltip_course">Courses</div><i class='bx bx-book'></i>
                             </a></li>
-                        <li><a href="#">
+                        <li onclick="conceptsList()"><a href="#">
                                 <div class="tooltip_concept">Concepts</div><i class='bx bxs-book-content'></i></i>
                             </a></li>
-                        <li><a href="#">
-                                <div class="tooltip_trainers">Trainers</div><i class='bx bx-home'></i>
+                        <li onclick="trainersList()"><a href="#">
+                                <div class="tooltip_trainers">Trainers</div><i class='bx bxs-user-voice'></i>
+                            </a></li>
+                        <li onclick="usersList()"><a href="#">
+                                <div class="tooltip_users">Users</div><i class='bx bxs-user-rectangle'></i>
                             </a></li>
                     </ul>
                 </div>
@@ -44,103 +51,8 @@
                             </a>
                             <p>My Dashboard</p>
                         </div>
-                        <div class="middlecontainer">
-                            <div class="middleSection">
-                                <div class="firstCard">
-                                    <div class="card">
-                                        <div class="top">
-                                            <div class="svgContainer">
-                                                <img src="./assets/img/icons-3.png" alt="">
-                                            </div>
-                                            <i class='bx bx-dots-vertical' onclick="firstCardMenuCourses()"></i>
-                                        </div>
-                                        <div class="middle" id="firstCard_middle_courses">
-                                            <p>Courses</p>
-                                        </div>
-                                        <div class="lower">
-                                            <div class="progress"></div>
-                                        </div>
-                                        <div class="card-menucontainer" id="firstCardMenuCourses">
-                                            <ul>
-                                                <li><a href="#">Get All Courses</a></li>
-                                                <li><a href="#">Add New</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="top">
-                                            <div class="svgContainer">
-                                                <img src="./assets/img/icons-9.png" alt="">
-                                            </div>
-                                            <i class='bx bx-dots-vertical' onclick="firstCardMenuConcepts()"></i>
-                                        </div>
-                                        <div class="middle" id="firstCard_text_concepts">
-                                            <p>Concepts</p>
-                                        </div>
-                                        <div class="lower">
-                                            <div class="progress"></div>
-                                        </div>
-                                        <div class="card-menucontainer" id="firstCardMenuConcepts">
-                                            <ul>
-                                                <li><a href="#">Get All Concepts</a></li>
-                                                <li><a href="#">Add New</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="top">
-                                            <div class="svgContainer">
-                                                <img src="./assets/img/trainers.png" alt="">
-                                            </div>
-                                            <i class='bx bx-dots-vertical' onclick="firstCardMenutrainers()"></i>
-                                        </div>
-                                        <div class="middle" id="firstCard_text_trainers">
-                                            <p>Trainers</p>
-                                        </div>
-                                        <div class="lower">
-                                            <div class="progress"></div>
-                                        </div>
-                                        <div class="card-menucontainer" id="firstCardMenutrainers">
-                                            <ul>
-                                                <li><a href="#">Get All trainers</a></li>
-                                                <li><a href="#">Add New</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="secondCard">
-                                    <div class="card">
+                        <div class="middlecontainer" id="maindMiddleContainer">
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bottomSection">
-                                <p>Trainers & Courses</p>
-                                <div class="mainCard">
-                                    <div class="card">
-                                        <div class="textContainer" id="bottomSection_text_trainer">
-                                            <p>Trainers</p>
-                                        </div>
-                                        <div class="imgContainer">
-                                            <div class="imgBox"><img src="./assets/img/man.jpg" alt="" srcset=""></div>
-                                            <div class="imgBox"><img src="./assets/img/man.jpg" alt="" srcset=""></div>
-                                            <div class="imgBox"><img src="./assets/img/man.jpg" alt="" srcset=""></div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="textContainer" id="bottomSection_card_courses">
-                                            <p>Courses</p>
-                                        </div>
-                                        <div class="imgContainer">
-                                            <div class="imgBox"><img src="./assets/img/web.png" alt="" srcset=""></div>
-                                            <div class=" imgBox"><img src="./assets/img/c_logo.png" alt="" srcset="">
-                                            </div>
-                                            <div class="imgBox"><img src="./assets/img/py_logo.png" alt="" srcset="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="sideBar">
@@ -165,10 +77,10 @@
                                 <div class="percent">
                                     <svg>
                                         <circle cx="70" cy="70" r="70"></circle>
-                                        <circle cx="70" cy="70" r="70"></circle>
+                                        <circle cx="70" cy="70" r="70" id="svgCircleGlow"></circle>
                                     </svg>
                                     <div class="number">
-                                        <h2>87<span>%</span></h2>
+                                        <h2 id="percentageNumber"><span>%</span></h2>
                                     </div>
                                 </div>
                                 <div class="text">
@@ -195,7 +107,7 @@
                                     <i class='bx bx-dots-vertical' onclick="menutrainer()"></i>
                                     <div class="menucontainer" id="Menutrainer">
                                         <ul>
-                                            <li><a href="#">Get All trainers</a></li>
+                                            <li onclick="trainersList()"><a href="#">Get All trainers</a></li>
                                             <li><a href="#">Add New</a></li>
                                         </ul>
                                     </div>
@@ -211,7 +123,7 @@
                                     <i class='bx bx-dots-vertical' onclick="menuUsers()"></i>
                                     <div class="menucontainer" id="MenuUsers">
                                         <ul>
-                                            <li><a href="#">Get All Users</a></li>
+                                            <li onclick="usersList()"><a href="#">Get All Users</a></li>
                                             <li><a href="#">Add New</a></li>
                                         </ul>
                                     </div>
@@ -226,7 +138,7 @@
                                     <i class='bx bx-dots-vertical' onclick="menuCourses()"></i>
                                     <div class="menucontainer" id="MenuCourses">
                                         <ul>
-                                            <li><a href="#">Get All Cources</a></li>
+                                            <li onclick="coursesList()"><a href="#">Get All Cources</a></li>
                                             <li><a href="#">Add New</a></li>
                                         </ul>
                                     </div>

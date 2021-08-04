@@ -1,3 +1,4 @@
+var mainMiddleContainer = document.getElementById("maindMiddleContainer");
 var API_Users = "/api/users";
 var API_Users_ID = "/api/users/read/";
 
@@ -37,6 +38,14 @@ const userTotalCount = (userData) => {
   ).innerHTML += `                                   
     <p>${userCount}</p>
     `;
+
+  document.getElementById(
+    "svgCircleGlow"
+  ).style.strokeDashoffset = `calc(440 - (440 * ${userCount / 100}) / 100)`;
+
+  document.getElementById("percentageNumber").innerHTML = `${
+    (userCount / 100) * 100
+  }<span>%</span>`;
 };
 
 // Get all courses
@@ -121,9 +130,89 @@ const conceptsTotalCount = (conceptData) => {
   `;
 };
 
-window.onload = () => {
+// overlay Effect
+const setOverlayEffect = () => {
+  document.getElementById("overlay").style.display = "flex";
+};
+
+const closeOverlayEffect = () => {
+  setTimeout(() => {
+    document.getElementById("overlay").style.animation = "fade 1s ease";
+    document.getElementById("overlay").style.display = "none";
+  }, 1000);
+};
+
+// displaying main dashboard
+const mainDashboardView = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+  };
+  xhttp.open("GET", "./assets/pages/mainDashboard.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+// displaying course list
+const coursesList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+  };
+  xhttp.open("GET", "./assets/pages/coursesList.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+// displaying trainers list
+const trainersList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+  };
+  xhttp.open("GET", "./assets/pages/getallTrainers.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+// displaying users list
+const usersList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+  };
+  xhttp.open("GET", "./assets/pages/getAllUsers.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+// displaying concepts list
+const conceptsList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+  };
+  xhttp.open("GET", "./assets/pages/getAllConcepts.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+window.addEventListener("load", () => {
+  setOverlayEffect();
+  mainDashboardView();
   getAllUsers();
   getAllCourses();
   getAllTrainers();
   getAllCaoncepts();
-};
+  closeOverlayEffect();
+});
