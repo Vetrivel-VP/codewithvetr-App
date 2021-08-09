@@ -209,10 +209,10 @@ const conceptsList = () => {
 
 window.addEventListener("load", () => {
   setOverlayEffect();
-  mainDashboardView();
-  getAllUsers();
-  getAllCourses();
-  getAllTrainers();
-  getAllCaoncepts();
+  // mainDashboardView();
+  // getAllUsers();
+  // getAllCourses();
+  // getAllTrainers();
+  // getAllCaoncepts();
   closeOverlayEffect();
 });
