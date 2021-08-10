@@ -53,7 +53,15 @@ function firstCardMenuCourses() {
   document
     .getElementById("firstCardMenuCourses")
     .addEventListener("click", () => {
-      document.getElementById("firstCardMenuCourses").remove("active");
+      if (
+        document
+          .getElementById("firstCardMenuCourses")
+          .classList.contains("active")
+      ) {
+        document
+          .getElementById("firstCardMenuCourses")
+          .classList.toggle("active");
+      }
     });
 }
 
@@ -62,7 +70,15 @@ function firstCardMenuConcepts() {
   document
     .getElementById("firstCardMenutrainers")
     .addEventListener("click", () => {
-      document.getElementById("firstCardMenutrainers").remove("active");
+      if (
+        document
+          .getElementById("firstCardMenutrainers")
+          .classList.contains("active")
+      ) {
+        document
+          .getElementById("firstCardMenutrainers")
+          .classList.toggle("active");
+      }
     });
 }
 
@@ -71,7 +87,15 @@ function firstCardMenutrainers() {
   document
     .getElementById("firstCardMenutrainers")
     .addEventListener("click", () => {
-      document.getElementById("firstCardMenutrainers").remove("active");
+      if (
+        document
+          .getElementById("firstCardMenutrainers")
+          .classList.contains("active")
+      ) {
+        document
+          .getElementById("firstCardMenutrainers")
+          .classList.toggle("active");
+      }
     });
 }
 

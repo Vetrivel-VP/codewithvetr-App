@@ -18,6 +18,10 @@
             <i class='bx bx-loader-circle bx-spin'></i>
             <h3>Loading</h3>
         </div>
+
+        <div class="adminAlert" id="adminAlert">
+
+        </div>
         <section>
             <div class="color"></div>
             <div class="color"></div>
@@ -52,44 +56,7 @@
                             <p>My Dashboard</p>
                         </div>
                         <div class="middlecontainer" id="maindMiddleContainer">
-                            <div class="courseTopSection">
-                                <div class="breadCrump">
-                                    <h4>Course List</h4>
-                                    <i class='bx bx-chevron-right'></i>
-                                    <h4>Add New Course</h4>
-                                </div>
-                            </div>
 
-                            <div class="courseMainSection">
-                                <div class="addFormContainer">
-                                    <div class="formSection">
-
-                                        <div class="inputBox">
-                                            <input type="text" required />
-                                            <span>Course Name</span>
-                                            <i class="bx bxs-user-circle"></i>
-                                        </div>
-
-                                        <div class="inputBox">
-                                            <input type="text" required />
-                                            <span>Title</span>
-                                            <i class="bx bxs-user-circle"></i>
-                                        </div>
-
-                                        <div class="imgBx">
-                                            <div class="icon">
-                                                <i class='bx bxs-cloud-upload'></i>
-                                            </div>
-                                            <header>Drag & Drop to upload</header>
-                                            <span>Or</span>
-                                            <button>Browse File</button>
-                                        </div>
-                                        <div class="inputBox">
-                                            <input type="submit" value="Save" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="sideBar">
@@ -176,7 +143,7 @@
                                     <div class="menucontainer" id="MenuCourses">
                                         <ul>
                                             <li onclick="coursesList()"><a href="#">Get All Cources</a></li>
-                                            <li><a href="#">Add New</a></li>
+                                            <li onclick="addNewToCourseList()"><a href="#">Add New</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -200,6 +167,7 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
     <script src="./assets/js/fireBaseConfig.js"></script>
 
     <script src="./assets/js/admin.js"></script>

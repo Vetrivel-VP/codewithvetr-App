@@ -1,6 +1,25 @@
 var mainMiddleContainer = document.getElementById("maindMiddleContainer");
 var API_Users = "/api/users";
 var API_Users_ID = "/api/users/read/";
+// variable for file upload
+let file;
+
+// alert Notifications
+var adminAlert = document.getElementById("adminAlert");
+function adminAlertNotifications(msg, alertWidth, bgAlertColor) {
+  adminAlert.style.display = "block";
+  adminAlert.style.setProperty("--alertWidth", alertWidth);
+  adminAlert.style.setProperty("--bgAlertColor", bgAlertColor);
+
+  adminAlert.innerHTML = `<div class="content">
+  <p>${msg}</p>
+  <i class='bx bx-x'></i>
+</div>`;
+
+  setTimeout(() => {
+    adminAlert.style.display = "none";
+  }, 4000);
+}
 
 var getAllUsers = () => {
   const API_URL = `${API_BASE_URL}${API_Users}`;
@@ -168,6 +187,107 @@ const coursesList = () => {
   closeOverlayEffect();
 };
 
+// add new course to course list
+const addNewToCourseList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+    addNewCourseDragOver();
+  };
+  xhttp.open("GET", "./assets/pages/newCourse.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+const addNewCourseDragOver = () => {
+  var dragArea = document.getElementById("dragArea");
+  var dragText = document.querySelector("header");
+  var dragButton = document.getElementById("browseBtn");
+  var dragInput = document.getElementById("fileUploadBtn");
+
+  dragButton.onclick = () => {
+    dragInput.click();
+  };
+
+  dragInput.addEventListener("change", function () {
+    file = this.files[0];
+    showFile(file);
+  });
+
+  // user drags file over the drag area
+  dragArea.addEventListener("dragover", (event) => {
+    event.preventDefault(); //prevents from default behaviour
+    dragArea.classList.add("active");
+    dragText.textContent = "Release to upload";
+  });
+
+  // user leave  the dragarea
+  dragArea.addEventListener("dragleave", () => {
+    dragArea.classList.remove("active");
+    dragText.textContent = "Drag & Drop to upload";
+  });
+
+  // user drop the file in   the dragarea
+  dragArea.addEventListener("drop", (event) => {
+    event.preventDefault(); //prevents from default behaviour
+    //getting the user dropped file
+    file = event.dataTransfer.files[0];
+    showFile(file);
+  });
+};
+
+function showFile(file) {
+  let fileType = file.type;
+  let validExtensions = ["image/jpeg", "image/png", "image/jpg"];
+  if (validExtensions.includes(fileType)) {
+    let fileReader = new FileReader(); //create file reader object
+    fileReader.onload = () => {
+      let fileUrl = fileReader.result; //pass the user source file to file reader
+      let imageTag = `<img src="${fileUrl}" alt="" />`;
+      dragArea.innerHTML = imageTag;
+      document.getElementById("saveAction").style.display = "flex";
+    };
+
+    fileReader.readAsDataURL(file); //read the file in base 64 format
+  } else {
+    console.log("Not a valid file");
+  }
+}
+
+function fileReload() {
+  var input = document.createElement("input");
+  input.type = "file";
+  input.click();
+  input.addEventListener("change", function () {
+    file = this.files[0];
+    showFile(file);
+  });
+}
+
+function saveFile() {
+  var uploadTask = firebase.storage().ref(`Images/${file.name}`).put(file);
+
+  uploadTask.on(
+    "state_changed",
+    (snapshot) => {
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log("Upload is " + progress + "% done");
+      const msg = "Upload is " + progress + "% done";
+      adminAlertNotifications(msg, progress + "%", "green");
+    },
+    (error) => {},
+    () => {
+      uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+        console.log("File available at", downloadURL);
+
+        document.getElementById("saveAction").style.display = "none";
+      });
+    }
+  );
+}
+
 // displaying trainers list
 const trainersList = () => {
   setOverlayEffect();
@@ -209,10 +329,10 @@ const conceptsList = () => {
 
 window.addEventListener("load", () => {
   setOverlayEffect();
-  // mainDashboardView();
-  // getAllUsers();
-  // getAllCourses();
-  // getAllTrainers();
-  // getAllCaoncepts();
+  mainDashboardView();
+  getAllUsers();
+  getAllCourses();
+  getAllTrainers();
+  getAllCaoncepts();
   closeOverlayEffect();
 });
