@@ -9,37 +9,39 @@
 <div class="courseMainSection">
     <div class="addFormContainer">
         <div class="formSection">
+            <form>
 
-            <div class="inputBox" id="courseName">
-                <input type="text" required />
-                <span>Course Name</span>
-                <i class="bx bxs-user-circle"></i>
-            </div>
+                <div class="inputBox" id="courseName">
+                    <input type="text" required />
+                    <span>Course Name</span>
+                    <i class="bx bxs-user-circle"></i>
+                </div>
 
-            <div class="inputBox" id="courseTitel">
-                <input type="text" required />
-                <span>Title</span>
-                <i class="bx bxs-user-circle"></i>
-            </div>
+                <div class="inputBox" id="courseTitel">
+                    <input type="text" required />
+                    <span>Title</span>
+                    <i class="bx bxs-user-circle"></i>
+                </div>
 
-            <div class="fileContainer">
-                <div class="imgBx" id="dragArea">
-                    <div class="icon">
-                        <i class='bx bxs-cloud-upload'></i>
+                <div class="fileContainer">
+                    <div class="imgBx" id="dragArea">
+                        <div class="icon">
+                            <i class='bx bxs-cloud-upload'></i>
+                        </div>
+                        <header>Drag & Drop to upload</header>
+                        <span>Or</span>
+                        <a href="#" id="browseBtn">Browse File</a>
+                        <input type="file" hidden id="fileUploadBtn">
                     </div>
-                    <header>Drag & Drop to upload</header>
-                    <span>Or</span>
-                    <button id="browseBtn">Browse File</button>
-                    <input type="file" hidden id="fileUploadBtn">
+                    <div class="saveAction" id="saveAction">
+                        <i class='bx bx-x' onclick="fileReload()"></i>
+                        <i class='bx bx-check' onclick="saveFile()"></i>
+                    </div>
                 </div>
-                <div class="saveAction" id="saveAction">
-                    <i class='bx bx-x' onclick="fileReload()"></i>
-                    <i class='bx bx-check' onclick="saveFile()"></i>
+                <div class="inputBox" onclick="saveNewCourse()">
+                    <input type="submit" value="Save" />
                 </div>
-            </div>
-            <div class="inputBox">
-                <input type="submit" value="Save" />
-            </div>
+            </form>
         </div>
     </div>
 </div>

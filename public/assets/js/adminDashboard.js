@@ -4,6 +4,9 @@ var API_Users_ID = "/api/users/read/";
 // variable for file upload
 let file;
 
+// variable for imageUrl
+var downloadImageUrl;
+
 // alert Notifications
 var adminAlert = document.getElementById("adminAlert");
 function adminAlertNotifications(msg, alertWidth, bgAlertColor) {
@@ -12,15 +15,19 @@ function adminAlertNotifications(msg, alertWidth, bgAlertColor) {
   adminAlert.style.setProperty("--bgAlertColor", bgAlertColor);
 
   adminAlert.innerHTML = `<div class="content">
+  <i class='bx bxs-badge-check'></i>
   <p>${msg}</p>
-  <i class='bx bx-x'></i>
+  <i class='bx bx-x' id="alerCloseX"></i>
 </div>`;
-
+  document.getElementById("alerCloseX").onclick = () => {
+    adminAlert.style.display = "none";
+  };
   setTimeout(() => {
     adminAlert.style.display = "none";
   }, 4000);
 }
 
+var allUsers;
 var getAllUsers = () => {
   const API_URL = `${API_BASE_URL}${API_Users}`;
   fetch(API_URL, { method: "GET" })
@@ -28,6 +35,7 @@ var getAllUsers = () => {
       return response.json();
     })
     .then((data) => {
+      allUsers = data;
       userTotalCount(data);
     });
 };
@@ -69,7 +77,7 @@ const userTotalCount = (userData) => {
 
 // Get all courses
 var API_COURSES = "/api/courses";
-
+var allCourses;
 const getAllCourses = () => {
   const API_URL = `${API_BASE_URL}${API_COURSES}`;
   fetch(API_URL, { method: "GET" })
@@ -77,6 +85,7 @@ const getAllCourses = () => {
       return response.json();
     })
     .then((data) => {
+      allCourses = data;
       courseTotalCount(data);
     });
 };
@@ -103,6 +112,7 @@ const courseTotalCount = (courseData) => {
 
 // Get All Trainers
 var API_TRAINERS = "/api/trainer";
+var allTrainer;
 const getAllTrainers = () => {
   const API_URL = `${API_BASE_URL}${API_TRAINERS}`;
   fetch(API_URL, { method: "GET" })
@@ -110,6 +120,7 @@ const getAllTrainers = () => {
       return response.json();
     })
     .then((data) => {
+      allTrainer = data;
       trainersTotalCount(data);
     });
 };
@@ -131,6 +142,7 @@ const trainersTotalCount = (trainerData) => {
 
 // Get All Concepts
 var API_CONCEPTS = "/api/concept";
+var allConcepts;
 const getAllCaoncepts = () => {
   const API_URL = `${API_BASE_URL}${API_CONCEPTS}`;
   fetch(API_URL, { method: "GET" })
@@ -138,6 +150,7 @@ const getAllCaoncepts = () => {
       return response.json();
     })
     .then((data) => {
+      allConcepts = data;
       conceptsTotalCount(data);
     });
 };
@@ -158,7 +171,7 @@ const closeOverlayEffect = () => {
   setTimeout(() => {
     document.getElementById("overlay").style.animation = "fade 1s ease";
     document.getElementById("overlay").style.display = "none";
-  }, 1000);
+  }, 2000);
 };
 
 // displaying main dashboard
@@ -184,7 +197,14 @@ const coursesList = () => {
   };
   xhttp.open("GET", "./assets/pages/coursesList.html");
   xhttp.send();
+  buildCourseList();
   closeOverlayEffect();
+};
+
+const buildCourseList = () => {
+  let courseDataList;
+  for (list_data in courseDataList) {
+  }
 };
 
 // add new course to course list
@@ -280,13 +300,52 @@ function saveFile() {
     (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-        console.log("File available at", downloadURL);
-
+        // console.log("File available at", downloadURL);
+        downloadImageUrl = downloadURL;
         document.getElementById("saveAction").style.display = "none";
       });
     }
   );
 }
+
+// saving the complete new course
+
+var API_COURSE_SAVE = "/api/courses/create";
+const saveNewCourse = () => {
+  const API_URL = `${API_BASE_URL}${API_COURSE_SAVE}`;
+  // courseName Form data
+  const courseNameDiv = document.getElementById("courseName");
+  const courseName = courseNameDiv.querySelector("input").value;
+  // courseTitle Form data
+  const courseTitelDiv = document.getElementById("courseTitel");
+  const courseTitel = courseTitelDiv.querySelector("input").value;
+
+  document
+    .querySelector(".formSection form")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let data = JSON.stringify({
+        course_name: courseName,
+        course_title: courseTitel,
+        course_img: downloadImageUrl,
+      });
+
+      fetch(API_URL, {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }).then(() => {
+        setTimeout(() => {
+          adminAlertNotifications("Data saved successfully", "100%", "green");
+          location.replace("./admin.html");
+        }, 2000);
+      });
+    });
+};
 
 // displaying trainers list
 const trainersList = () => {
