@@ -85,7 +85,7 @@ const getAllCourses = () => {
       return response.json();
     })
     .then((data) => {
-      allCourses = data;
+      allCourses = data.data;
       courseTotalCount(data);
     });
 };
@@ -184,6 +184,7 @@ const mainDashboardView = () => {
   };
   xhttp.open("GET", "./assets/pages/mainDashboard.html");
   xhttp.send();
+
   closeOverlayEffect();
 };
 
@@ -194,17 +195,44 @@ const coursesList = () => {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = () => {
     mainMiddleContainer.innerHTML = xhttp.responseText;
+    buildCourseList();
+    adminAlertNotifications("Data saved successfully", "100%", "green");
   };
   xhttp.open("GET", "./assets/pages/coursesList.html");
   xhttp.send();
-  buildCourseList();
+
   closeOverlayEffect();
 };
 
 const buildCourseList = () => {
-  let courseDataList;
-  for (list_data in courseDataList) {
+  let courseDataList = "";
+
+  for (data of allCourses) {
+    const courseDate = new Date(
+      parseInt(data.course_added_date)
+    ).toDateString();
+    courseDataList += `
+    <div class="card">
+        <div class="topcardSection">
+            <div class="imgBox">
+                <img src="${data.course_img}" alt="">
+            </div>
+            <div class="contentBox">
+                <h3>${data.course_title}</h3>
+            </div>
+        </div>
+        <div class="bottomCardSection">
+            <div class="countText">
+                <p>Concpets <span>${allCourses.length}</span></p>
+            </div>
+            <div class="addedDate">
+                <p>${courseDate}</p>
+            </div>
+        </div>
+    </div>
+    `;
   }
+  document.querySelector(".courseMainSection").innerHTML = courseDataList;
 };
 
 // add new course to course list
@@ -293,8 +321,7 @@ function saveFile() {
     "state_changed",
     (snapshot) => {
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log("Upload is " + progress + "% done");
-      const msg = "Upload is " + progress + "% done";
+      const msg = "Upload is " + progress.toFixed(2) + "% done";
       adminAlertNotifications(msg, progress + "%", "green");
     },
     (error) => {},
@@ -340,9 +367,8 @@ const saveNewCourse = () => {
         },
       }).then(() => {
         setTimeout(() => {
-          adminAlertNotifications("Data saved successfully", "100%", "green");
           location.replace("./admin.html");
-        }, 2000);
+        }, 200);
       });
     });
 };
