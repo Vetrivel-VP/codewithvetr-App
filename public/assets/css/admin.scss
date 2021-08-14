@@ -955,6 +955,22 @@ main {
                     }
                   }
 
+                  .trainerNameSection {
+                    display: flex;
+                    .inputBox {
+                      &#trainerId {
+                        input {
+                          border: 1px solid var(--border_color);
+                          color: var(--text_color, #d0cfcf);
+                        }
+                      }
+                    }
+                  }
+
+                  .trainer_contactSection {
+                    display: flex;
+                  }
+
                   .fileContainer {
                     position: relative;
                     width: 100%;

@@ -1201,6 +1201,23 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   background: #34ac8e;
 }
 
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .trainerNameSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .trainerNameSection .inputBox#trainerId input {
+  border: 1px solid var(--border_color);
+  color: var(--text_color, #d0cfcf);
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .trainer_contactSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .fileContainer {
   position: relative;
   width: 100%;

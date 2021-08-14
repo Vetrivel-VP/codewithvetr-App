@@ -196,7 +196,6 @@ const coursesList = () => {
   xhttp.onload = () => {
     mainMiddleContainer.innerHTML = xhttp.responseText;
     buildCourseList();
-    adminAlertNotifications("Data saved successfully", "100%", "green");
   };
   xhttp.open("GET", "./assets/pages/coursesList.html");
   xhttp.send();
@@ -358,6 +357,8 @@ const saveNewCourse = () => {
         course_img: downloadImageUrl,
       });
 
+      adminAlertNotifications("Data saved successfully", "100%", "green");
+
       fetch(API_URL, {
         method: "POST",
         body: data,
@@ -385,6 +386,95 @@ const trainersList = () => {
   xhttp.send();
   closeOverlayEffect();
 };
+
+const addNewToTrainerList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+    addNewCourseDragOver();
+
+    var API_Verify_Trainer = "/api/trainer/verify/";
+    const trainerId_input = document.getElementById("trainerId_input");
+    trainerId_input.onkeyup = (e) => {
+      let trainer_id = e.target.value;
+      const API_URL = `${API_BASE_URL}${API_Verify_Trainer}${trainer_id}`;
+      if (trainer_id != "") {
+        fetch(API_URL, { method: "GET" })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            if (data.data.includes("Valid User")) {
+              trainerId_input.style.setProperty("--border_color", "#34ac8e");
+              trainerId_input.style.setProperty("--text_color", "#d0cfcf");
+              document
+                .getElementById("trainerId")
+                .querySelector("i")
+                .classList.remove("bxs-user-x");
+              document
+                .getElementById("trainerId")
+                .querySelector("i")
+                .classList.add("bxs-user-check");
+              document
+                .getElementById("trainerId")
+                .querySelector("i").style.color = "#34ac8e";
+            } else {
+              trainerId_input.style.setProperty("--border_color", "red");
+              trainerId_input.style.setProperty("--text_color", "red");
+              document
+                .getElementById("trainerId")
+                .querySelector("i")
+                .classList.remove("bxs-user-check");
+              document
+                .getElementById("trainerId")
+                .querySelector("i")
+                .classList.add("bxs-user-x");
+              document
+                .getElementById("trainerId")
+                .querySelector("i").style.color = "red";
+            }
+          });
+      } else {
+        trainerId_input.style.setProperty("--border_color", "red");
+        trainerId_input.style.setProperty("--text_color", "red");
+        document
+          .getElementById("trainerId")
+          .querySelector("i")
+          .classList.remove("bxs-user-check");
+        document
+          .getElementById("trainerId")
+          .querySelector("i")
+          .classList.add("bxs-user-x");
+        document.getElementById("trainerId").querySelector("i").style.color =
+          "red";
+      }
+    };
+
+    const trainerEmail_input = document.getElementById("trainerEmail_input");
+    trainerEmail_input.onkeyup = (e) => {
+      if (validateEmail(trainerEmail_input.value)) {
+        trainerEmail_input.style.border = "1px solid #34ac9e";
+      } else {
+        trainerEmail_input.style.border = "1px solid #FF0000";
+      }
+      if (trainerEmail_input.value.length == 0) {
+        trainerEmail_input.style.border = "1px solid #FF0000";
+      }
+    };
+  };
+  xhttp.open("GET", "./assets/pages/newTrainer.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+
+// email verfication
+function validateEmail(email) {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
 
 // displaying users list
 const usersList = () => {

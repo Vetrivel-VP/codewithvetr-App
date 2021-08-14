@@ -1,0 +1,89 @@
+<div class="courseTopSection">
+    <div class="breadCrump">
+        <h4 onclick="trainersList()">Trainers List</h4>
+        <i class='bx bx-chevron-right'></i>
+        <h4 onclick="addNewToTrainerList()">Add New Trainer</h4>
+    </div>
+</div>
+
+<div class="courseMainSection">
+    <div class="addFormContainer">
+        <div class="formSection">
+            <form>
+
+                <div class="trainerNameSection">
+
+                    <div class="inputBox" id="trainerName">
+                        <input type="text" required />
+                        <span>Trainer Name</span>
+                        <i class="bx bxs-user-circle"></i>
+                    </div>
+
+                    <div class="inputBox" id="trainerId">
+                        <input type="text" required id="trainerId_input" />
+                        <span>User Id</span>
+                        <i class='bx bxs-user-x'></i>
+                    </div>
+                </div>
+
+                <div class="trainer_contactSection">
+
+                    <div class="inputBox" id="trainerEmail">
+                        <input type="email" required id="trainerEmail_input" />
+                        <span>Email</span>
+                        <i class="bx bxs-user-circle"></i>
+                    </div>
+
+                    <div class="inputBox" id="trainerMobile">
+                        <input type="text" required />
+                        <span>Mobile</span>
+                        <i class="bx bxs-user-circle"></i>
+                    </div>
+                </div>
+
+                <div class="fileContainer">
+                    <div class="imgBx" id="dragArea">
+                        <div class="icon">
+                            <i class='bx bxs-cloud-upload'></i>
+                        </div>
+                        <header>Drag & Drop to upload</header>
+                        <span>Or</span>
+                        <a href="#" id="browseBtn">Browse File</a>
+                        <input type="file" hidden id="fileUploadBtn">
+                    </div>
+                    <div class="saveAction" id="saveAction">
+                        <i class='bx bx-x' onclick="fileReload()"></i>
+                        <i class='bx bx-check' onclick="saveFile()"></i>
+                    </div>
+                </div>
+
+                <div class="inputBox" id="trainerfacebook">
+                    <input type="text" required />
+                    <span>Facebook</span>
+                    <i class='bx bxl-facebook'></i>
+                </div>
+
+                <div class="inputBox" id="trainertwitter">
+                    <input type="text" required />
+                    <span>Twitter</span>
+                    <i class='bx bxl-twitter'></i>
+                </div>
+
+                <div class="inputBox" id="trainerInstagram">
+                    <input type="text" required />
+                    <span>Instagram</span>
+                    <i class='bx bxl-instagram'></i>
+                </div>
+
+                <div class="inputBox" id="trainerGitHub">
+                    <input type="text" required />
+                    <span>GitHub</span>
+                    <i class='bx bxl-github'></i>
+                </div>
+                <div class="inputBox" onclick="saveNewCourse()">
+                    <input type="submit" value="Save" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
