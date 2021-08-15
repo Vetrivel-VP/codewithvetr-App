@@ -551,24 +551,24 @@ const buildTrainersList = () => {
       parseInt(data.trainer_added_date)
     ).toDateString();
     trainersDataList += `
-    <div class="card">
-        <div class="topcardSection">
-            <div class="imgBox">
-                <img src="${data.trainer_img}" alt="">
-            </div>
-            <div class="contentBox">
-                <h3>${data.trainer_name}</h3>
-            </div>
-        </div>
-        <div class="bottomCardSection">
-            <div class="countText">
-                <p>Concpets <span>${allTrainer.length}</span></p>
-            </div>
-            <div class="addedDate">
-                <p>${trainerDate}</p>
-            </div>
-        </div>
-    </div>
+    <div class="trainerCard">
+          <div class="bgimg"><img src="${data.trainer_img}" alt="" srcset=""></div>
+
+          <figcaption>
+              <div class="profile"><img src="${data.trainer_img}" alt="" srcset=""></div>
+              <h3>${data.trainer_name}</h3>
+              <div class="icons">
+                  <a href="${data.facebook}"><i class='bx bxl-facebook'></i></a>
+                  <a href="${data.twitter}"><i class='bx bxl-instagram'></i></a>
+                  <a href="${data.instagram}"><i class='bx bxl-twitter'></i></a>
+                  <a href="${data.github}"><i class='bx bxl-github'></i></a>
+              </div>
+          </figcaption>
+
+          <div class="addedDate">
+                  <h5>${trainerDate}</h5>
+              </div>
+      </div>
     `;
   }
   document.querySelector(".courseMainSection").innerHTML = trainersDataList;
