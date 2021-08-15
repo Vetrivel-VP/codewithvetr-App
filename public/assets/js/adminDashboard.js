@@ -120,7 +120,7 @@ const getAllTrainers = () => {
       return response.json();
     })
     .then((data) => {
-      allTrainer = data;
+      allTrainer = data.data;
       trainersTotalCount(data);
     });
 };
@@ -381,6 +381,7 @@ const trainersList = () => {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = () => {
     mainMiddleContainer.innerHTML = xhttp.responseText;
+    buildTrainersList();
   };
   xhttp.open("GET", "./assets/pages/getallTrainers.html");
   xhttp.send();
@@ -396,6 +397,7 @@ const addNewToTrainerList = () => {
     addNewCourseDragOver();
 
     var API_Verify_Trainer = "/api/trainer/verify/";
+
     const trainerId_input = document.getElementById("trainerId_input");
     trainerId_input.onkeyup = (e) => {
       let trainer_id = e.target.value;
@@ -420,6 +422,8 @@ const addNewToTrainerList = () => {
               document
                 .getElementById("trainerId")
                 .querySelector("i").style.color = "#34ac8e";
+
+              document.getElementById("trainerNew_submit").disabled = false;
             } else {
               trainerId_input.style.setProperty("--border_color", "red");
               trainerId_input.style.setProperty("--text_color", "red");
@@ -434,6 +438,7 @@ const addNewToTrainerList = () => {
               document
                 .getElementById("trainerId")
                 .querySelector("i").style.color = "red";
+              document.getElementById("trainerNew_submit").disabled = true;
             }
           });
       } else {
@@ -449,6 +454,7 @@ const addNewToTrainerList = () => {
           .classList.add("bxs-user-x");
         document.getElementById("trainerId").querySelector("i").style.color =
           "red";
+        document.getElementById("trainerNew_submit").disabled = true;
       }
     };
 
@@ -458,9 +464,11 @@ const addNewToTrainerList = () => {
         trainerEmail_input.style.border = "1px solid #34ac9e";
       } else {
         trainerEmail_input.style.border = "1px solid #FF0000";
+        // document.getElementById("trainerNew_submit").disabled = true;
       }
       if (trainerEmail_input.value.length == 0) {
         trainerEmail_input.style.border = "1px solid #FF0000";
+        // document.getElementById("trainerNew_submit").disabled = true;
       }
     };
   };
@@ -469,12 +477,102 @@ const addNewToTrainerList = () => {
   closeOverlayEffect();
 };
 
+// saving the complete new Trainer
+
+var API_Trainer_SAVE = "/api/trainer/create";
+const saveNewTrainer = () => {
+  const API_URL = `${API_BASE_URL}${API_Trainer_SAVE}`;
+
+  //  fomr data
+  const trainerName_input = document.getElementById("trainerName_input").value;
+  const trainerId_input = document.getElementById("trainerId_input").value;
+  const trainerEmail_input =
+    document.getElementById("trainerEmail_input").value;
+  const trainerMobile_input = document.getElementById(
+    "trainerMobile_input"
+  ).value;
+  const trainerfacebook_input = document.getElementById(
+    "trainerfacebook_input"
+  ).value;
+  const trainertwitter_input = document.getElementById(
+    "trainertwitter_input"
+  ).value;
+  const trainerInstagram_input = document.getElementById(
+    "trainerInstagram_input"
+  ).value;
+  const trainerGitHub_input = document.getElementById(
+    "trainerGitHub_input"
+  ).value;
+  document
+    .querySelector(".formSection form")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let data = JSON.stringify({
+        trainer_id: trainerId_input,
+        trainer_name: trainerName_input,
+        email: trainerEmail_input,
+        mobile: trainerMobile_input,
+        trainer_img: downloadImageUrl,
+        facebook: trainerfacebook_input,
+        twitter: trainertwitter_input,
+        instagram: trainerInstagram_input,
+        github: trainerGitHub_input,
+      });
+      adminAlertNotifications("Data saved successfully", "100%", "green");
+
+      fetch(API_URL, {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }).then(() => {
+        setTimeout(() => {
+          location.replace("./admin.html");
+        }, 200);
+      });
+    });
+};
+
 // email verfication
 function validateEmail(email) {
   const re =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
+
+const buildTrainersList = () => {
+  let trainersDataList = "";
+
+  for (data of allTrainer) {
+    const trainerDate = new Date(
+      parseInt(data.trainer_added_date)
+    ).toDateString();
+    trainersDataList += `
+    <div class="card">
+        <div class="topcardSection">
+            <div class="imgBox">
+                <img src="${data.trainer_img}" alt="">
+            </div>
+            <div class="contentBox">
+                <h3>${data.trainer_name}</h3>
+            </div>
+        </div>
+        <div class="bottomCardSection">
+            <div class="countText">
+                <p>Concpets <span>${allTrainer.length}</span></p>
+            </div>
+            <div class="addedDate">
+                <p>${trainerDate}</p>
+            </div>
+        </div>
+    </div>
+    `;
+  }
+  document.querySelector(".courseMainSection").innerHTML = trainersDataList;
+};
 
 // displaying users list
 const usersList = () => {
