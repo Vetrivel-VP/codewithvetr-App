@@ -35,7 +35,7 @@ var getAllUsers = () => {
       return response.json();
     })
     .then((data) => {
-      allUsers = data;
+      allUsers = data.data;
       userTotalCount(data);
     });
 };
@@ -581,10 +581,55 @@ const usersList = () => {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = () => {
     mainMiddleContainer.innerHTML = xhttp.responseText;
+    buildUsersList();
   };
   xhttp.open("GET", "./assets/pages/getAllUsers.html");
   xhttp.send();
   closeOverlayEffect();
+};
+
+const buildUsersList = () => {
+  console.log(allUsers);
+  let userDataList = "";
+
+  userDataList = `
+  <div class="tableDiv">
+  <table>
+    <thead>
+        <tr>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Email Verified</th>
+            <th>Added Date</th>
+        </tr>
+    </thead>
+    <tbody>
+  `;
+
+  for (data of allUsers) {
+    let displayName = data.displayName == undefined ? "NA" : data.displayName;
+    let imgUrl =
+      data.photoURL == undefined ? "./assets/img/profile.svg" : data.photoURL;
+    userDataList += `
+      <tr>
+        <td>
+            <div class="imgBox">
+                <img src="${imgUrl}" alt="">
+            </div>
+        </td>
+        <td>${displayName}</td>
+        <td>${data.email}</td>
+        <td>${data.emailVerified}</td>
+        <td>${data.metadata.creationTime}</td>
+      </tr>
+    `;
+  }
+  userDataList += `
+  </tbody>
+</table>
+<div>`;
+  document.querySelector(".courseMainSection").innerHTML = userDataList;
 };
 
 // displaying concepts list

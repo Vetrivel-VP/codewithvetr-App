@@ -1452,6 +1452,91 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   transition: all 0.25s ease;
 }
 
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv {
+  width: 100%;
+  height: 95%;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.5rem;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv::-webkit-scrollbar-track {
+  background: #d0cfcf;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv::-webkit-scrollbar-thumb {
+  background: #0000008a;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table thead {
+  background: #1e1d1f;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table thead th,
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table thead td {
+  color: #dedede;
+  height: 50px;
+  padding: 5px;
+  text-align: left;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th,
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody td {
+  color: #dedede;
+  height: 80px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th .imgBox,
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody td .imgBox {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th .imgBox img,
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody td .imgBox img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th .imgBox svg,
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody td .imgBox svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody tr:nth-child(even) {
+  background: #ffffff0a;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tr:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #ffffff0a;
+}
+
 main section .container .rightsideBar .sideBar {
   position: relative;
   width: 28%;
