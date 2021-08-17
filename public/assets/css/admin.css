@@ -1201,6 +1201,65 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   background: #34ac8e;
 }
 
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 15px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox textarea {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  font-size: 1rem;
+  color: #d0cfcf;
+  font-weight: 300;
+  -webkit-box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+          box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox textarea::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.5rem;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox textarea::-webkit-scrollbar-track {
+  background: #d0cfcf;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox textarea::-webkit-scrollbar-thumb {
+  background: #0000008a;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox i {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  padding: 10px;
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #d0cfcf;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .inputTextAreaBox i:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #34ac9e;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .trainerNameSection {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1216,6 +1275,89 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions {
+  width: 49%;
+  position: relative;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions .labelMenu {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 4px;
+  border: 1px solid #d0cfcf;
+  padding: 5px;
+  font-size: 18px;
+  color: #d0cfcf;
+  cursor: pointer;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions .labelMenu i {
+  font-size: 30px;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions .labelMenuContainer {
+  width: 100%;
+  position: absolute;
+  background: #3a3a3a;
+  margin-top: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 5;
+  overflow: hidden;
+  -webkit-animation: fade 1s ease-in-out;
+          animation: fade 1s ease-in-out;
+  display: none;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions .labelMenuContainer ul {
+  color: #d0cfcf;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions .labelMenuContainer ul li {
+  padding: 10px 15px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .conceptIdSection .chooseOptions .labelMenuContainer ul li:hover {
+  background: #525252;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .addFormContainer .formSection .fileContainer {
@@ -1456,7 +1598,6 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   width: 100%;
   height: 95%;
   overflow: auto;
-  border-radius: 10px;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv::-webkit-scrollbar {
@@ -1475,13 +1616,14 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  width: 98%;
+  border: 2px solid #171721;
   height: 100%;
   cursor: pointer;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table thead {
-  background: #1e1d1f;
+  background: #171721;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -1492,7 +1634,7 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   color: #dedede;
   height: 50px;
   padding: 5px;
-  text-align: left;
+  text-align: center;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th,
@@ -1501,6 +1643,13 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   height: 80px;
   padding: 5px;
   font-size: 12px;
+  max-width: 100px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th:nth-child(2),
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody td:nth-child(2) {
+  max-width: 200px;
+  word-wrap: break-word;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th .imgBox,
@@ -1509,6 +1658,12 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   height: 70px;
   border-radius: 50%;
   overflow: hidden;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th .imgBox.conceptImagBx,
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody td .imgBox.conceptImagBx {
+  width: 100%;
+  border-radius: 5px;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody th .imgBox img,
@@ -1529,6 +1684,25 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody tr:nth-child(even) {
   background: #ffffff0a;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody tr .editSection {
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody tr .editSection i:nth-child(1) {
+  color: #00ffb8;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tr:hover {

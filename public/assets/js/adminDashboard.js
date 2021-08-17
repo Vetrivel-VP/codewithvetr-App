@@ -150,7 +150,7 @@ const getAllCaoncepts = () => {
       return response.json();
     })
     .then((data) => {
-      allConcepts = data;
+      allConcepts = data.data;
       conceptsTotalCount(data);
     });
 };
@@ -643,6 +643,130 @@ const conceptsList = () => {
   xhttp.open("GET", "./assets/pages/getAllConcepts.html");
   xhttp.send();
   closeOverlayEffect();
+};
+
+const addNewToconceptsList = () => {
+  setOverlayEffect();
+  mainMiddleContainer.innerHTML = "";
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = () => {
+    mainMiddleContainer.innerHTML = xhttp.responseText;
+    addNewCourseDragOver();
+    loadConceptTrainerCourse();
+  };
+  xhttp.open("GET", "./assets/pages/newConcept.html");
+  xhttp.send();
+  closeOverlayEffect();
+};
+// listing out the trainers name and the course title in the select boxes
+const loadConceptTrainerCourse = () => {
+  let chooseOptions = "";
+  console.log(allTrainer);
+  console.log(allCourses);
+  chooseOptions += `
+  <div class="chooseOptions">
+      <div class="labelMenu"><label id="courseMenuLabel"> Select Course</label><i class='bx bx-chevron-down' id="courseMenuContainerI"></i></div>
+      <div class="labelMenuContainer" id="courseMenuContainer">
+          <ul id="coursesUl">
+          `;
+  for (course of allCourses) {
+    chooseOptions += `
+        <li>${course.course_title}</li>
+    `;
+  }
+
+  chooseOptions += `
+          </ul>
+      </div>
+    </div>
+`;
+
+  chooseOptions += `
+  <div class="chooseOptions">
+      <div class="labelMenu"><label id="trainerMenuLabel"> Select Trainer</label><i class='bx bx-chevron-down' id="trainerMenuContainerI"></i></div>
+      <div class="labelMenuContainer" id="trainerMenuContainer">
+          <ul id="trainerUl">
+          `;
+  for (trainer of allTrainer) {
+    chooseOptions += `
+        <li>${trainer.trainer_name} </li>
+    `;
+  }
+
+  chooseOptions += `
+          </ul>
+      </div>
+    </div>
+`;
+
+  document.getElementById("conceptIdSection").innerHTML = chooseOptions;
+
+  document.getElementById("courseMenuContainerI").onclick = () => {
+    if (
+      document.getElementById("courseMenuContainer").style.display == "block"
+    ) {
+      document.getElementById("courseMenuContainerI").style.transform =
+        "rotate(0deg)";
+      document.getElementById("courseMenuContainer").style.display = "none";
+    } else {
+      document.getElementById("courseMenuContainerI").style.transform =
+        "rotate(540deg)";
+      document.getElementById("courseMenuContainer").style.display = "block";
+    }
+  };
+  document.getElementById("trainerMenuContainerI").onclick = () => {
+    if (
+      document.getElementById("trainerMenuContainer").style.display == "block"
+    ) {
+      document.getElementById("trainerMenuContainerI").style.transform =
+        "rotate(0deg)";
+      document.getElementById("trainerMenuContainer").style.display = "none";
+    } else {
+      document.getElementById("trainerMenuContainerI").style.transform =
+        "rotate(540deg)";
+      document.getElementById("trainerMenuContainer").style.display = "block";
+    }
+  };
+
+  const trainerLi = document
+    .getElementById("trainerMenuContainer")
+    .querySelectorAll("li");
+
+  const courseLi = document
+    .getElementById("courseMenuContainer")
+    .querySelectorAll("li");
+
+  courseLi.forEach((element) => {
+    element.setAttribute("onclick", "selectCourseElement(this)");
+  });
+
+  trainerLi.forEach((element) => {
+    element.setAttribute("onclick", "selectTrainerElement(this)");
+  });
+};
+// to change the select box item on click
+const selectTrainerElement = (element) => {
+  document.getElementById("trainerMenuContainerI").style.transform =
+    "rotate(0deg)";
+  document.getElementById("trainerMenuContainer").style.display = "none";
+  document.getElementById("trainerMenuLabel").innerText = element.innerText;
+};
+
+const selectCourseElement = (element) => {
+  document.getElementById("courseMenuContainerI").style.transform =
+    "rotate(0deg)";
+  document.getElementById("courseMenuContainer").style.display = "none";
+  document.getElementById("courseMenuLabel").innerText = element.innerText;
+
+  if (element.innerText == "Web Designing") {
+    document.getElementById("htmlCode").style.display = "block";
+    document.getElementById("cssCode").style.display = "block";
+    document.getElementById("jsCode").style.display = "block";
+  } else {
+    document.getElementById("htmlCode").style.display = "none";
+    document.getElementById("cssCode").style.display = "none";
+    document.getElementById("jsCode").style.display = "none";
+  }
 };
 
 window.addEventListener("load", () => {

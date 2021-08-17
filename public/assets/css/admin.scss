@@ -955,6 +955,61 @@ main {
                     }
                   }
 
+                  .inputTextAreaBox {
+                    position: relative;
+                    width: 100%;
+                    height: 300px;
+                    margin-bottom: 15px;
+
+                    textarea {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: transparent;
+                      border: 1px solid rgba(0, 0, 0, 0.2);
+                      padding: 10px;
+                      border-radius: 4px;
+                      box-sizing: border-box;
+                      outline: none;
+                      font-size: 1rem;
+                      color: #d0cfcf;
+                      font-weight: 300;
+                      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+
+                      &::-webkit-scrollbar {
+                        width: 0.25rem;
+                        height: 0.5rem;
+                      }
+
+                      &::-webkit-scrollbar-track {
+                        background: #d0cfcf;
+                      }
+
+                      &::-webkit-scrollbar-thumb {
+                        background: #0000008a;
+                      }
+                    }
+
+                    i {
+                      position: absolute;
+                      top: 1px;
+                      right: 1px;
+                      padding: 10px;
+                      display: inline-block;
+                      font-size: 1.2rem;
+                      color: #d0cfcf;
+                      cursor: pointer;
+
+                      &:hover {
+                        transition: all 0.3s ease-in-out;
+                        color: #34ac9e;
+                        transform: scale(1.2);
+                      }
+                    }
+                  }
+
                   .trainerNameSection {
                     display: flex;
                     .inputBox {
@@ -969,6 +1024,70 @@ main {
 
                   .trainer_contactSection {
                     display: flex;
+                  }
+
+                  .conceptIdSection {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+
+                    .chooseOptions {
+                      width: 49%;
+                      position: relative;
+
+                      .labelMenu {
+                        width: 100%;
+                        height: 50px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-radius: 4px;
+                        border: 1px solid #d0cfcf;
+                        padding: 5px;
+                        font-size: 18px;
+                        color: #d0cfcf;
+                        cursor: pointer;
+
+                        i {
+                          font-size: 30px;
+                          transition: transform 0.3s ease-in-out;
+                        }
+                      }
+                      .labelMenuContainer {
+                        width: 100%;
+                        position: absolute;
+                        background: #3a3a3a;
+                        margin-top: 5px;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        z-index: 5;
+                        overflow: hidden;
+                        animation: fade 1s ease-in-out;
+                        display: none;
+
+                        ul {
+                          color: #d0cfcf;
+                          li {
+                            padding: 10px 15px;
+
+                            &:hover {
+                              background: #525252;
+                              transition: all 0.3s ease-in-out;
+                            }
+                          }
+                        }
+
+                        @keyframes fade {
+                          from {
+                            opacity: 0;
+                          }
+                          to {
+                            opacity: 1;
+                          }
+                        }
+                      }
+                    }
                   }
 
                   .fileContainer {
@@ -1181,7 +1300,7 @@ main {
                 width: 100%;
                 height: 95%;
                 overflow: auto;
-                border-radius: 10px;
+                // border-radius: 10px;
 
                 &::-webkit-scrollbar {
                   width: 0.25rem;
@@ -1199,13 +1318,13 @@ main {
                 table {
                   border-collapse: collapse;
                   border-spacing: 0;
-                  width: 100%;
-                  // border: 1px solid #d0cfcf1f;
+                  width: 98%;
+                  border: 2px solid #171721;
                   height: 100%;
                   cursor: pointer;
 
                   thead {
-                    background: #1e1d1f;
+                    background: #171721;
                     position: sticky;
                     top: 0;
 
@@ -1215,7 +1334,7 @@ main {
                       // border: 1px solid #d0cfcf1f;
                       height: 50px;
                       padding: 5px;
-                      text-align: left;
+                      text-align: center;
                     }
                   }
 
@@ -1227,6 +1346,7 @@ main {
                       height: 80px;
                       padding: 5px;
                       font-size: 12px;
+                      max-width: 100px;
 
                       // &:nth-child(1) {
                       //   // display: flex;
@@ -1234,11 +1354,21 @@ main {
                       //   // align-items: center;
                       // }
 
+                      &:nth-child(2) {
+                        max-width: 200px;
+                        word-wrap: break-word;
+                      }
+
                       .imgBox {
                         width: 70px;
                         height: 70px;
                         border-radius: 50%;
                         overflow: hidden;
+
+                        &.conceptImagBx {
+                          width: 100%;
+                          border-radius: 5px;
+                        }
 
                         img {
                           width: 100%;
@@ -1257,6 +1387,21 @@ main {
                     tr {
                       &:nth-child(even) {
                         background: #ffffff0a;
+                      }
+
+                      .editSection {
+                        width: 100%;
+                        height: 100%;
+                        align-items: center;
+                        justify-content: space-evenly;
+                        display: flex;
+                        font-size: 20px;
+
+                        i {
+                          &:nth-child(1) {
+                            color: #00ffb8;
+                          }
+                        }
                       }
                     }
                   }
