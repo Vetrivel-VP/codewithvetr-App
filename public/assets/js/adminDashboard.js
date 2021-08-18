@@ -639,6 +639,7 @@ const conceptsList = () => {
   const xhttp = new XMLHttpRequest();
   xhttp.onload = () => {
     mainMiddleContainer.innerHTML = xhttp.responseText;
+    buildConceptsList();
   };
   xhttp.open("GET", "./assets/pages/getAllConcepts.html");
   xhttp.send();
@@ -671,7 +672,7 @@ const loadConceptTrainerCourse = () => {
           `;
   for (course of allCourses) {
     chooseOptions += `
-        <li>${course.course_title}</li>
+        <li>${course.course_name}</li>
     `;
   }
 
@@ -689,7 +690,7 @@ const loadConceptTrainerCourse = () => {
           `;
   for (trainer of allTrainer) {
     chooseOptions += `
-        <li>${trainer.trainer_name} </li>
+        <li>${trainer.trainer_id} </li>
     `;
   }
 
@@ -758,7 +759,7 @@ const selectCourseElement = (element) => {
   document.getElementById("courseMenuContainer").style.display = "none";
   document.getElementById("courseMenuLabel").innerText = element.innerText;
 
-  if (element.innerText == "Web Designing") {
+  if (element.innerText == "Web") {
     document.getElementById("htmlCode").style.display = "block";
     document.getElementById("cssCode").style.display = "block";
     document.getElementById("jsCode").style.display = "block";
@@ -767,6 +768,115 @@ const selectCourseElement = (element) => {
     document.getElementById("cssCode").style.display = "none";
     document.getElementById("jsCode").style.display = "none";
   }
+};
+
+var API_Concept_SAVE = "/api/concept/create";
+const saveNewConcept = () => {
+  const API_URL = `${API_BASE_URL}${API_Concept_SAVE}`;
+
+  //  fomr data
+  const courseMenuLabel = document.getElementById("courseMenuLabel").innerText;
+  const trainerMenuLabel =
+    document.getElementById("trainerMenuLabel").innerText;
+  const conceptName_input = document.getElementById("conceptName_input").value;
+  const conceptVideo_input =
+    document.getElementById("conceptVideo_input").value;
+  const conceptDescription_input = document.getElementById(
+    "conceptDescription_input"
+  ).value;
+  const htmlCode_text = document.getElementById("htmlCode_text").value;
+  const cssCode_text = document.getElementById("cssCode_text").value;
+  const jsCode_text = document.getElementById("jsCode_text").value;
+  const otherCode_text = document.getElementById("otherCode_text").value;
+  const conceptGitHub_input = document.getElementById(
+    "conceptGitHub_input"
+  ).value;
+
+  document
+    .querySelector(".formSection form")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let data = JSON.stringify({
+        course_id: courseMenuLabel,
+        trainer_id: trainerMenuLabel,
+        concept_name: conceptName_input,
+        concept_img: downloadImageUrl,
+        concept_video: conceptVideo_input,
+        concept_description: conceptDescription_input,
+        html_code: htmlCode_text,
+        css_code: cssCode_text,
+        js_code: jsCode_text,
+        other_code: otherCode_text,
+        github_link: conceptGitHub_input,
+      });
+      console.log(data);
+      adminAlertNotifications("Data saved successfully", "100%", "green");
+
+      fetch(API_URL, {
+        method: "POST",
+        body: data,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }).then(() => {
+        setTimeout(() => {
+          location.replace("./admin.html");
+        }, 200);
+      });
+    });
+};
+
+// Building the concepts list inner html
+const buildConceptsList = () => {
+  let conceptsDataList = "";
+
+  conceptsDataList += `<div class="tableDiv">
+  <table>
+      <thead>
+          <tr>
+              <th>Thumb</th>
+              <th>Title</th>
+              <th>Course</th>
+              <th>Trainer</th>
+              <th>Edit/Delete</th>
+          </tr>
+      </thead>
+      <tbody>
+  `;
+
+  for (data of allConcepts) {
+    const conceptAddedDate = new Date(
+      parseInt(data.concept_added_date)
+    ).toDateString();
+
+    conceptsDataList += `
+            <tr>
+                <td>
+                    <div class="imgBox conceptImagBx">
+                        <img src="${data.concept_img}" alt="">
+                    </div>
+                </td>
+                <td>${data.concept_name}</td>
+                <td>${data.course_id}</td>
+                <td>${data.trainer_id}</td>
+                <td>
+                    <div class="editSection">
+                        <i class='bx bxs-edit'></i>
+                        <i class='bx bxs-trash'></i>
+                    </div>
+                </td>
+            </tr>
+
+    `;
+  }
+  conceptsDataList += `
+  </tbody>
+</table>
+</div>
+`;
+  document.querySelector(".courseMainSection").innerHTML = conceptsDataList;
 };
 
 window.addEventListener("load", () => {

@@ -1,52 +1,50 @@
-// const API_COURSE_URL = "http://localhost:3000/api/cources";
-// const API_TRAINER_URL = "http://localhost:3000/api/trainers";
-// const API_BASE_URL = "http://localhost:3000/";
+var API_BASE_URL =
+  "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
+// "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
-// window.addEventListener("load", () => {
-//   getCourses();
-// });
+var API_COURSES = "/api/courses";
+var allCourses;
+const getAllCourses = () => {
+  const API_URL = `${API_BASE_URL}${API_COURSES}`;
+  fetch(API_URL, { method: "GET" })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      allCourses = data.data;
+    });
+};
 
-// let getCourses = () => {
-//   fetch(API_COURSE_URL, { method: "GET" })
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((data) => {
-//       buildCourse(data);
-//     });
-// };
+// Get All Trainers
+var API_TRAINERS = "/api/trainer";
+var allTrainer;
+const getAllTrainers = () => {
+  const API_URL = `${API_BASE_URL}${API_TRAINERS}`;
+  fetch(API_URL, { method: "GET" })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      allTrainer = data.data;
+    });
+};
 
-// let buildCourse = (data) => {
-//   let courseContent = "";
-//   for (main of data) {
-//     for (content of main.data) {
-//       const contentImage = `${API_BASE_URL}${content.post_image}`;
-//       courseContent += `
-//       <div class="courseContainer">
-//           <div class="courseTitleContainer">
-//               <div class="titleImageContainer">
-//               <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
-//               </div>
-//               <div class="titleNameContainer">
-//               <p>How to create a responsive landing page ?</p>
-//               </div>
-//               <div class="favoriteContainer">
-//               <span>&hearts;</span>
-//               </div>
-//           </div>
-//           <div class="videoContainer">
-//               <img src="./assets/img/thumb.jpg" alt="" />
-//               <i class="bx bx-play-circle" id="playBtn"></i>
-//           </div>
-//           <div class="sourseCodeContaienr">
-//               <div class="momentContainer">
-//               <p>2 minutes ago</p>
-//               <a href="#" class="downloadButton" id="downloadSource">
-//                   Download Source</a>
-//              </div>
-//           </div>
-//       </div>
-//     `;
-//     }
-//   }
-// };
+// Get All Concepts
+var API_CONCEPTS = "/api/concept";
+var allConcepts;
+const getAllCaoncepts = () => {
+  const API_URL = `${API_BASE_URL}${API_CONCEPTS}`;
+  fetch(API_URL, { method: "GET" })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      allConcepts = data.data;
+    });
+};
+
+window.addEventListener("load", () => {
+  getAllCourses();
+  getAllTrainers();
+  getAllCaoncepts();
+});

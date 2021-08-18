@@ -43,29 +43,31 @@
                     <i class='bx bxl-youtube' style="color: #ff0000;"></i>
                 </div>
 
-                <div class="inputBox" id="conceptDescription">
-                    <input type="text" required id="conceptDescription_input" />
-                    <span>Concept Description</span>
-                    <i class='bx bxs-book-content' style="color: #ff9900;"></i>
+
+                <div class="inputTextAreaBox" id="conceptDescription">
+                    <textarea id="conceptDescription_input" name="conceptDescription_input"
+                        placeholder="Write some Concept Description here.."></textarea>
+                    <i class='bx bxs-detail' style="color: #001aff;"></i>
                 </div>
 
                 <div class="inputTextAreaBox" id="htmlCode" style="display: none;">
-                    <textarea id="subject" name="subject" placeholder="Write some HTML code here.."></textarea>
+                    <textarea id="htmlCode_text" name="htmlCode_text"
+                        placeholder="Write some HTML code here.."></textarea>
                     <i class='bx bxl-html5' style="color: #ff3c00;"></i>
                 </div>
 
                 <div class="inputTextAreaBox" id="cssCode" style="display: none;">
-                    <textarea id="subject" name="subject" placeholder="Write some CSS code here.."></textarea>
+                    <textarea id="cssCode_text" name="cssCode_text" placeholder="Write some CSS code here.."></textarea>
                     <i class='bx bxl-css3' style="color: #00c3ff;"></i>
                 </div>
 
                 <div class="inputTextAreaBox" id="jsCode" style="display: none;">
-                    <textarea id="subject" name="subject" placeholder="Write some JS code here.."></textarea>
+                    <textarea id="jsCode_text" name="jsCode_text" placeholder="Write some JS code here.."></textarea>
                     <i class='bx bxs-file-js' style="color: #fbff00;"></i>
                 </div>
 
                 <div class="inputTextAreaBox" id="otherCode">
-                    <textarea id="subject" name="subject" placeholder="Write some code here.."></textarea>
+                    <textarea id="otherCode_text" name="otherCode_text" placeholder="Write some code here.."></textarea>
                     <i class='bx bx-code-curly' style="color: #00ff2a;"></i>
                 </div>
 
@@ -75,8 +77,8 @@
                     <i class='bx bxl-github' style="color: #ebebeb;"></i>
                 </div>
 
-                <div class="inputBox" onclick="saveNewTrainer()">
-                    <input type="submit" value="Save" disabled id="trainerNew_submit" />
+                <div class="inputBox" onclick="saveNewConcept()">
+                    <input type="submit" value="Save" id="coneptNew_submit" />
                 </div>
             </form>
         </div>

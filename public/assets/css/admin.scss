@@ -1321,7 +1321,7 @@ main {
                   width: 98%;
                   border: 2px solid #171721;
                   height: 100%;
-                  cursor: pointer;
+                  // cursor: pointer;
 
                   thead {
                     background: #171721;
@@ -1398,6 +1398,7 @@ main {
                         font-size: 20px;
 
                         i {
+                          cursor: pointer;
                           &:nth-child(1) {
                             color: #00ffb8;
                           }

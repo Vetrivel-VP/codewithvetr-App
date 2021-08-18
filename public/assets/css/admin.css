@@ -1619,7 +1619,6 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   width: 98%;
   border: 2px solid #171721;
   height: 100%;
-  cursor: pointer;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table thead {
@@ -1699,6 +1698,10 @@ main section .container .rightsideBar .main .middlecontainer .courseMainSection 
   display: -ms-flexbox;
   display: flex;
   font-size: 20px;
+}
+
+main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody tr .editSection i {
+  cursor: pointer;
 }
 
 main section .container .rightsideBar .main .middlecontainer .courseMainSection .tableDiv table tbody tr .editSection i:nth-child(1) {
