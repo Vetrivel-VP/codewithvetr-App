@@ -51,7 +51,8 @@ window.addEventListener("load", async () => {
     trainers = await loadtrainers();
     buildCategoryCard();
     courseList_container("Web");
-    // buildCourseMainContent("Web");
+    buildCourseMainContent("Web");
+    window.addEventListener("click", outsideClickVideoModal);
     // createScriptTag();
     // checkAuthState();
     closeOverlayEffect();
@@ -162,6 +163,9 @@ const buildCourseMainContent = (courseName) => {
 
   for (data of concepts.data) {
     if (data.course_id == courseName) {
+      const concept_added_date = new Date(
+        parseInt(data.concept_added_date)
+      ).toDateString();
       courseContent += `
                   <div class="courseContainer">
                     <div class="courseTitleContainer">
@@ -177,12 +181,12 @@ const buildCourseMainContent = (courseName) => {
                     </div>
                     <div class="videoContainer">
                       <img src="${data.concept_img}" alt="" />
-                      <i class="bx bx-play-circle" id="playBtn"></i>
+                      <i class="bx bx-play-circle" id="playBtn" onclick="videoModal('${data.concept_video}')"></i>
                     </div>
                     <div class="sourseCodeContaienr">
                       <div class="momentContainer">
-                        <p>2 minutes ago</p>
-                        <a href="#" class="downloadButton" id="downloadSource">
+                        <p>${concept_added_date}</p>
+                        <a href="#"  class="downloadButton"  onclick="gitHubLinkNavigate('${data.github_link}')">
                           Download Source</a>
                       </div>
                     </div>
@@ -192,6 +196,54 @@ const buildCourseMainContent = (courseName) => {
   }
 
   document.getElementById("courseContent").innerHTML = courseContent;
+};
+
+const gitHubLinkNavigate = (github_link) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      window.open(github_link, "_blank") ||
+        window.location.replace(github_link);
+
+      // alert message
+    } else {
+      // alert message
+      alertCustomizations("Warning: Login to download!", "#B85B09", "#B55704");
+      loginModal.style.display = "flex";
+    }
+  });
+};
+
+// Opening Video Modal
+
+const videoModal = (data) => {
+  document.getElementById("videoModal").style.display = "flex";
+  //   console.log(data);
+  let videoModal = "";
+
+  videoModal += `
+  <div class="modalContent">
+    <div class="close" id="closeBtn" onclick="closeVideoModal()">
+        <span class="closeButton">&times;</span>
+    </div>
+    <div class="responsive_youtube">
+        <iframe src="${data}" title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    </div>
+  `;
+
+  document.getElementById("videoModal").innerHTML = videoModal;
+};
+
+const closeVideoModal = () => {
+  document.getElementById("videoModal").style.display = "none";
+};
+
+const outsideClickVideoModal = (e) => {
+  if (e.target == document.getElementById("videoModal")) {
+    document.getElementById("videoModal").style.display = "none";
+  }
 };
 
 // window.addEventListener("load", () => {

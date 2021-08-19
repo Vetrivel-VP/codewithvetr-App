@@ -30,14 +30,7 @@ function GoogleAuth() {
       loginContainer.style.display = "none";
       profileContainer.style.display = "flex";
       const msg = `Welcome : ${res.user.displayName}`;
-      alertCustomizations(
-        msg,
-        "#00FF49",
-        "#008C28",
-        "#03E644",
-        "#008C28",
-        "#00BA36"
-      );
+      alertCustomizations(msg, "#008C28", "#008C28");
       showUserDetails(res.user);
     })
     .catch((e) => {
@@ -56,7 +49,6 @@ function showUserDetails(user) {
     }</div>
     <div class="dropIcon" id="rightMenu_dropIcon"  onclick="menuShowHide()">
         <i class='bx bx-chevron-down' id="down"></i>
-        <i class='bx bx-chevron-up' id="up"></i>
     </div>
     `;
 
@@ -80,14 +72,7 @@ function signOutUser() {
       document.querySelector(".menuContaier").style.display = "none";
       loginContainer.style.display = "block";
 
-      alertCustomizations(
-        "Thank you",
-        "#00FF49",
-        "#008C28",
-        "#03E644",
-        "#008C28",
-        "#00BA36"
-      );
+      alertCustomizations("Thank you", "#008C28", "#008C28");
 
       creatUserFormEmailId.value = "";
       inputPass.value = "";
@@ -119,29 +104,23 @@ const closeAlert = () => {
   alertNotification.classList.add("hide");
 };
 
-function alertCustomizations(
-  msg,
-  alertBg,
-  alertText,
-  alertClose,
-  alertBorder,
-  alertHover
-) {
+function alertCustomizations(msg, alertText, alertBorder) {
+  document.getElementById("alertNotification").style.display = "flex";
   alertNotification.classList.remove("hide");
   alertNotification.classList.add("show");
   alertNotification.innerHTML = `
-  <i class='bx bx-smile leftIcon'></i>
+  <i class='bx bxs-info-circle leftIcon'></i>
   <span class="msg">${msg}</span>
   <span class="alertCloseBtn"  onclick="closeAlert()">
       <i class='bx bx-x rightIcon'></i>
   </span>
   `;
 
-  alertNotification.style.setProperty("--alertBg", alertBg);
+  // alertNotification.style.setProperty("--alertBg", alertBg);
   alertNotification.style.setProperty("--alertText", alertText);
-  alertNotification.style.setProperty("--alertClose", alertClose);
+  // alertNotification.style.setProperty("--alertClose", alertClose);
   alertNotification.style.setProperty("--alertBorder", alertBorder);
-  alertNotification.style.setProperty("--alertHover", alertHover);
+  // alertNotification.style.setProperty("--alertHover", alertHover);
 
   setTimeout(() => {
     alertNotification.classList.remove("show");
@@ -178,14 +157,7 @@ let signUpNewUser = () => {
       const msg = `
       Created : Check your email!`;
       sendVerficationLink(user);
-      alertCustomizations(
-        msg,
-        "#00FF49",
-        "#008C28",
-        "#03E644",
-        "#008C28",
-        "#00BA36"
-      );
+      alertCustomizations(msg, "#008C28", "#008C28");
       showUserDetails(user);
       // ...
     })
@@ -220,14 +192,8 @@ let signInUser = () => {
       profileContainer.style.display = "flex";
       const msg = `
       Welcome : ${user.displayName ? user.displayName : user.email}`;
-      alertCustomizations(
-        msg,
-        "#00FF49",
-        "#008C28",
-        "#03E644",
-        "#008C28",
-        "#00BA36"
-      );
+      alertCustomizations(msg, "#008C28", "#008C28");
+
       showUserDetails(user);
       // ...
     })
@@ -237,21 +203,11 @@ let signInUser = () => {
       if (errorCode == "auth/user-not-found") {
         alertCustomizations(
           "Invalid Email: User Not Found",
-          "#FFA14D",
           "#B85B09",
-          "#F77B0E",
-          "#B55704",
-          "#FF7800"
+          "#B55704"
         );
       } else {
-        alertCustomizations(
-          "Warning: Password Mismatch",
-          "#FFA14D",
-          "#B85B09",
-          "#F77B0E",
-          "#B55704",
-          "#FF7800"
-        );
+        alertCustomizations("Warning: Password Mismatch", "#B85B09", "#B55704");
       }
     });
 };

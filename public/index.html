@@ -145,16 +145,7 @@
   </div>
 
   <div id="videoModal" class="videoModal">
-    <div class="modalContent">
-      <div class="close" id="closeBtn">
-        <span class="closeButton">&times;</span>
-      </div>
-      <div class="responsive_youtube">
-        <iframe src="https://www.youtube.com/embed/EkoFY28nF7k" title="YouTube video player" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
-      </div>
-    </div>
+
   </div>
 
   <div id="loginModal" class="loginModal">
@@ -203,101 +194,7 @@
   </div>
 
   <div class="codeModal" id="codeModal">
-    <div class="codemodalContent">
-      <div class="modalcloseBtn" id="modalcloseBtn">
-        <span class="closeButton">&times;</span>
-      </div>
 
-      <div class="mainCodeModalContent">
-        <ul class="tabs">
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JS</li>
-        </ul>
-
-        <div class="codeContainer">
-          <div class="clipboard">
-            <div class="tooltip">Copy</div>
-            <i class="bx bxs-copy"></i>
-          </div>
-          <div class="codecontent active" id="htmlContent">
-            <div class="codeText">
-              <pre>
-                                <code id="code">
-<xmp><div class="codecontents actives" id="htmlContents">
-    <div class="codeTexts">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-            aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-            excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-                
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-        aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-        excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-                
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, temporibus iste
-        aspernatur suscipit eos voluptates dolore sint placeat nihil perferendis, laborum
-        excepturi beatae at accusantium facere harum fugiat dolores laboriosam?</p>
-        </div>
-</div></xmp>
-                                </code>
-                            </pre>
-            </div>
-          </div>
-
-          <div class="codecontent" id="cssContent">
-            <div class="codeText">
-              <pre>
-                                <code id="code">
-.videoModal .modalContent {
-    position: relative;
-    margin: 3% auto;
-    padding: 10px;
-    width: 80%;
-    -webkit-box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
-            box-shadow: 0 5px 8px 0 rgba(var(--shadow-primary), 0.5), 0 7px 20px 0 rgba(var(--shadow-primary), 0.12);
-    border-radius: 10px;
-    border: 1px solid var(--highligh);
-    -webkit-animation-name: modalOpen;
-            animation-name: modalOpen;
-    -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-}
-                                </code>
-                            </pre>
-            </div>
-          </div>
-
-          <div class="codecontent" id="jsContent">
-            <div class="codeText">
-              <pre>
-                                <code id="code">
-function copyText(htmlElement) {
-    if (!htmlElement) {
-        return;
-    }
-    
-    let elementText = htmlElement[0].innerText;
-    let inputElement = document.createElement("input");
-    inputElement.setAttribute("value", elementText);
-    document.body.appendChild(inputElement);
-    inputElement.select();
-    document.execCommand("copy");
-    inputElement.parentNode.removeChild(inputElement);
-}
-                                </code>
-                            </pre>
-            </div>
-          </div>
-        </div>
-
-        <a href="#">
-          <div class="gitSource">
-            <i class="bx bxl-github"></i>
-            <span>GitHub Link</span>
-          </div>
-        </a>
-      </div>
-    </div>
   </div>
 
   <div class="style_switcher">
@@ -326,7 +223,7 @@ function copyText(htmlElement) {
     <i class="bx bx-menu-alt-left"></i>
   </div>
 
-  <div class="alertNotification hide"> </div>
+  <div class="alertNotification hide " id="alertNotification"> </div>
   <div class="overlay" id="overlay">
     <i class='bx bx-loader-circle bx-spin'></i>
     <h3>Loading</h3>
