@@ -2,49 +2,203 @@ var API_BASE_URL =
   "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
 // "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
-var API_COURSES = "/api/courses";
-var allCourses;
-const getAllCourses = () => {
+var courses = [];
+async function loadCourses() {
+  var API_COURSES = "/api/courses";
   const API_URL = `${API_BASE_URL}${API_COURSES}`;
-  fetch(API_URL, { method: "GET" })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      allCourses = data.data;
-    });
-};
+  const courses = await fetch(API_URL, { method: "GET" }).then((response) => {
+    return response.json();
+  });
+  return courses;
+}
 
-// Get All Trainers
-var API_TRAINERS = "/api/trainer";
-var allTrainer;
-const getAllTrainers = () => {
-  const API_URL = `${API_BASE_URL}${API_TRAINERS}`;
-  fetch(API_URL, { method: "GET" })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      allTrainer = data.data;
-    });
-};
-
-// Get All Concepts
-var API_CONCEPTS = "/api/concept";
-var allConcepts;
-const getAllCaoncepts = () => {
+var concepts = [];
+async function loadConcepts() {
+  var API_CONCEPTS = "/api/concept";
   const API_URL = `${API_BASE_URL}${API_CONCEPTS}`;
-  fetch(API_URL, { method: "GET" })
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      allConcepts = data.data;
-    });
+  const concepts = await fetch(API_URL, { method: "GET" }).then((response) => {
+    return response.json();
+  });
+  return concepts;
+}
+
+var trainers = [];
+async function loadtrainers() {
+  var API_TRAINERS = "/api/trainer";
+  const API_URL = `${API_BASE_URL}${API_TRAINERS}`;
+  const trainers = await fetch(API_URL, { method: "GET" }).then((response) => {
+    return response.json();
+  });
+  return trainers;
+}
+
+const setOverlayEffect = () => {
+  document.getElementById("overlay").style.display = "flex";
 };
 
-window.addEventListener("load", () => {
-  getAllCourses();
-  getAllTrainers();
-  getAllCaoncepts();
+const closeOverlayEffect = () => {
+  setTimeout(() => {
+    document.getElementById("overlay").style.animation = "fade 1s ease";
+    document.getElementById("overlay").style.display = "none";
+  }, 2000);
+};
+
+window.addEventListener("load", async () => {
+  try {
+    setOverlayEffect();
+    courses = await loadCourses();
+    concepts = await loadConcepts();
+    trainers = await loadtrainers();
+    buildCategoryCard();
+    courseList_container("Web");
+    // buildCourseMainContent("Web");
+    // createScriptTag();
+    // checkAuthState();
+    closeOverlayEffect();
+  } catch (error) {
+    console.log(error);
+  }
+  console.log(courses);
+  console.log(concepts);
+  console.log(trainers);
 });
+
+// const createScriptTag = () => {
+//   var mainScript = document.createElement("script");
+//   var modalScript = document.createElement("script");
+//   var menuContainerScript = document.createElement("script");
+//   var menuScript = document.createElement("script");
+//   var passwordStrengthScript = document.createElement("script");
+
+//   mainScript.type = "text/javascript";
+//   modalScript.type = "text/javascript";
+//   menuContainerScript.type = "text/javascript";
+//   menuScript.type = "text/javascript";
+//   passwordStrengthScript.type = "text/javascript";
+
+//   mainScript.src = "./assets/js/main.js";
+//   modalScript.src = "./assets/js/modal.js";
+//   menuContainerScript.src = "./assets/js/menuContainer.js";
+//   menuScript.src = "./assets/js/menu.js";
+//   passwordStrengthScript.src = "./assets/js/passwordStrength.js";
+
+//   document.body.appendChild(mainScript);
+//   document.body.appendChild(modalScript);
+//   document.body.appendChild(menuContainerScript);
+//   document.body.appendChild(menuScript);
+//   document.body.appendChild(passwordStrengthScript);
+// };
+
+const buildCategoryCard = () => {
+  let categoryCard = "";
+
+  for (data of courses.data) {
+    categoryCard += `
+        <div class="cardContainer">
+            <div class="imageBox">
+            <img src="${data.course_img}" alt="" srcset="" />
+            </div>
+            <div class="textBox">
+            <h3>${data.course_title}</h3>
+            </div>
+        </div>
+      `;
+  }
+
+  document.querySelector(".categoryCard").innerHTML = categoryCard;
+};
+
+const courseList_container = (courseName) => {
+  let courseList_container = "";
+
+  //   courseList_container += `
+  //   <a href="#">
+  //     <div class="link_container">
+  //         <div class="icon_container">
+  //         <img src="./assets/img/Vetri.jpg" alt="" srcset="" />
+  //         </div>
+  //         <div class="link_text">Home</div>
+  //     </div>
+  //     </a>
+  //     `;
+  for (data of concepts.data) {
+    if (data.course_id == courseName) {
+      courseList_container += `
+              <a href="#">
+              <div class="link_container">
+                  <div class="icon_container">
+                  <img src="${data.concept_img}" alt="" srcset="" />
+                  </div>
+                  <div class="link_text">
+                  ${data.concept_name}
+                  </div>
+              </div>
+              </a>
+            `;
+    }
+  }
+
+  document.querySelector(".courseList_container").innerHTML =
+    courseList_container;
+};
+
+const buildCourseMainContent = (courseName) => {
+  let courseContent = "";
+
+  for (data of courses.data) {
+    if (data.course_name == courseName) {
+      courseContent += `
+            <div class="tittleWrapper">
+                    <div class="tittleSection">
+                      <h1>${data.course_title}</h1>
+                    </div>
+                    <div class="titleImageSection">
+                      <img src="${data.course_img}" alt="" srcset="" />
+                    </div>
+                  </div>
+                  `;
+    }
+  }
+
+  for (data of concepts.data) {
+    if (data.course_id == courseName) {
+      courseContent += `
+                  <div class="courseContainer">
+                    <div class="courseTitleContainer">
+                      <div class="titleImageContainer">
+                        <img src="${data.concept_img}" alt="" srcset="" />
+                      </div>
+                      <div class="titleNameContainer">
+                        <p>${data.concept_name}</p>
+                      </div>
+                      <div class="favoriteContainer">
+                        <span>&hearts;</span>
+                      </div>
+                    </div>
+                    <div class="videoContainer">
+                      <img src="${data.concept_img}" alt="" />
+                      <i class="bx bx-play-circle" id="playBtn"></i>
+                    </div>
+                    <div class="sourseCodeContaienr">
+                      <div class="momentContainer">
+                        <p>2 minutes ago</p>
+                        <a href="#" class="downloadButton" id="downloadSource">
+                          Download Source</a>
+                      </div>
+                    </div>
+                  </div>
+            `;
+    }
+  }
+
+  document.getElementById("courseContent").innerHTML = courseContent;
+};
+
+// window.addEventListener("load", () => {
+//   //   getAllCourses();
+//   //   getAllTrainers();
+//   //   getAllCaoncepts();
+//   //   courseList_container("Web");
+//   //   buildCourseMainContent("Web");
+//   console.log(allCourses);
+// });

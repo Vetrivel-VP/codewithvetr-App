@@ -256,6 +256,6 @@ let signInUser = () => {
     });
 };
 
-window.onload = () => {
-  checkAuthState();
-};
+// window.onload = () => {
+//   checkAuthState();
+// };
