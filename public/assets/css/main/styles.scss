@@ -20,6 +20,7 @@
   --text: #b4bac3;
   --highligh: #3d414b;
   --primary-color: #ef2a57;
+  --card_before: #ffffff12;
   --white: #f5f7fa;
 
   --pre: #282c34;
@@ -130,12 +131,12 @@ body {
         width: 100%;
 
         .logo {
-          width: 50px;
-          height: 50px;
+          width: 100px;
+          height: 100px;
 
           img {
             object-fit: cover;
-            width: 60%;
+            width: 100%;
             background-position: center;
           }
         }
@@ -195,7 +196,7 @@ body {
                 left: 0;
                 width: 50%;
                 height: 100%;
-                background: rgba(255, 255, 255, 0.1);
+                background: var(--card_before);
                 transform: skewX(45deg) translateX(400px);
                 transition: 0.8s;
               }
@@ -211,7 +212,7 @@ body {
                 left: 0;
                 width: 50%;
                 height: 100%;
-                background: rgba(255, 255, 255, 0.1);
+                background: var(--card_before);
                 transform: skewX(-45deg) translateX(400px);
                 transition: 1.8s;
               }
@@ -417,7 +418,7 @@ body {
           top: 0;
           right: 0;
           position: absolute;
-          display: flex;
+          display: none;
           align-items: center;
           justify-content: center;
           cursor: pointer;
@@ -531,8 +532,14 @@ body {
             cursor: pointer;
             &:hover {
               color: #ff0000;
-              text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+              text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
+                0 0 50px #ff0000;
             }
+          }
+          &.active {
+            color: #ff0000;
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
+              0 0 50px #ff0000;
           }
         }
       }
@@ -728,7 +735,7 @@ body {
           left: 0;
           width: 50%;
           height: 100%;
-          background: rgba(255, 255, 255, 0.1);
+          background: var(--card_before);
           transform: skewX(45deg) translateX(400px);
           transition: 0.8s;
         }
@@ -744,7 +751,7 @@ body {
           left: 0;
           width: 50%;
           height: 100%;
-          background: rgba(255, 255, 255, 0.1);
+          background: var(--card_before);
           transform: skewX(-45deg) translateX(400px);
           transition: 1.8s;
         }
@@ -886,7 +893,15 @@ body {
           }
           &:hover:nth-child(2) {
             transform: scale(1.5);
-            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #791f52, #e1306c, #fd1d1d);
+            background: linear-gradient(
+              45deg,
+              #405de6,
+              #5851db,
+              #833ab4,
+              #791f52,
+              #e1306c,
+              #fd1d1d
+            );
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
@@ -894,7 +909,7 @@ body {
           }
           &:hover:nth-child(3) {
             transform: scale(1.5);
-            color: #fafafa;
+            color: #313131;
             text-shadow: 0 0 15px #fafafa, 0 0 30px #fafafa, 0 0 40px #fafafa;
           }
           &:hover:nth-child(4) {
@@ -916,7 +931,7 @@ body {
           left: 0;
           width: 50%;
           height: 100%;
-          background: rgba(255, 255, 255, 0.1);
+          background: var(--card_before);
           transform: skewX(45deg) translateX(400px);
           transition: 0.8s;
         }
@@ -971,7 +986,7 @@ body {
             left: 0;
             width: 50%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card_before);
             transform: skewX(45deg) translateX(400px);
             transition: 0.8s;
           }
@@ -1452,7 +1467,7 @@ body {
 
         span {
           margin-left: 15%;
-          color: var(--card);
+          color: var(--text);
           padding: 0 20px;
           font-size: 1.2rem;
         }

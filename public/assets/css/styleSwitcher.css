@@ -96,22 +96,27 @@
 }
 
 .style_switcher .colors .color_1 {
-  background-color: #323f4b;
+  background-color: #c1c1c1;
+  border: 1px solid #ffffff6b;
 }
 
 .style_switcher .colors .color_2 {
-  background-color: #ec9421;
+  background-color: #323232;
+  border: 1px solid #ffffff6b;
 }
 
 .style_switcher .colors .color_3 {
-  background-color: #1fc586;
+  background-color: #16213e;
+  border: 1px solid #ffffff6b;
 }
 
 .style_switcher .colors .color_4 {
-  background-color: #2eb1ed;
+  background-color: #301b3f;
+  border: 1px solid #ffffff6b;
 }
 
 .style_switcher .colors .color_5 {
-  background-color: #ef2a57;
+  background-color: #30323e;
+  border: 1px solid #ffffff6b;
 }
 /*# sourceMappingURL=styleSwitcher.css.map */

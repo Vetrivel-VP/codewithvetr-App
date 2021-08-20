@@ -759,15 +759,15 @@ const selectCourseElement = (element) => {
   document.getElementById("courseMenuContainer").style.display = "none";
   document.getElementById("courseMenuLabel").innerText = element.innerText;
 
-  if (element.innerText == "Web") {
-    document.getElementById("htmlCode").style.display = "block";
-    document.getElementById("cssCode").style.display = "block";
-    document.getElementById("jsCode").style.display = "block";
-  } else {
-    document.getElementById("htmlCode").style.display = "none";
-    document.getElementById("cssCode").style.display = "none";
-    document.getElementById("jsCode").style.display = "none";
-  }
+  // if (element.innerText == "Web") {
+  //   document.getElementById("htmlCode").style.display = "block";
+  //   document.getElementById("cssCode").style.display = "block";
+  //   document.getElementById("jsCode").style.display = "block";
+  // } else {
+  //   document.getElementById("htmlCode").style.display = "none";
+  //   document.getElementById("cssCode").style.display = "none";
+  //   document.getElementById("jsCode").style.display = "none";
+  // }
 };
 
 var API_Concept_SAVE = "/api/concept/create";

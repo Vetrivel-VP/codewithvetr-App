@@ -3,7 +3,7 @@ const profileContainer = document.querySelector(".profileContainer");
 const signOutBtn = document.querySelector(".signout");
 let alertNotification = document.querySelector(".alertNotification");
 const alertCloseBtn = document.querySelector(".alertCloseBtn");
-let favoriteContainer = document.querySelector(".favoriteContainer");
+// let favoriteContainer = document.querySelector(".favoriteContainer");
 
 // Create Or Login User
 let UserActionButton = document.getElementById("UserActionButton");
@@ -89,11 +89,12 @@ function checkAuthState() {
     if (user) {
       loginContainer.style.display = "none";
       profileContainer.style.display = "flex";
-      favoriteContainer.style.display = "block";
+      // favoriteContainer.style.display = "block";
       showUserDetails(user);
     } else {
       profileContainer.style.display = "none";
       loginContainer.style.display = "block";
+      // favoriteContainer.style.display = "none";
     }
   });
 }

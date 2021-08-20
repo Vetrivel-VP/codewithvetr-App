@@ -1,12 +1,12 @@
-:root{
-    --primary-color : #fb839e;
+:root {
+  --primary-color: #fb839e;
 
-    --background: #323f4b;
-    --card: #3e4c59;
-    --shadow: #1f2933;
-    --shadow-primary: 31, 41, 51;
-    --text: #cbd2d9;
-    --highligh: #52606d;
-    --primary-color: #ef2a57;
-    --white: #f5f7fa;
+  --background: #ffffff;
+  --card: #ffffff;
+  --shadow: rgb(187 187 187);
+  --shadow-primary: 187, 187, 187;
+  --text: #616161;
+  --highligh: #c7c7c7;
+  --white: #232323;
+  --pre: #282c34;
 }

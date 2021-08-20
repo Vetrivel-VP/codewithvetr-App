@@ -1,86 +1,104 @@
 <div class="courseTopSection">
-    <div class="breadCrump">
-        <h4 onclick="conceptsList()">Concept List</h4>
-        <i class='bx bx-chevron-right'></i>
-        <h4 onclick="addNewToconceptsList()">Add New Concept</h4>
-    </div>
+  <div class="breadCrump">
+    <h4 onclick="conceptsList()">Concept List</h4>
+    <i class="bx bx-chevron-right"></i>
+    <h4 onclick="addNewToconceptsList()">Add New Concept</h4>
+  </div>
 </div>
 
 <div class="courseMainSection">
-    <div class="addFormContainer">
-        <div class="formSection">
-            <form>
+  <div class="addFormContainer">
+    <div class="formSection">
+      <form>
+        <div class="conceptIdSection" id="conceptIdSection"></div>
 
-                <div class="conceptIdSection" id="conceptIdSection">
-
-                </div>
-
-                <div class="inputBox" id="conceptName">
-                    <input type="text" required id="conceptName_input" />
-                    <span>Concept Name</span>
-                    <i class='bx bxs-book-content' style="color: #ff9900;"></i>
-                </div>
-
-                <div class="fileContainer">
-                    <div class="imgBx" id="dragArea">
-                        <div class="icon">
-                            <i class='bx bxs-cloud-upload'></i>
-                        </div>
-                        <header>Drag & Drop to upload</header>
-                        <span>Or</span>
-                        <a href="#" id="browseBtn">Browse File</a>
-                        <input type="file" hidden id="fileUploadBtn">
-                    </div>
-                    <div class="saveAction" id="saveAction">
-                        <i class='bx bx-x' onclick="fileReload()"></i>
-                        <i class='bx bx-check' onclick="saveFile()"></i>
-                    </div>
-                </div>
-
-                <div class="inputBox" id="conceptVideo">
-                    <input type="text" required id="conceptVideo_input" />
-                    <span>Concept Video</span>
-                    <i class='bx bxl-youtube' style="color: #ff0000;"></i>
-                </div>
-
-
-                <div class="inputTextAreaBox" id="conceptDescription">
-                    <textarea id="conceptDescription_input" name="conceptDescription_input"
-                        placeholder="Write some Concept Description here.."></textarea>
-                    <i class='bx bxs-detail' style="color: #001aff;"></i>
-                </div>
-
-                <div class="inputTextAreaBox" id="htmlCode" style="display: none;">
-                    <textarea id="htmlCode_text" name="htmlCode_text"
-                        placeholder="Write some HTML code here.."></textarea>
-                    <i class='bx bxl-html5' style="color: #ff3c00;"></i>
-                </div>
-
-                <div class="inputTextAreaBox" id="cssCode" style="display: none;">
-                    <textarea id="cssCode_text" name="cssCode_text" placeholder="Write some CSS code here.."></textarea>
-                    <i class='bx bxl-css3' style="color: #00c3ff;"></i>
-                </div>
-
-                <div class="inputTextAreaBox" id="jsCode" style="display: none;">
-                    <textarea id="jsCode_text" name="jsCode_text" placeholder="Write some JS code here.."></textarea>
-                    <i class='bx bxs-file-js' style="color: #fbff00;"></i>
-                </div>
-
-                <div class="inputTextAreaBox" id="otherCode">
-                    <textarea id="otherCode_text" name="otherCode_text" placeholder="Write some code here.."></textarea>
-                    <i class='bx bx-code-curly' style="color: #00ff2a;"></i>
-                </div>
-
-                <div class="inputBox" id="conceptGitHub">
-                    <input type="text" required id="conceptGitHub_input" />
-                    <span>GitHub</span>
-                    <i class='bx bxl-github' style="color: #ebebeb;"></i>
-                </div>
-
-                <div class="inputBox" onclick="saveNewConcept()">
-                    <input type="submit" value="Save" id="coneptNew_submit" />
-                </div>
-            </form>
+        <div class="inputBox" id="conceptName">
+          <input type="text" required id="conceptName_input" />
+          <span>Concept Name</span>
+          <i class="bx bxs-book-content" style="color: #ff9900"></i>
         </div>
+
+        <div class="fileContainer">
+          <div class="imgBx" id="dragArea">
+            <div class="icon">
+              <i class="bx bxs-cloud-upload"></i>
+            </div>
+            <header>Drag & Drop to upload</header>
+            <span>Or</span>
+            <a href="#" id="browseBtn">Browse File</a>
+            <input type="file" hidden id="fileUploadBtn" />
+          </div>
+          <div class="saveAction" id="saveAction">
+            <i class="bx bx-x" onclick="fileReload()"></i>
+            <i class="bx bx-check" onclick="saveFile()"></i>
+          </div>
+        </div>
+
+        <div class="inputBox" id="conceptVideo">
+          <input type="text" required id="conceptVideo_input" />
+          <span>Concept Video</span>
+          <i class="bx bxl-youtube" style="color: #ff0000"></i>
+        </div>
+
+        <div
+          class="inputTextAreaBox"
+          id="conceptDescription"
+          style="display: none"
+        >
+          <textarea
+            id="conceptDescription_input"
+            name="conceptDescription_input"
+            placeholder="Write some Concept Description here.."
+          ></textarea>
+          <i class="bx bxs-detail" style="color: #001aff"></i>
+        </div>
+
+        <div class="inputTextAreaBox" id="htmlCode" style="display: none">
+          <textarea
+            id="htmlCode_text"
+            name="htmlCode_text"
+            placeholder="Write some HTML code here.."
+          ></textarea>
+          <i class="bx bxl-html5" style="color: #ff3c00"></i>
+        </div>
+
+        <div class="inputTextAreaBox" id="cssCode" style="display: none">
+          <textarea
+            id="cssCode_text"
+            name="cssCode_text"
+            placeholder="Write some CSS code here.."
+          ></textarea>
+          <i class="bx bxl-css3" style="color: #00c3ff"></i>
+        </div>
+
+        <div class="inputTextAreaBox" id="jsCode" style="display: none">
+          <textarea
+            id="jsCode_text"
+            name="jsCode_text"
+            placeholder="Write some JS code here.."
+          ></textarea>
+          <i class="bx bxs-file-js" style="color: #fbff00"></i>
+        </div>
+
+        <div class="inputTextAreaBox" id="otherCode" style="display: none">
+          <textarea
+            id="otherCode_text"
+            name="otherCode_text"
+            placeholder="Write some code here.."
+          ></textarea>
+          <i class="bx bx-code-curly" style="color: #00ff2a"></i>
+        </div>
+
+        <div class="inputBox" id="conceptGitHub">
+          <input type="text" required id="conceptGitHub_input" />
+          <span>GitHub</span>
+          <i class="bx bxl-github" style="color: #ebebeb"></i>
+        </div>
+
+        <div class="inputBox" onclick="saveNewConcept()">
+          <input type="submit" value="Save" id="coneptNew_submit" />
+        </div>
+      </form>
     </div>
+  </div>
 </div>

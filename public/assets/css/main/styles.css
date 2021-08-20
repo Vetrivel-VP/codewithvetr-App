@@ -14,6 +14,7 @@
   --text: #b4bac3;
   --highligh: #3d414b;
   --primary-color: #ef2a57;
+  --card_before: #ffffff12;
   --white: #f5f7fa;
   --pre: #282c34;
 }
@@ -160,14 +161,14 @@ body .hljs {
 }
 
 .container .leftSide_container .navigation .logo_container .logo {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 
 .container .leftSide_container .navigation .logo_container .logo img {
   -o-object-fit: cover;
      object-fit: cover;
-  width: 60%;
+  width: 100%;
   background-position: center;
 }
 
@@ -244,7 +245,7 @@ body .hljs {
   left: 0;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card_before);
   -webkit-transform: skewX(45deg) translateX(400px);
           transform: skewX(45deg) translateX(400px);
   -webkit-transition: 0.8s;
@@ -263,7 +264,7 @@ body .hljs {
   left: 0;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card_before);
   -webkit-transform: skewX(-45deg) translateX(400px);
           transform: skewX(-45deg) translateX(400px);
   -webkit-transition: 1.8s;
@@ -521,9 +522,7 @@ body .hljs {
   top: 0;
   right: 0;
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -689,7 +688,12 @@ body .hljs {
 
 .container .main .courseContainer .courseTitleContainer .favoriteContainer span:hover {
   color: #ff0000;
-  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+}
+
+.container .main .courseContainer .courseTitleContainer .favoriteContainer.active {
+  color: #ff0000;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
 }
 
 .container .main .courseContainer .videoContainer {
@@ -948,7 +952,7 @@ body .hljs {
   left: 0;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card_before);
   -webkit-transform: skewX(45deg) translateX(400px);
           transform: skewX(45deg) translateX(400px);
   -webkit-transition: 0.8s;
@@ -967,7 +971,7 @@ body .hljs {
   left: 0;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card_before);
   -webkit-transform: skewX(-45deg) translateX(400px);
           transform: skewX(-45deg) translateX(400px);
   -webkit-transition: 1.8s;
@@ -1177,7 +1181,7 @@ body .hljs {
 .container .rightSide_container .rightNav .trainerCard .socialBox i:hover:nth-child(3) {
   -webkit-transform: scale(1.5);
           transform: scale(1.5);
-  color: #fafafa;
+  color: #313131;
   text-shadow: 0 0 15px #fafafa, 0 0 30px #fafafa, 0 0 40px #fafafa;
 }
 
@@ -1202,7 +1206,7 @@ body .hljs {
   left: 0;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card_before);
   -webkit-transform: skewX(45deg) translateX(400px);
           transform: skewX(45deg) translateX(400px);
   -webkit-transition: 0.8s;
@@ -1272,7 +1276,7 @@ body .hljs {
   left: 0;
   width: 50%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card_before);
   -webkit-transform: skewX(45deg) translateX(400px);
           transform: skewX(45deg) translateX(400px);
   -webkit-transition: 0.8s;
@@ -1870,7 +1874,7 @@ body .hljs {
 
 .loginModal .modalContent .loginContaier .logvia span {
   margin-left: 15%;
-  color: var(--card);
+  color: var(--text);
   padding: 0 20px;
   font-size: 1.2rem;
 }

@@ -64,38 +64,25 @@ window.addEventListener("load", async () => {
   console.log(trainers);
 });
 
-// const createScriptTag = () => {
-//   var mainScript = document.createElement("script");
-//   var modalScript = document.createElement("script");
-//   var menuContainerScript = document.createElement("script");
-//   var menuScript = document.createElement("script");
-//   var passwordStrengthScript = document.createElement("script");
-
-//   mainScript.type = "text/javascript";
-//   modalScript.type = "text/javascript";
-//   menuContainerScript.type = "text/javascript";
-//   menuScript.type = "text/javascript";
-//   passwordStrengthScript.type = "text/javascript";
-
-//   mainScript.src = "./assets/js/main.js";
-//   modalScript.src = "./assets/js/modal.js";
-//   menuContainerScript.src = "./assets/js/menuContainer.js";
-//   menuScript.src = "./assets/js/menu.js";
-//   passwordStrengthScript.src = "./assets/js/passwordStrength.js";
-
-//   document.body.appendChild(mainScript);
-//   document.body.appendChild(modalScript);
-//   document.body.appendChild(menuContainerScript);
-//   document.body.appendChild(menuScript);
-//   document.body.appendChild(passwordStrengthScript);
-// };
+const myFavorite = (element, concept_id) => {
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      element.classList.add("active");
+      console.log(concept_id);
+      // onclick="myFavorite(this, ${data.concept_id})"
+    } else {
+      alertCustomizations("Login to add!", "#B85B09", "#B55704");
+      console.log(concept_id);
+    }
+  });
+};
 
 const buildCategoryCard = () => {
   let categoryCard = "";
 
   for (data of courses.data) {
     categoryCard += `
-        <div class="cardContainer">
+        <div class="cardContainer" onclick=" courseList_container('${data.course_name}'); buildCourseMainContent('${data.course_name}');">
             <div class="imageBox">
             <img src="${data.course_img}" alt="" srcset="" />
             </div>
@@ -175,7 +162,7 @@ const buildCourseMainContent = (courseName) => {
                       <div class="titleNameContainer">
                         <p>${data.concept_name}</p>
                       </div>
-                      <div class="favoriteContainer">
+                      <div class="favoriteContainer"  id="favoriteContainer">
                         <span>&hearts;</span>
                       </div>
                     </div>

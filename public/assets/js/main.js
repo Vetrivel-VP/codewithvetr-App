@@ -1,29 +1,18 @@
-let suggestions = [
-  "Channel",
-  "YouTube",
-  "YouTuber",
-  "YouTube Channel",
-  "Blogger",
-  "Bollywood",
-  "Vlogger",
-  "Vechiles",
-  "Facebook",
-  "Freelancer",
-  "Facebook Page",
-  "Designer",
-  "Developer",
-  "Web Designer",
-  "Web Developer",
-  "Login Form in HTML & CSS",
-  "How to learn HTML & CSS",
-  "How to learn JavaScript",
-  "How to became Freelancer",
-  "How to became Web Designer",
-  "How to start Gaming Channel",
-  "How to start YouTube Channel",
-  "What does HTML stands for?",
-  "What does CSS stands for?",
-];
+let suggestions = [];
+
+window.addEventListener("load", async () => {
+  try {
+    setOverlayEffect();
+    concepts = await loadConcepts();
+
+    concepts.data.forEach((element) => {
+      suggestions.push({ id: element.concept_id, name: element.concept_name });
+    });
+    closeOverlayEffect();
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 var currentLI = 0;
 const searcWrapper = document.querySelector(".searchInput");
@@ -40,11 +29,12 @@ inputBox.onkeyup = (e) => {
     emptyArray = suggestions.filter((data) => {
       // filtering array value and converting user data into lowecase and
       // returning only the character startswith character which matches with user search data
-      return data.toLocaleLowerCase().startsWith(userValue.toLocaleLowerCase());
+      const name = data.name;
+      return name.toLocaleLowerCase().startsWith(userValue.toLocaleLowerCase());
     });
 
     emptyArray = emptyArray.map((data) => {
-      return (data = `<li>${data}</li>`);
+      return (data = `<li id="${data.id}">${data.name}</li>`);
     });
 
     searcWrapper.classList.add("active"); //show autosuggestions
@@ -91,6 +81,59 @@ inputBox.onkeyup = (e) => {
 const selectSuggestElement = (element) => {
   let selectUserData = element.innerText;
   inputBox.value = selectUserData;
+  if (element.id) {
+    fetchSuggestionSeaarch(element.id);
+  } else {
+    alertCustomizations("Not Found  😑", "#B85B09", "#B55704");
+  }
+};
+
+const fetchSuggestionSeaarch = (id) => {
+  var API_CONCEPTS_ID = "/api/concept/read/";
+  const API_URL = `${API_BASE_URL}${API_CONCEPTS_ID}${id}`;
+  fetch(API_URL, { method: "GET" })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      buildSuggestionSeaarch(data.data);
+    });
+};
+
+const buildSuggestionSeaarch = (data) => {
+  let courseContent = "";
+  const concept_added_date = new Date(
+    parseInt(data.concept_added_date)
+  ).toDateString();
+  courseContent += `
+  <div class="courseContainer">
+    <div class="courseTitleContainer">
+      <div class="titleImageContainer">
+        <img src="${data.concept_img}" alt="" srcset="" />
+      </div>
+      <div class="titleNameContainer">
+        <p>${data.concept_name}</p>
+      </div>
+      <div class="favoriteContainer"  id="favoriteContainer">
+        <span>&hearts;</span>
+      </div>
+    </div>
+    <div class="videoContainer">
+      <img src="${data.concept_img}" alt="" />
+      <i class="bx bx-play-circle" id="playBtn" onclick="videoModal('${data.concept_video}')"></i>
+    </div>
+    <div class="sourseCodeContaienr">
+      <div class="momentContainer">
+        <p>${concept_added_date}</p>
+        <a href="#"  class="downloadButton"  onclick="gitHubLinkNavigate('${data.github_link}')">
+          Download Source</a>
+      </div>
+    </div>
+  </div>
+`;
+  setOverlayEffect();
+  document.getElementById("courseContent").innerHTML = courseContent;
+  closeOverlayEffect();
 };
 
 // show suggestions

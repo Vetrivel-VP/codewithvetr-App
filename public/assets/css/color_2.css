@@ -1,3 +1,11 @@
-:root{
-    --primary-color : #ec9421;
+:root {
+  --primary-color: #ec9421;
+  --background: #323232;
+  --card: #323232;
+  --shadow: rgb(0 0 0);
+  --shadow-primary: 0, 0, 0;
+  --text: #b4bac3;
+  --highligh: #ffffff1a;
+  --card_before: #ffffff12;
+  --white: #f5f7fa;
 }
