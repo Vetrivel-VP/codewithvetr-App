@@ -26,6 +26,10 @@
   --pre: #282c34;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   &.dark {
     --background: #f5f6f4;
@@ -532,14 +536,12 @@ body {
             cursor: pointer;
             &:hover {
               color: #ff0000;
-              text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
-                0 0 50px #ff0000;
+              text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
             }
           }
           &.active {
             color: #ff0000;
-            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000,
-              0 0 50px #ff0000;
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
           }
         }
       }
@@ -834,32 +836,32 @@ body {
 
       .trainerCard {
         position: relative;
-        width: 85%;
-        height: 250px;
+        width: 95%;
+        height: 100%;
         background: var(--card);
         border-radius: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
-        cursor: pointer;
+        // cursor: pointer;
         box-shadow: 0px 10px 25px var(--shadow);
         overflow: hidden;
         @media screen and (max-width: 900px) {
-          height: 200px;
+          height: 100%;
         }
 
         @media screen and (max-width: 700px) {
-          height: 200px;
+          height: 100%;
         }
 
         @media screen and (max-width: 500px) {
-          height: 200px;
+          height: 100%;
         }
 
         .imageBox {
-          width: 80px;
-          height: 80px;
+          width: 120px;
+          height: 120px;
           background: var(--background);
           border-radius: 50%;
           border: 3px solid var(--highligh);
@@ -893,15 +895,7 @@ body {
           }
           &:hover:nth-child(2) {
             transform: scale(1.5);
-            background: linear-gradient(
-              45deg,
-              #405de6,
-              #5851db,
-              #833ab4,
-              #791f52,
-              #e1306c,
-              #fd1d1d
-            );
+            background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #791f52, #e1306c, #fd1d1d);
             -webkit-text-fill-color: transparent;
             -webkit-background-clip: text;
             background-clip: text;
@@ -932,7 +926,7 @@ body {
           width: 50%;
           height: 100%;
           background: var(--card_before);
-          transform: skewX(45deg) translateX(400px);
+          transform: skewX(45deg) translateX(450px);
           transition: 0.8s;
         }
 

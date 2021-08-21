@@ -50,6 +50,7 @@ window.addEventListener("load", async () => {
     concepts = await loadConcepts();
     trainers = await loadtrainers();
     buildCategoryCard();
+    swriperTrainerSlide();
     courseList_container("Web");
     buildCourseMainContent("Web");
     window.addEventListener("click", outsideClickVideoModal);
@@ -74,6 +75,48 @@ const myFavorite = (element, concept_id) => {
       alertCustomizations("Login to add!", "#B85B09", "#B55704");
       console.log(concept_id);
     }
+  });
+};
+
+const swriperTrainerSlide = () => {
+  let swipperWrapper = "";
+
+  for (data of trainers.data) {
+    swipperWrapper += `
+    <div class="swiper-slide">
+        <div class="trainerCard">
+            <div class="imageBox">
+                <img src="${data.trainer_img}" alt="" srcset="" />
+            </div>
+            <div class="textBox">
+                <h3>${data.trainer_name}</h3>
+            </div>
+            <div class="socialBox">
+                <a href="${data.facebook}"><i class="bx bxl-facebook-circle"></i></a>
+                <a href="${data.instagram}"><i class="bx bxl-instagram"></i></a>
+                <a href="${data.github}"><i class="bx bxl-github"></i></a>
+                <a href="${data.twitter}"><i class="bx bxl-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    `;
+  }
+
+  document.getElementById("swiper-wrapper").innerHTML = swipperWrapper;
+
+  var swiper = new Swiper(".swiper-container", {
+    effect: "cube",
+    grabCursor: true,
+    cubeEffect: {
+      shadow: true,
+      slideShadows: true,
+      shadowOffset: 20,
+      shadowScale: 0.94,
+    },
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
   });
 };
 
@@ -112,7 +155,7 @@ const courseList_container = (courseName) => {
   for (data of concepts.data) {
     if (data.course_id == courseName) {
       courseList_container += `
-              <a href="#">
+              <a href="#${data.concept_id}">
               <div class="link_container">
                   <div class="icon_container">
                   <img src="${data.concept_img}" alt="" srcset="" />
@@ -154,7 +197,7 @@ const buildCourseMainContent = (courseName) => {
         parseInt(data.concept_added_date)
       ).toDateString();
       courseContent += `
-                  <div class="courseContainer">
+                  <div class="courseContainer" id="${data.concept_id}">
                     <div class="courseTitleContainer">
                       <div class="titleImageContainer">
                         <img src="${data.concept_img}" alt="" srcset="" />

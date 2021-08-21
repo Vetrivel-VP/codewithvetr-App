@@ -29,6 +29,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   margin: 0;
@@ -688,12 +692,12 @@ body .hljs {
 
 .container .main .courseContainer .courseTitleContainer .favoriteContainer span:hover {
   color: #ff0000;
-  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
 }
 
 .container .main .courseContainer .courseTitleContainer .favoriteContainer.active {
   color: #ff0000;
-  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000;
 }
 
 .container .main .courseContainer .videoContainer {
@@ -1086,8 +1090,8 @@ body .hljs {
 
 .container .rightSide_container .rightNav .trainerCard {
   position: relative;
-  width: 85%;
-  height: 250px;
+  width: 95%;
+  height: 100%;
   background: var(--card);
   border-radius: 10px;
   display: -webkit-box;
@@ -1103,7 +1107,6 @@ body .hljs {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  cursor: pointer;
   -webkit-box-shadow: 0px 10px 25px var(--shadow);
           box-shadow: 0px 10px 25px var(--shadow);
   overflow: hidden;
@@ -1111,25 +1114,25 @@ body .hljs {
 
 @media screen and (max-width: 900px) {
   .container .rightSide_container .rightNav .trainerCard {
-    height: 200px;
+    height: 100%;
   }
 }
 
 @media screen and (max-width: 700px) {
   .container .rightSide_container .rightNav .trainerCard {
-    height: 200px;
+    height: 100%;
   }
 }
 
 @media screen and (max-width: 500px) {
   .container .rightSide_container .rightNav .trainerCard {
-    height: 200px;
+    height: 100%;
   }
 }
 
 .container .rightSide_container .rightNav .trainerCard .imageBox {
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   background: var(--background);
   border-radius: 50%;
   border: 3px solid var(--highligh);
@@ -1207,8 +1210,8 @@ body .hljs {
   width: 50%;
   height: 100%;
   background: var(--card_before);
-  -webkit-transform: skewX(45deg) translateX(400px);
-          transform: skewX(45deg) translateX(400px);
+  -webkit-transform: skewX(45deg) translateX(450px);
+          transform: skewX(45deg) translateX(450px);
   -webkit-transition: 0.8s;
   transition: 0.8s;
 }
