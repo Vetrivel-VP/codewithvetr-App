@@ -1,6 +1,6 @@
 var API_BASE_URL =
   "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
-// "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
+//   "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
 var courses = [];
 async function loadCourses() {
@@ -152,6 +152,9 @@ const courseList_container = (courseName) => {
   //     </div>
   //     </a>
   //     `;
+  concepts.data.sort(
+    (a, b) => parseInt(b.concept_added_date) - parseInt(a.concept_added_date)
+  );
   for (data of concepts.data) {
     if (data.course_id == courseName) {
       courseList_container += `
@@ -176,6 +179,9 @@ const courseList_container = (courseName) => {
 const buildCourseMainContent = (courseName) => {
   let courseContent = "";
 
+  concepts.data.sort(
+    (a, b) => parseInt(b.concept_added_date) - parseInt(a.concept_added_date)
+  );
   for (data of courses.data) {
     if (data.course_name == courseName) {
       courseContent += `
@@ -211,12 +217,16 @@ const buildCourseMainContent = (courseName) => {
                     </div>
                     <div class="videoContainer">
                       <img src="${data.concept_img}" alt="" />
-                      <i class="bx bx-play-circle" id="playBtn" onclick="videoModal('${data.concept_video}')"></i>
+                      <i class="bx bx-play-circle" id="playBtn" onclick="videoModal('${
+                        data.concept_video
+                      }')"></i>
                     </div>
                     <div class="sourseCodeContaienr">
                       <div class="momentContainer">
-                        <p>${concept_added_date}</p>
-                        <a href="#"  class="downloadButton"  onclick="gitHubLinkNavigate('${data.github_link}')">
+                        <p>${moment(concept_added_date).fromNow()}</p>
+                        <a href="#"  class="downloadButton"  onclick="gitHubLinkNavigate('${
+                          data.github_link
+                        }')">
                           Download Source</a>
                       </div>
                     </div>

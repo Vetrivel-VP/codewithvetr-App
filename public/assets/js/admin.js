@@ -2,8 +2,8 @@ let admindropeMenu_btn = document.getElementById("admindropeMenu_btn");
 let adminDropMenuContainer = document.getElementById("adminDropMenuContainer");
 
 var API_BASE_URL =
-  "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
-// "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
+  // "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
+  "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
 admindropeMenu_btn.addEventListener("click", () => {
   if (adminDropMenuContainer.style.display == "block") {
