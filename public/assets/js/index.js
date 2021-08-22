@@ -202,7 +202,7 @@ const buildCourseMainContent = (courseName) => {
     if (data.course_id == courseName) {
       const concept_added_date = new Date(
         parseInt(data.concept_added_date)
-      ).toDateString();
+      ).toISOString();
       courseContent += `
                   <div class="courseContainer" id="${data.concept_id}">
                     <div class="courseTitleContainer">
