@@ -48,7 +48,6 @@ const getUserParamId = () => {
 
 const getUser = () => {
   const uid = getUserParamId();
-  console.log(uid);
 };
 
 // Usertotal count
@@ -589,7 +588,6 @@ const usersList = () => {
 };
 
 const buildUsersList = () => {
-  console.log(allUsers);
   let userDataList = "";
 
   userDataList = `
@@ -662,8 +660,6 @@ const addNewToconceptsList = () => {
 // listing out the trainers name and the course title in the select boxes
 const loadConceptTrainerCourse = () => {
   let chooseOptions = "";
-  console.log(allTrainer);
-  console.log(allCourses);
   chooseOptions += `
   <div class="chooseOptions">
       <div class="labelMenu"><label id="courseMenuLabel"> Select Course</label><i class='bx bx-chevron-down' id="courseMenuContainerI"></i></div>
@@ -810,7 +806,6 @@ const saveNewConcept = () => {
         other_code: otherCode_text,
         github_link: conceptGitHub_input,
       });
-      console.log(data);
       adminAlertNotifications("Data saved successfully", "100%", "green");
 
       fetch(API_URL, {
