@@ -124,11 +124,7 @@ body {
     }
 
     .navigation {
-      // // position: fixed;
-      // top: 20px;
-      // height: 100%;
-      // max-width: 250px;
-      // min-width: 200px;
+      height: 100vh;
       .logo_container {
         display: flex;
         justify-content: center;
@@ -233,6 +229,20 @@ body {
         display: flex;
         flex-direction: column;
         margin-bottom: 10px;
+        overflow-y: auto;
+        height: 75%;
+
+        &::-webkit-scrollbar {
+          width: 0.25rem;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: var(--card);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: var(--highligh);
+        }
         a {
           margin: 10px 0;
         }
@@ -778,7 +788,7 @@ body {
         animation-duration: 0.5s;
         position: absolute;
         margin-top: 20%;
-        z-index: 1;
+        z-index: 101;
 
         @keyframes menuOpen {
           from {
@@ -937,16 +947,20 @@ body {
 
       .categoryCard {
         margin-left: 5px;
-        margin-bottom: 50px;
         width: 100%;
         padding: 0 20px 0 30px;
         margin-right: 15px;
+        height: 45%;
+        margin-top: 35px;
+        overflow-y: auto;
         @media screen and (max-width: 700px) {
-          margin-bottom: 75px;
+          margin-bottom: 0px;
+          margin-top: 0px;
         }
 
         @media screen and (max-width: 550px) {
-          margin-bottom: 75px;
+          margin-bottom: 0px;
+          margin-top: 0px;
         }
 
         .cardContainer {
