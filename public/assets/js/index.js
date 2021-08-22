@@ -61,9 +61,6 @@ window.addEventListener("load", async () => {
   } catch (error) {
     console.log(error);
   }
-  console.log(courses);
-  console.log(concepts);
-  console.log(trainers);
 });
 
 const myFavorite = (element, concept_id) => {
@@ -258,7 +255,6 @@ const gitHubLinkNavigate = (github_link) => {
 
 const videoModal = (data) => {
   document.getElementById("videoModal").style.display = "flex";
-  //   console.log(data);
   let videoModal = "";
 
   videoModal += `
@@ -286,12 +282,3 @@ const outsideClickVideoModal = (e) => {
     document.getElementById("videoModal").style.display = "none";
   }
 };
-
-// window.addEventListener("load", () => {
-//   //   getAllCourses();
-//   //   getAllTrainers();
-//   //   getAllCaoncepts();
-//   //   courseList_container("Web");
-//   //   buildCourseMainContent("Web");
-//   console.log(allCourses);
-// });
