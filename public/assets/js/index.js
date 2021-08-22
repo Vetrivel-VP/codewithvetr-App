@@ -49,10 +49,11 @@ window.addEventListener("load", async () => {
     courses = await loadCourses();
     concepts = await loadConcepts();
     trainers = await loadtrainers();
+    buildCourseMainContent("Web");
     buildCategoryCard();
     swriperTrainerSlide();
     courseList_container("Web");
-    buildCourseMainContent("Web");
+
     window.addEventListener("click", outsideClickVideoModal);
     // createScriptTag();
     // checkAuthState();
