@@ -94,7 +94,9 @@ const selectSuggestElement = (element) => {
 const removeSuggestionsIcon = () => {
   document.querySelector(".search_icon").style.display = "none";
   inputBox.value = "";
+  suggestionBox.innerHTML = "";
   searcWrapper.classList.remove("active");
+  buildCourseMainContent("Web");
 };
 
 const fetchSuggestionSeaarch = (id) => {
