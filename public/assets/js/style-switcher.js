@@ -4,6 +4,16 @@ const alternateStyles = document.querySelectorAll(".alternate_style");
 const day_night = document.querySelector(".day_night");
 
 function setActiveStyle(color) {
+  if (color == "color_1") {
+    document.getElementById("logoImg").innerHTML = `
+    <img src="./assets/img/vetri_text02.png" alt="" srcset="" />
+    `;
+  } else {
+    document.getElementById("logoImg").innerHTML = `
+    <img src="./assets/img/vetri_text.png" alt="" srcset="" />;
+    `;
+  }
+
   alternateStyles.forEach((style) => {
     if (color == style.getAttribute("title")) {
       style.removeAttribute("disabled");

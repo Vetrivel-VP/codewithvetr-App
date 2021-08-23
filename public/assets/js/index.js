@@ -1,6 +1,6 @@
 var API_BASE_URL =
-  "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
-// "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
+  // "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
+  "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
 var courses = [];
 async function loadCourses() {
@@ -79,7 +79,6 @@ const myFavorite = (element, concept_id) => {
 const swriperTrainerSlide = () => {
   let swipperWrapper = "";
 
-  console.log(trainers);
   for (data of trainers.data) {
     swipperWrapper += `
     <div class="swiper-slide">
