@@ -34,18 +34,18 @@ async function loadtrainers() {
 
 const setOverlayEffect = () => {
   document.getElementById("overlay").style.display = "flex";
+  // document.getElementById("overlay").style.animation = "fade 1s ease";
 };
 
 const closeOverlayEffect = () => {
   setTimeout(() => {
-    document.getElementById("overlay").style.animation = "fade 1s ease";
     document.getElementById("overlay").style.display = "none";
   }, 2000);
 };
 
 window.addEventListener("load", async () => {
   try {
-    setOverlayEffect();
+    // setOverlayEffect();
     courses = await loadCourses();
     concepts = await loadConcepts();
     trainers = await loadtrainers();
@@ -57,7 +57,7 @@ window.addEventListener("load", async () => {
     window.addEventListener("click", outsideClickVideoModal);
     // createScriptTag();
     // checkAuthState();
-    closeOverlayEffect();
+    // closeOverlayEffect();
   } catch (error) {
     console.log(error);
   }
@@ -176,6 +176,7 @@ const courseList_container = (courseName) => {
 };
 
 const buildCourseMainContent = (courseName) => {
+  setOverlayEffect();
   let courseContent = "";
 
   concepts.data.sort(
@@ -235,6 +236,7 @@ const buildCourseMainContent = (courseName) => {
   }
 
   document.getElementById("courseContent").innerHTML = courseContent;
+  closeOverlayEffect();
 };
 
 const gitHubLinkNavigate = (github_link) => {
