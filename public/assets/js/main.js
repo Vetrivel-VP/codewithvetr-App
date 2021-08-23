@@ -26,6 +26,7 @@ inputBox.onkeyup = (e) => {
   let userValue = e.target.value;
   var emptyArray = [];
   if (userValue) {
+    document.querySelector(".search_icon").style.display = "flex";
     emptyArray = suggestions.filter((data) => {
       // filtering array value and converting user data into lowecase and
       // returning only the character startswith character which matches with user search data
@@ -72,6 +73,7 @@ inputBox.onkeyup = (e) => {
       }
     }
   } else {
+    document.querySelector(".search_icon").style.display = "none";
     suggestionBox.innerHTML = "";
     searcWrapper.classList.remove("active"); //remove autosuggestions
   }
@@ -83,9 +85,16 @@ const selectSuggestElement = (element) => {
   inputBox.value = selectUserData;
   if (element.id) {
     fetchSuggestionSeaarch(element.id);
+    searcWrapper.classList.remove("active");
   } else {
     alertCustomizations("Not Found  😑", "#B85B09", "#B55704");
   }
+};
+
+const removeSuggestionsIcon = () => {
+  document.querySelector(".search_icon").style.display = "none";
+  inputBox.value = "";
+  searcWrapper.classList.remove("active");
 };
 
 const fetchSuggestionSeaarch = (id) => {

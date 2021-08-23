@@ -561,11 +561,11 @@ body .hljs {
   transition: all 0.3s ease-in-out;
   text-align: center;
   font-size: 1.75rem;
-  color: var(--highligh);
+  color: var(--text);
 }
 
 .container .main .searchWrapper .searchInput .search_icon i:hover {
-  color: var(--text);
+  color: var(--white);
 }
 
 .container .main .tittleWrapper {
@@ -1167,11 +1167,18 @@ body .hljs {
 .container .rightSide_container .rightNav .trainerCard .textBox {
   color: var(--text);
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .container .rightSide_container .rightNav .trainerCard .textBox h3 {
   margin: 0;
   padding: 0;
+}
+
+.container .rightSide_container .rightNav .trainerCard .textBox p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
 }
 
 .container .rightSide_container .rightNav .trainerCard .socialBox i {

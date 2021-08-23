@@ -57,9 +57,8 @@ function showUserDetails(user) {
       <a href="./admin.html"><li>Dashboard</li></a>
     `;
   } else {
-    document.querySelector(".menuContaier ul").innerHTML = `
-      <a href=""><li>Favourite</li></a>
-    `;
+    document.querySelector(".menuContaier ul").innerHTML = ``;
+    // <a href=""><li>Favourite</li></a>
   }
 }
 

@@ -490,6 +490,9 @@ const saveNewTrainer = () => {
   const trainerMobile_input = document.getElementById(
     "trainerMobile_input"
   ).value;
+  const trainerdesignation_input = document.getElementById(
+    "trainerdesignation_input"
+  ).value;
   const trainerfacebook_input = document.getElementById(
     "trainerfacebook_input"
   ).value;
@@ -512,6 +515,7 @@ const saveNewTrainer = () => {
         trainer_name: trainerName_input,
         email: trainerEmail_input,
         mobile: trainerMobile_input,
+        designation: trainerdesignation_input,
         trainer_img: downloadImageUrl,
         facebook: trainerfacebook_input,
         twitter: trainertwitter_input,

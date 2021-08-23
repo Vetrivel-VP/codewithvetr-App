@@ -442,10 +442,10 @@ body {
             transition: all 0.3s ease-in-out;
             text-align: center;
             font-size: 1.75rem;
-            color: var(--highligh);
+            color: var(--text);
 
             &:hover {
-              color: var(--text);
+              color: var(--white);
             }
           }
         }
@@ -886,10 +886,16 @@ body {
         .textBox {
           color: var(--text);
           font-size: 1.2rem;
+          text-align: center;
 
           h3 {
             margin: 0;
             padding: 0;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
           }
         }
         .socialBox i {
