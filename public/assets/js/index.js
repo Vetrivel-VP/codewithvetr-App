@@ -40,7 +40,7 @@ const setOverlayEffect = () => {
 const closeOverlayEffect = () => {
   setTimeout(() => {
     document.getElementById("overlay").style.display = "none";
-  }, 2000);
+  }, 1000);
 };
 
 window.addEventListener("load", async () => {
