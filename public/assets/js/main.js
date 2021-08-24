@@ -96,8 +96,8 @@ const removeSuggestionsIcon = () => {
   inputBox.value = "";
   suggestionBox.innerHTML = "";
   searcWrapper.classList.remove("active");
-  buildCourseMainContent("Web");
-  courseList_container("Web");
+  buildCourseMainContent(course_name);
+  courseList_container(course_name);
 };
 
 const fetchSuggestionSeaarch = (id) => {

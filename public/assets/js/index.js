@@ -2,6 +2,8 @@ var API_BASE_URL =
   // "http://localhost:5001/codewithvetriapi-c56e3/us-central1/app";
   "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
+var course_name = "Web";
+
 var courses = [];
 async function loadCourses() {
   var API_COURSES = "/api/courses";
@@ -49,10 +51,10 @@ window.addEventListener("load", async () => {
     courses = await loadCourses();
     concepts = await loadConcepts();
     trainers = await loadtrainers();
-    buildCourseMainContent("Web");
+    buildCourseMainContent(course_name);
     buildCategoryCard();
     swriperTrainerSlide();
-    courseList_container("Web");
+    courseList_container(course_name);
 
     window.addEventListener("click", outsideClickVideoModal);
     // createScriptTag();
@@ -124,7 +126,7 @@ const buildCategoryCard = () => {
 
   for (data of courses.data) {
     categoryCard += `
-        <div class="cardContainer" onclick=" courseList_container('${data.course_name}'); buildCourseMainContent('${data.course_name}');">
+        <div class="cardContainer" id="${data.course_name}" onclick="getCourseNameOnClick(this.id)">
             <div class="imageBox">
             <img src="${data.course_img}" alt="" srcset="" />
             </div>
@@ -136,6 +138,15 @@ const buildCategoryCard = () => {
   }
 
   document.querySelector(".categoryCard").innerHTML = categoryCard;
+};
+
+const getCourseNameOnClick = (id) => {
+  const course_id = ["Web", "python"];
+  course_name = id;
+  if (course_id.includes(id)) {
+    buildCourseMainContent(id);
+    courseList_container(id);
+  }
 };
 
 const courseList_container = (courseName) => {
