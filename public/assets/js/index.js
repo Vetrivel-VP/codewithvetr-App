@@ -3,6 +3,7 @@ var API_BASE_URL =
   "https://us-central1-codewithvetriapi-c56e3.cloudfunctions.net/app";
 
 var course_name = "Web";
+var course_Categoryid = [];
 
 var courses = [];
 async function loadCourses() {
@@ -125,6 +126,7 @@ const buildCategoryCard = () => {
   let categoryCard = "";
 
   for (data of courses.data) {
+    course_Categoryid.push(data.course_name);
     categoryCard += `
         <div class="cardContainer" id="${data.course_name}" onclick="getCourseNameOnClick(this.id)">
             <div class="imageBox">
@@ -141,9 +143,8 @@ const buildCategoryCard = () => {
 };
 
 const getCourseNameOnClick = (id) => {
-  const course_id = ["Web", "python"];
   course_name = id;
-  if (course_id.includes(id)) {
+  if (course_Categoryid.includes(id)) {
     buildCourseMainContent(id);
     courseList_container(id);
   }
