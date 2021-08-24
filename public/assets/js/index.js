@@ -56,6 +56,7 @@ window.addEventListener("load", async () => {
     buildCategoryCard();
     swriperTrainerSlide();
     courseList_container(course_name);
+    linkContainerActive();
 
     window.addEventListener("click", outsideClickVideoModal);
     // createScriptTag();
@@ -147,6 +148,7 @@ const getCourseNameOnClick = (id) => {
   if (course_Categoryid.includes(id)) {
     buildCourseMainContent(id);
     courseList_container(id);
+    linkContainerActive();
   }
 };
 
@@ -169,7 +171,7 @@ const courseList_container = (courseName) => {
   for (data of concepts.data) {
     if (data.course_id == courseName) {
       courseList_container += `
-              <a href="#${data.concept_id}">
+              <a class="${data.concept_id}" href="#${data.concept_id}">
               <div class="link_container">
                   <div class="icon_container">
                   <img src="${data.concept_img}" alt="" srcset="" />
@@ -296,4 +298,28 @@ const outsideClickVideoModal = (e) => {
   if (e.target == document.getElementById("videoModal")) {
     document.getElementById("videoModal").style.display = "none";
   }
+};
+
+const linkContainerActive = () => {
+  const sections = document.querySelectorAll(".courseContainer");
+  const navLi = document.querySelectorAll(".courseList_container a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (pageYOffset >= sectionTop - sectionHeight / 3) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLi.forEach((a) => {
+      a.querySelector(".link_container").classList.remove("active");
+      if (a.classList.contains(current)) {
+        a.querySelector(".link_container").classList.add("active");
+      }
+    });
+  });
 };

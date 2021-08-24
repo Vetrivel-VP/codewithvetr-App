@@ -248,6 +248,7 @@ body {
         }
         a {
           margin: 10px 0;
+          position: relative;
         }
         .link_container {
           display: flex;
@@ -327,6 +328,19 @@ body {
 
           &:hover::after {
             transform: skewX(-45deg) translateX(-400px);
+          }
+
+          &.active {
+            box-shadow: 0px 10px 25px var(--shadow);
+            border-radius: 10px;
+            padding: 5px;
+            border-left: 5px solid var(--primary-color);
+            .icon_container i {
+              color: var(--white);
+            }
+            .link_text {
+              color: var(--white);
+            }
           }
         }
       }

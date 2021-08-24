@@ -320,6 +320,7 @@ body .hljs {
 
 .container .leftSide_container .navigation .courseList_container a {
   margin: 10px 0;
+  position: relative;
 }
 
 .container .leftSide_container .navigation .courseList_container .link_container {
@@ -426,6 +427,22 @@ body .hljs {
 .container .leftSide_container .navigation .courseList_container .link_container:hover::after {
   -webkit-transform: skewX(-45deg) translateX(-400px);
           transform: skewX(-45deg) translateX(-400px);
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container.active {
+  -webkit-box-shadow: 0px 10px 25px var(--shadow);
+          box-shadow: 0px 10px 25px var(--shadow);
+  border-radius: 10px;
+  padding: 5px;
+  border-left: 5px solid var(--primary-color);
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container.active .icon_container i {
+  color: var(--white);
+}
+
+.container .leftSide_container .navigation .courseList_container .link_container.active .link_text {
+  color: var(--white);
 }
 
 .container .main {
