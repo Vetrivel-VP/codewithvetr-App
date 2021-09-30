@@ -69,9 +69,10 @@ const userTotalCount = (userData) => {
     "svgCircleGlow"
   ).style.strokeDashoffset = `calc(440 - (440 * ${userCount / 100}) / 100)`;
 
-  document.getElementById("percentageNumber").innerHTML = `${
-    (userCount / 100) * 100
-  }<span>%</span>`;
+  document.getElementById("percentageNumber").innerHTML = `${(
+    (userCount / 100) *
+    100
+  ).toFixed(2)}<span>%</span>`;
 };
 
 // Get all courses
